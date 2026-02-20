@@ -7,6 +7,7 @@ theme:
   #  primary: cyan
   features:
     - content.tabs.link
+    - navigation.tabs
 
 # for adding extra css/js see https://www.mkdocs.org/user-guide/customizing-your-theme/
 
