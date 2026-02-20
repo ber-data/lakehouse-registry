@@ -39,17 +39,16 @@ standards.
 
 ```mermaid
 graph LR
-    DR[DataRegistry<br/><i>dcat:Catalog</i>] -->|lakehouses| LH[Lakehouse<br/><i>dcat:DataService</i>]
-    DR -->|data_sources| DS[DataSource<br/><i>dcat:Dataset</i>]
+    C[Catalog<br/><i>dcat:Catalog</i>] -->|lakehouses| LH[Lakehouse<br/><i>dcat:DataService</i>]
+    LH -->|catalog_entries| DS[DataSource<br/><i>dcat:Dataset</i>]
     DS -->|contact_point| CP[ContactPoint<br/><i>vcard:Kind</i>]
-    DS -->|lakehouse| LH
     DS -.->|replaced_by| DS
 ```
 
 | Class | DCAT Mapping | Role |
 |-------|-------------|------|
-| **DataRegistry** | `dcat:Catalog` | Top-level container for lakehouses and data sources |
-| **Lakehouse** | `dcat:DataService` | A hosting platform (Spark, Dremio) |
+| **Catalog** | `dcat:Catalog` | Top-level container for lakehouses |
+| **Lakehouse** | `dcat:DataService` | A hosting platform (Spark, Dremio) containing data sources |
 | **DataSource** | `dcat:Dataset` | A cataloged data source with full metadata |
 | **ContactPoint** | `vcard:Kind` | Contact information for a data source owner |
 

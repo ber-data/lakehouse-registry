@@ -31,7 +31,7 @@ imports:
 
 classes:
 
-  DataRegistry:
+  Catalog:
     class_uri: dcat:Catalog
     tree_root: true
     description: >-
@@ -42,7 +42,6 @@ classes:
       - title
       - description
       - lakehouses
-      - data_sources
 
   CatalogEntity:
     abstract: true
@@ -66,6 +65,7 @@ classes:
       - endpoint_url
       - operator
       - platform_type
+      - catalog_entries
 
   DataSource:
     is_a: CatalogEntity
@@ -77,7 +77,6 @@ classes:
     slots:
       - owner
       - contact_point
-      - lakehouse
       - namespace
       - status
       - is_deprecated
@@ -117,8 +116,6 @@ classes:
       owner:
         required: true
       contact_point:
-        required: true
-      lakehouse:
         required: true
       namespace:
         required: true
@@ -201,10 +198,6 @@ slots:
     range: ContactPoint
     inlined: true
     description: Structured contact information for this data source.
-
-  lakehouse:
-    range: Lakehouse
-    description: Reference to the hosting lakehouse for this data source.
 
   namespace:
     description: >-
@@ -351,7 +344,7 @@ slots:
     description: >-
       Organizational category (project, shared, personal, system).
 
-  # --- DataRegistry container slots ---
+  # --- Catalog container slots ---
 
   lakehouses:
     range: Lakehouse
@@ -359,11 +352,11 @@ slots:
     inlined_as_list: true
     description: Lakehouses registered in this catalog.
 
-  data_sources:
-    range: DataSource
+  catalog_entries:
+    range: CatalogEntity
     multivalued: true
     inlined_as_list: true
-    description: Data sources registered in this catalog.
+    description: Catalog entries (data sources) hosted in this lakehouse.
 
   # --- ContactPoint slots ---
 

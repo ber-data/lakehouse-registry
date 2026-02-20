@@ -47,8 +47,8 @@ Dremio-based data lakehouse environments.
 
 | Element | DCAT Mapping | Purpose |
 |---------|-------------|---------|
-| `DataRegistry` | `dcat:Catalog` | Top-level container for lakehouses and data sources |
-| `Lakehouse` | `dcat:DataService` | A hosting platform (Spark, Dremio) |
+| `Catalog` | `dcat:Catalog` | Top-level container for lakehouses |
+| `Lakehouse` | `dcat:DataService` | A hosting platform (Spark, Dremio) containing data sources |
 | `DataSource` | `dcat:Dataset` | A cataloged data source within a lakehouse |
 | `ContactPoint` | `vcard:Kind` | Contact information for a data source |
 

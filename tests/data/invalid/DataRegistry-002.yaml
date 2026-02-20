@@ -7,20 +7,19 @@ lakehouses:
   - id: ber_registry:lakehouse-bad
     title: Bad Lakehouse
     platform_type: snowflake
-data_sources:
-  - id: ber_registry:ds-bad-enums
-    title: Bad Enum Data Source
-    description: A data source with invalid enum values.
-    owner: Test Owner
-    contact_point:
-      contact_name: Test Contact
-      contact_email: test@example.com
-    lakehouse: ber_registry:lakehouse-bad
-    namespace: bad_namespace
-    status: deleted
-    is_deprecated: false
-    update_schedule: hourly
-    access_level: top_secret
-    created_date: "2025-01-01"
-    source_type: data_lake
-    database_engine: oracle
+    catalog_entries:
+      - id: ber_registry:ds-bad-enums
+        title: Bad Enum Data Source
+        description: A data source with invalid enum values.
+        owner: Test Owner
+        contact_point:
+          contact_name: Test Contact
+          contact_email: test@example.com
+        namespace: bad_namespace
+        status: deleted
+        is_deprecated: false
+        update_schedule: hourly
+        access_level: top_secret
+        created_date: "2025-01-01"
+        source_type: data_lake
+        database_engine: oracle

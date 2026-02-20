@@ -7,8 +7,7 @@ lakehouses:
   - id: ber_registry:lakehouse-kbase
     title: KBASE Lakehouse
     platform_type: spark
-data_sources:
-  - id: ber_registry:ds-incomplete
-    title: Incomplete Data Source
-    namespace: some_namespace
-    lakehouse: ber_registry:lakehouse-kbase
+    catalog_entries:
+      - id: ber_registry:ds-incomplete
+        title: Incomplete Data Source
+        namespace: some_namespace

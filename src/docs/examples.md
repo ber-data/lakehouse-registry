@@ -35,29 +35,28 @@ lakehouses:
     operator: Lawrence Berkeley National Laboratory
     platform_type: spark
     created_date: "2023-01-15"
-data_sources:
-  - id: ber_registry:ds-kbase-public
-    title: KBase Public Data
-    description: >-
-      Public reference data shared across all KBase users, including genome
-      annotations, metabolic models, and community datasets.
-    owner: KBase Team
-    contact_point:
-      contact_name: KBase Data Support
-      contact_email: kbase-help@lbl.gov
-    lakehouse: ber_registry:lakehouse-kbase
-    namespace: kbase_public
-    status: active
-    is_deprecated: false
-    update_schedule: weekly
-    access_level: public
-    created_date: "2023-06-01"
-    keywords:
-      - genomics
-      - metabolic models
-      - reference data
-    project_affiliation:
-      - KBase
+    catalog_entries:
+      - id: ber_registry:ds-kbase-public
+        title: KBase Public Data
+        description: >-
+          Public reference data shared across all KBase users, including genome
+          annotations, metabolic models, and community datasets.
+        owner: KBase Team
+        contact_point:
+          contact_name: KBase Data Support
+          contact_email: kbase-help@lbl.gov
+        namespace: kbase_public
+        status: active
+        is_deprecated: false
+        update_schedule: weekly
+        access_level: public
+        created_date: "2023-06-01"
+        keywords:
+          - genomics
+          - metabolic models
+          - reference data
+        project_affiliation:
+          - KBase
 ```
 
 ## Deprecation and Version Tracking
@@ -67,23 +66,27 @@ Data sources can be linked through deprecation chains using `replaced_by` and
 in favor of a v2 replacement.
 
 ```yaml
-data_sources:
-  - id: ber_registry:ds-nmdc-v1
-    title: NMDC Metadata Store v1
-    status: deprecated
-    is_deprecated: true
-    deprecation_date: "2024-11-15"
-    deprecation_reason: >-
-      Replaced by v2 with improved schema validation and additional fields
-      for instrument and facility tracking.
-    replaced_by: ber_registry:ds-nmdc-v2
-    # ... other required fields
-  - id: ber_registry:ds-nmdc-v2
-    title: NMDC Metadata Store v2
-    status: active
-    is_deprecated: false
-    previous_version: ber_registry:ds-nmdc-v1
-    # ... other required fields
+lakehouses:
+  - id: ber_registry:lakehouse-kbase
+    title: KBASE Lakehouse
+    # ...
+    catalog_entries:
+      - id: ber_registry:ds-nmdc-v1
+        title: NMDC Metadata Store v1
+        status: deprecated
+        is_deprecated: true
+        deprecation_date: "2024-11-15"
+        deprecation_reason: >-
+          Replaced by v2 with improved schema validation and additional fields
+          for instrument and facility tracking.
+        replaced_by: ber_registry:ds-nmdc-v2
+        # ... other required fields
+      - id: ber_registry:ds-nmdc-v2
+        title: NMDC Metadata Store v2
+        status: active
+        is_deprecated: false
+        previous_version: ber_registry:ds-nmdc-v1
+        # ... other required fields
 ```
 
 ## Dremio Lakehouse with Multiple Source Types
@@ -97,32 +100,31 @@ lakehouses:
     title: Dremio Lakehouse
     platform_type: dremio
     # ...
+    catalog_entries:
+      # Object storage source
+      - id: ber_registry:ds-jgi-object-store
+        title: JGI Genome Archive
+        source_type: object_storage
+        format:
+          - Parquet
+          - HDF5
+        size_bytes: 5497558138880
+        # ...
 
-data_sources:
-  # Object storage source
-  - id: ber_registry:ds-jgi-object-store
-    title: JGI Genome Archive
-    source_type: object_storage
-    format:
-      - Parquet
-      - HDF5
-    size_bytes: 5497558138880
-    # ...
+      # Relational database source
+      - id: ber_registry:ds-emsl-sample-db
+        title: EMSL Sample Tracking Database
+        source_type: relational_database
+        database_engine: postgresql
+        row_count: 850000
+        table_count: 24
+        # ...
 
-  # Relational database source
-  - id: ber_registry:ds-emsl-sample-db
-    title: EMSL Sample Tracking Database
-    source_type: relational_database
-    database_engine: postgresql
-    row_count: 850000
-    table_count: 24
-    # ...
-
-  # Document database source
-  - id: ber_registry:ds-biosample-mongo
-    title: BioSample Document Store
-    source_type: document_database
-    database_engine: mongodb
-    status: experimental
-    # ...
+      # Document database source
+      - id: ber_registry:ds-biosample-mongo
+        title: BioSample Document Store
+        source_type: document_database
+        database_engine: mongodb
+        status: experimental
+        # ...
 ```
