@@ -73,6 +73,7 @@ update: _update-template _update-linkml
 clean: _clean_project
   rm -rf tmp
   rm -rf {{docdir}}/*.md
+  rm -rf docs/examples
 
 # (Re-)Generate project and documentation locally
 [group('model development')]
@@ -94,7 +95,7 @@ lint:
 
 # Generate md documentation for the schema
 [group('model development')]
-gen-doc: _gen-yaml
+gen-doc: _gen-yaml _copy-examples _copy-docs
   uv run gen-doc {{gen_doc_args}} -d {{docdir}} {{source_schema_path}}
 
 # Build docs and run test server
@@ -196,6 +197,19 @@ _test-examples: _ensure_examples_output
     --input-directory tests/data/valid \
     --output-directory examples/output \
     --schema {{source_schema_path}} > examples/output/README.md
+
+# Copy example data files to docs directory for documentation site
+_copy-examples:
+  @echo "Copying example data files to docs..."
+  -mkdir -p docs/examples
+  cp tests/data/valid/*.yaml docs/examples/
+  @echo "Example files copied successfully!"
+
+# Copy static documentation files from src/docs to docs
+_copy-docs:
+  @echo "Copying static documentation files..."
+  cp src/docs/*.md docs/
+  @echo "Static docs copied successfully!"
 
 # Generate merged model
 _gen-yaml:

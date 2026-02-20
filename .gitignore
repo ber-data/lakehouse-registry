@@ -1,5 +1,11 @@
 # generated part of documentation
 /docs/elements/*.md
+# example files copied from tests/data/valid during gen-doc
+/docs/examples/
+# static docs copied from src/docs during gen-doc
+/docs/about.md
+/docs/index.md
+/docs/examples.md
 # linkml-run-examples output (not useful to have in git in its current form)
 /examples/output/
 

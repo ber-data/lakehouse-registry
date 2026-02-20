@@ -1,0 +1,102 @@
+id: ber_registry:catalog-003
+title: BER Data Registry - Dremio Lakehouse
+description: >-
+  Demonstrates a Dremio lakehouse with object storage and database sources,
+  including engine metadata for relational and document database backends.
+lakehouses:
+  - id: ber_registry:lakehouse-dremio
+    title: Dremio Lakehouse
+    description: >-
+      Dremio-based data lakehouse providing unified query access across
+      object storage and database backends.
+    endpoint_url: https://dremio.lbl.gov
+    operator: Lawrence Berkeley National Laboratory
+    platform_type: dremio
+    created_date: "2024-01-10"
+    catalog_entries:
+      - id: ber_registry:ds-jgi-object-store
+        title: JGI Genome Archive
+        description: >-
+          JGI genome sequencing data stored in object storage, including raw reads,
+          assemblies, and annotations in Parquet and HDF5 formats.
+        owner: JGI Data Team
+        contact_point:
+          contact_name: JGI Data Services
+          contact_email: jgi-data@lbl.gov
+        namespace: jgi_genome_archive
+        status: active
+        is_deprecated: false
+        update_schedule: daily
+        access_level: restricted
+        created_date: "2024-02-01"
+        last_modified: "2025-12-01"
+        keywords:
+          - genomics
+          - sequencing
+          - assemblies
+        project_affiliation:
+          - JGI
+        domain:
+          - genomics
+          - bioinformatics
+        facility: JGI
+        format:
+          - Parquet
+          - HDF5
+        source_type: object_storage
+        size_bytes: 5497558138880
+        instrument: Illumina NovaSeq
+        modality: genomic
+        license: JGI Data Use Policy
+        category: project
+      - id: ber_registry:ds-emsl-sample-db
+        title: EMSL Sample Tracking Database
+        description: >-
+          PostgreSQL database tracking EMSL environmental samples, including
+          collection metadata, processing status, and analytical results.
+        owner: EMSL Informatics
+        contact_point:
+          contact_name: EMSL Data Coordinator
+          contact_email: emsl-data@pnnl.gov
+        namespace: emsl_samples
+        status: active
+        is_deprecated: false
+        update_schedule: monthly
+        access_level: internal
+        created_date: "2024-03-15"
+        keywords:
+          - environmental samples
+          - sample tracking
+          - EMSL
+        project_affiliation:
+          - EMSL
+        domain:
+          - environmental science
+        source_type: relational_database
+        database_engine: postgresql
+        row_count: 850000
+        table_count: 24
+        documentation_url: https://docs.emsl.pnnl.gov/sample-db
+        category: project
+      - id: ber_registry:ds-biosample-mongo
+        title: BioSample Document Store
+        description: >-
+          MongoDB-based document store for flexible biosample metadata collected
+          from multiple field campaigns, supporting schema-on-read access.
+        owner: Biosample Coordination Team
+        contact_point:
+          contact_name: Biosample Support
+          contact_email: biosample@lbl.gov
+        namespace: biosample_docs
+        status: experimental
+        is_deprecated: false
+        update_schedule: irregular
+        access_level: restricted
+        created_date: "2025-06-01"
+        keywords:
+          - biosample
+          - field campaigns
+          - metadata
+        source_type: document_database
+        database_engine: mongodb
+        category: project
