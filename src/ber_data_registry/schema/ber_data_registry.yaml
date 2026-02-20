@@ -1,0 +1,482 @@
+id: https://w3id.org/ber-data/ber-data-registry
+name: ber_data_registry
+title: BER Data Registry
+description: >-
+  A LinkML schema for cataloging databases and data sources across scientific
+  lakehouses at LBNL, including KBASE (Spark-based) and Dremio environments.
+  Informed by the HPDF Data Catalog & Lakehouse Demo report (Cohoon & Paine,
+  LBNL-2001745, Dec 2025), DCAT v3, and DCAT-US.
+license: MIT
+version: 0.1.0
+
+prefixes:
+  ber_registry: https://w3id.org/ber-data/ber-data-registry/
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  dcterms: http://purl.org/dc/terms/
+  dcat: http://www.w3.org/ns/dcat#
+  vcard: http://www.w3.org/2006/vcard/ns#
+  prov: http://www.w3.org/ns/prov#
+  pav: http://purl.org/pav/
+
+default_prefix: ber_registry
+default_range: string
+
+imports:
+  - linkml:types
+
+# ────────────────────────────────────────────────────────────────
+# Classes
+# ────────────────────────────────────────────────────────────────
+
+classes:
+
+  DataRegistry:
+    class_uri: dcat:Catalog
+    tree_root: true
+    description: >-
+      Top-level container for the BER data catalog, holding references to
+      lakehouses and their cataloged data sources.
+    slots:
+      - id
+      - title
+      - description
+      - lakehouses
+      - data_sources
+
+  CatalogEntity:
+    abstract: true
+    description: >-
+      Abstract base class providing shared metadata fields for all catalog
+      entries. Each data source is a catalog entity. 
+    slots:
+      - id
+      - title
+      - description
+      - created_date
+      - last_modified
+
+  Lakehouse:
+    is_a: CatalogEntity
+    class_uri: dcat:DataService
+    description: >-
+      A lakehouse environment such as the KBASE Spark lakehouse or a Dremio
+      instance. Serves as the hosting platform for one or more DataSources.
+    slots:
+      - endpoint_url
+      - operator
+      - platform_type
+
+  DataSource:
+    is_a: CatalogEntity
+    class_uri: dcat:Dataset
+    description: >-
+      A cataloged data source within a lakehouse. Represents a namespace,
+      database, object storage source, or other data collection. All required
+      fields must be present on every submission.
+    slots:
+      - owner
+      - contact_point
+      - lakehouse
+      - namespace
+      - status
+      - is_deprecated
+      - update_schedule
+      - access_level
+      - keywords
+      - project_affiliation
+      - license
+      - domain
+      - version
+      - doi
+      - facility
+      - format
+      - deprecation_date
+      - deprecation_reason
+      - replaced_by
+      - previous_version
+      - temporal_coverage_start
+      - temporal_coverage_end
+      - spatial_coverage
+      - data_quality_notes
+      - lineage
+      - documentation_url
+      - instrument
+      - modality
+      - size_bytes
+      - row_count
+      - table_count
+      - source_type
+      - database_engine
+      - category
+    slot_usage:
+      description:
+        required: true
+      created_date:
+        required: true
+      owner:
+        required: true
+      contact_point:
+        required: true
+      lakehouse:
+        required: true
+      namespace:
+        required: true
+      status:
+        required: true
+      is_deprecated:
+        required: true
+      update_schedule:
+        required: true
+      access_level:
+        required: true
+
+  ContactPoint:
+    class_uri: vcard:Kind
+    description: >-
+      Structured contact information for a data source, providing a name and
+      email for the responsible party.
+    slots:
+      - contact_name
+      - contact_email
+
+# ────────────────────────────────────────────────────────────────
+# Slots
+# ────────────────────────────────────────────────────────────────
+
+slots:
+
+  # --- Identifiers and basic metadata ---
+
+  id:
+    identifier: true
+    slot_uri: schema:identifier
+    range: uriorcurie
+    required: true
+    description: Unique identifier for this catalog entity.
+
+  title:
+    slot_uri: dcterms:title
+    required: true
+    description: Human-readable name for this entity.
+
+  description:
+    slot_uri: dcterms:description
+    description: Free-text description of this entity.
+
+  created_date:
+    slot_uri: dcterms:created
+    range: date
+    description: Date this entity was first created or registered.
+
+  last_modified:
+    slot_uri: dcterms:modified
+    range: date
+    description: Date this entity was last updated.
+
+  # --- Lakehouse-specific ---
+
+  endpoint_url:
+    slot_uri: dcat:endpointURL
+    range: uri
+    description: URL endpoint for accessing the lakehouse.
+
+  operator:
+    slot_uri: dcterms:publisher
+    description: Organization or team operating this lakehouse.
+
+  platform_type:
+    range: PlatformType
+    description: >-
+      The technology platform underlying this lakehouse.
+
+  # --- DataSource: required fields ---
+
+  owner:
+    slot_uri: dcterms:publisher
+    description: Person or team responsible for this data source.
+
+  contact_point:
+    slot_uri: dcat:contactPoint
+    range: ContactPoint
+    inlined: true
+    description: Structured contact information for this data source.
+
+  lakehouse:
+    range: Lakehouse
+    description: Reference to the hosting lakehouse for this data source.
+
+  namespace:
+    description: >-
+      Database name, source name, or space name within the lakehouse
+      (e.g. "kbase_public", "jgi_object_store").
+
+  status:
+    slot_uri: dcat:status
+    range: DataSourceStatus
+    description: Current lifecycle status of this data source.
+
+  is_deprecated:
+    range: boolean
+    description: >-
+      Whether this data source is deprecated. Must always be explicitly set.
+
+  update_schedule:
+    slot_uri: dcterms:accrualPeriodicity
+    range: UpdateFrequency
+    description: How frequently this data source is updated.
+
+  access_level:
+    range: AccessLevel
+    description: Visibility/access level of this data source.
+
+  # --- DataSource: recommended fields ---
+
+  keywords:
+    slot_uri: dcat:keyword
+    multivalued: true
+    description: Discovery tags for this data source.
+
+  project_affiliation:
+    multivalued: true
+    description: >-
+      BER program affiliations (e.g. KBase, NMDC, JGI, Phage Foundry).
+
+  license:
+    slot_uri: dcterms:license
+    description: License governing use of this data source.
+
+  domain:
+    slot_uri: dcat:theme
+    multivalued: true
+    description: Scientific domain(s) covered by this data source.
+
+  version:
+    slot_uri: pav:version
+    description: Version identifier for this data source.
+
+  doi:
+    description: DOI if this data source has been published.
+
+  facility:
+    description: >-
+      Originating facility (e.g. NERSC, JGI, EMSL) per HPDF report
+      recommendations.
+
+  format:
+    slot_uri: dcterms:format
+    multivalued: true
+    description: >-
+      Data format(s) available (e.g. Parquet, CSV, HDF5, Zarr, NetCDF, FITS).
+
+  # --- DataSource: deprecation fields ---
+
+  deprecation_date:
+    range: date
+    description: Date this data source was deprecated.
+
+  deprecation_reason:
+    description: Explanation for why this data source was deprecated.
+
+  replaced_by:
+    range: DataSource
+    description: >-
+      Reference to the data source that replaces this deprecated one.
+
+  previous_version:
+    range: DataSource
+    description: >-
+      Reference to the previous version of this data source.
+
+  # --- DataSource: coverage fields ---
+
+  temporal_coverage_start:
+    range: date
+    description: Start date of the temporal coverage of this data.
+
+  temporal_coverage_end:
+    range: date
+    description: End date of the temporal coverage of this data.
+
+  spatial_coverage:
+    description: Geographic or spatial coverage description.
+
+  # --- DataSource: quality and lineage ---
+
+  data_quality_notes:
+    description: Notes on data quality, known issues, or limitations.
+
+  lineage:
+    slot_uri: prov:wasDerivedFrom
+    description: Provenance or lineage information for this data source.
+
+  # --- DataSource: technical metadata ---
+
+  documentation_url:
+    range: uri
+    description: URL to external documentation for this data source.
+
+  instrument:
+    description: Instrument or sensor that generated the data.
+
+  modality:
+    description: Data modality (e.g. genomic, proteomic, imaging).
+
+  size_bytes:
+    range: integer
+    description: Total size of the data source in bytes.
+
+  row_count:
+    range: integer
+    description: Number of rows or records in the data source.
+
+  table_count:
+    range: integer
+    description: Number of tables or collections in the data source.
+
+  source_type:
+    range: SourceType
+    description: >-
+      Type of data source within the lakehouse (e.g. namespace,
+      object_storage, relational_database).
+
+  database_engine:
+    range: DatabaseEngine
+    description: >-
+      Database engine for Dremio database sources (e.g. postgresql, mysql,
+      mongodb).
+
+  category:
+    range: DataSourceCategory
+    description: >-
+      Organizational category (project, shared, personal, system).
+
+  # --- DataRegistry container slots ---
+
+  lakehouses:
+    range: Lakehouse
+    multivalued: true
+    inlined_as_list: true
+    description: Lakehouses registered in this catalog.
+
+  data_sources:
+    range: DataSource
+    multivalued: true
+    inlined_as_list: true
+    description: Data sources registered in this catalog.
+
+  # --- ContactPoint slots ---
+
+  contact_name:
+    slot_uri: vcard:fn
+    required: true
+    description: Full name of the contact person.
+
+  contact_email:
+    slot_uri: vcard:hasEmail
+    required: true
+    description: Email address of the contact person.
+
+# ────────────────────────────────────────────────────────────────
+# Enums
+# ────────────────────────────────────────────────────────────────
+
+enums:
+
+  DataSourceStatus:
+    description: Lifecycle status of a data source.
+    permissible_values:
+      active:
+        description: Data source is actively maintained and available.
+      deprecated:
+        description: Data source is deprecated and should not be used for new work.
+      archived:
+        description: Data source is archived and read-only.
+      experimental:
+        description: Data source is experimental or in development.
+      test:
+        description: Data source is used for testing purposes only.
+
+  AccessLevel:
+    description: Visibility and access restrictions for a data source.
+    permissible_values:
+      public:
+        description: Accessible to anyone.
+      restricted:
+        description: Access requires authorization or approval.
+      internal:
+        description: Only accessible within the organization.
+
+  UpdateFrequency:
+    description: How often a data source is updated.
+    permissible_values:
+      real_time:
+        description: Continuously updated in real time.
+      daily:
+        description: Updated once per day.
+      weekly:
+        description: Updated once per week.
+      monthly:
+        description: Updated once per month.
+      quarterly:
+        description: Updated once per quarter.
+      annually:
+        description: Updated once per year.
+      irregular:
+        description: Updated at irregular intervals.
+      static:
+        description: Not expected to be updated.
+      unknown:
+        description: Update frequency is not known.
+
+  DataSourceCategory:
+    description: Organizational category for a data source.
+    permissible_values:
+      project:
+        description: Belongs to a specific research project.
+      shared:
+        description: Shared across multiple projects or teams.
+      personal:
+        description: Personal workspace of an individual user.
+      system:
+        description: System-level or infrastructure data.
+
+  PlatformType:
+    description: Technology platform for a lakehouse.
+    permissible_values:
+      spark:
+        description: Apache Spark-based lakehouse (e.g. KBASE).
+      dremio:
+        description: Dremio data lakehouse platform.
+      other:
+        description: Other platform type.
+
+  SourceType:
+    description: >-
+      Type of data source within a lakehouse, particularly relevant for
+      Dremio environments.
+    permissible_values:
+      namespace:
+        description: A namespace within a Spark-based lakehouse.
+      object_storage:
+        description: Object storage source (e.g. S3, MinIO).
+      relational_database:
+        description: Relational database source (PostgreSQL, MySQL).
+      document_database:
+        description: Document database source (e.g. MongoDB).
+      space:
+        description: A Dremio space for organizing views and virtual datasets.
+
+  DatabaseEngine:
+    description: Specific database engine for database-type sources.
+    permissible_values:
+      postgresql:
+        description: PostgreSQL database.
+      mysql:
+        description: MySQL database.
+      mongodb:
+        description: MongoDB document database.
+      spark_sql:
+        description: Spark SQL engine.
+      other:
+        description: Other database engine.
