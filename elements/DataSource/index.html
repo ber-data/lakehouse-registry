@@ -1,0 +1,1340 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://sierra-moxon.github.io/ber-data-registry/elements/DataSource/" rel="canonical"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.2" name="generator"/>
+<title>Class: DataSource - ber-data-registry</title>
+<link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../css/ansi-colours.css" rel="stylesheet"/>
+<link href="../../css/jupyter-cells.css" rel="stylesheet"/>
+<link href="../../css/pandas-dataframe.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#class-datasource">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ber-data-registry" class="md-header__button md-logo" data-md-component="logo" href="../.." title="ber-data-registry">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ber-data-registry
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Class: DataSource
+            
+          </span>
+</div>
+</div>
+</div>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/sierra-moxon/ber-data-registry" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ber-data-registry" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="ber-data-registry">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    ber-data-registry
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/sierra-moxon/ber-data-registry" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../about/">
+<span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inheritance">
+<span class="md-ellipsis">
+      
+        Inheritance
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#slots">
+<span class="md-ellipsis">
+      
+        Slots
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usages">
+<span class="md-ellipsis">
+      
+        Usages
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#identifier-and-mapping-information">
+<span class="md-ellipsis">
+      
+        Identifier and Mapping Information
+      
+    </span>
+</a>
+<nav aria-label="Identifier and Mapping Information" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#schema-source">
+<span class="md-ellipsis">
+      
+        Schema Source
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mappings">
+<span class="md-ellipsis">
+      
+        Mappings
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linkml-source">
+<span class="md-ellipsis">
+      
+        LinkML Source
+      
+    </span>
+</a>
+<nav aria-label="LinkML Source" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#direct">
+<span class="md-ellipsis">
+      
+        Direct
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#induced">
+<span class="md-ellipsis">
+      
+        Induced
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="class-datasource">Class: DataSource</h1>
+<p><em>A cataloged data source within a lakehouse. Represents a namespace, database, object storage source, or other data collection. All required fields must be present on every submission.</em></p>
+<p>URI: <a href="http://www.w3.org/ns/dcat#Dataset">dcat:Dataset</a></p>
+<div class="mermaid"> classDiagram
+    class DataSource
+    click DataSource href "../DataSource/"
+      CatalogEntity &lt;|-- DataSource
+        click CatalogEntity href "../CatalogEntity/"
+
+      DataSource : access_level
+
+
+
+
+
+        DataSource --&gt; "1" AccessLevel : access_level
+        click AccessLevel href "../AccessLevel/"
+
+
+
+      DataSource : category
+
+
+
+
+
+        DataSource --&gt; "0..1" DataSourceCategory : category
+        click DataSourceCategory href "../DataSourceCategory/"
+
+
+
+      DataSource : contact_point
+
+
+
+
+
+        DataSource --&gt; "1" ContactPoint : contact_point
+        click ContactPoint href "../ContactPoint/"
+
+
+
+      DataSource : created_date
+
+      DataSource : data_quality_notes
+
+      DataSource : database_engine
+
+
+
+
+
+        DataSource --&gt; "0..1" DatabaseEngine : database_engine
+        click DatabaseEngine href "../DatabaseEngine/"
+
+
+
+      DataSource : deprecation_date
+
+      DataSource : deprecation_reason
+
+      DataSource : description
+
+      DataSource : documentation_url
+
+      DataSource : doi
+
+      DataSource : domain
+
+      DataSource : facility
+
+      DataSource : format
+
+      DataSource : id
+
+      DataSource : instrument
+
+      DataSource : is_deprecated
+
+      DataSource : keywords
+
+      DataSource : lakehouse
+
+
+
+
+
+        DataSource --&gt; "1" Lakehouse : lakehouse
+        click Lakehouse href "../Lakehouse/"
+
+
+
+      DataSource : last_modified
+
+      DataSource : license
+
+      DataSource : lineage
+
+      DataSource : modality
+
+      DataSource : namespace
+
+      DataSource : owner
+
+      DataSource : previous_version
+
+
+
+
+
+        DataSource --&gt; "0..1" DataSource : previous_version
+        click DataSource href "../DataSource/"
+
+
+
+      DataSource : project_affiliation
+
+      DataSource : replaced_by
+
+
+
+
+
+        DataSource --&gt; "0..1" DataSource : replaced_by
+        click DataSource href "../DataSource/"
+
+
+
+      DataSource : row_count
+
+      DataSource : size_bytes
+
+      DataSource : source_type
+
+
+
+
+
+        DataSource --&gt; "0..1" SourceType : source_type
+        click SourceType href "../SourceType/"
+
+
+
+      DataSource : spatial_coverage
+
+      DataSource : status
+
+
+
+
+
+        DataSource --&gt; "1" DataSourceStatus : status
+        click DataSourceStatus href "../DataSourceStatus/"
+
+
+
+      DataSource : table_count
+
+      DataSource : temporal_coverage_end
+
+      DataSource : temporal_coverage_start
+
+      DataSource : title
+
+      DataSource : update_schedule
+
+
+
+
+
+        DataSource --&gt; "1" UpdateFrequency : update_schedule
+        click UpdateFrequency href "../UpdateFrequency/"
+
+
+
+      DataSource : version
+
+
+</div>
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="../CatalogEntity/">CatalogEntity</a><ul>
+<li><strong>DataSource</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../owner/">owner</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>Person or team responsible for this data source</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../contact_point/">contact_point</a></td>
+<td>1 <br/> <a href="../ContactPoint/">ContactPoint</a></td>
+<td>Structured contact information for this data source</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../lakehouse/">lakehouse</a></td>
+<td>1 <br/> <a href="../Lakehouse/">Lakehouse</a></td>
+<td>Reference to the hosting lakehouse for this data source</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../namespace/">namespace</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>Database name, source name, or space name within the lakehouse (e</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../status/">status</a></td>
+<td>1 <br/> <a href="../DataSourceStatus/">DataSourceStatus</a></td>
+<td>Current lifecycle status of this data source</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../is_deprecated/">is_deprecated</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>Whether this data source is deprecated</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../update_schedule/">update_schedule</a></td>
+<td>1 <br/> <a href="../UpdateFrequency/">UpdateFrequency</a></td>
+<td>How frequently this data source is updated</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../access_level/">access_level</a></td>
+<td>1 <br/> <a href="../AccessLevel/">AccessLevel</a></td>
+<td>Visibility/access level of this data source</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../keywords/">keywords</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>Discovery tags for this data source</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../project_affiliation/">project_affiliation</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>BER program affiliations (e</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../license/">license</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>License governing use of this data source</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../domain/">domain</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>Scientific domain(s) covered by this data source</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../version/">version</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Version identifier for this data source</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../doi/">doi</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>DOI if this data source has been published</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../facility/">facility</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Originating facility (e</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../format/">format</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>Data format(s) available (e</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../deprecation_date/">deprecation_date</a></td>
+<td>0..1 <br/> <a href="../Date/">Date</a></td>
+<td>Date this data source was deprecated</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../deprecation_reason/">deprecation_reason</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Explanation for why this data source was deprecated</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../replaced_by/">replaced_by</a></td>
+<td>0..1 <br/> <a href="./">DataSource</a></td>
+<td>Reference to the data source that replaces this deprecated one</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../previous_version/">previous_version</a></td>
+<td>0..1 <br/> <a href="./">DataSource</a></td>
+<td>Reference to the previous version of this data source</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../temporal_coverage_start/">temporal_coverage_start</a></td>
+<td>0..1 <br/> <a href="../Date/">Date</a></td>
+<td>Start date of the temporal coverage of this data</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../temporal_coverage_end/">temporal_coverage_end</a></td>
+<td>0..1 <br/> <a href="../Date/">Date</a></td>
+<td>End date of the temporal coverage of this data</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../spatial_coverage/">spatial_coverage</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Geographic or spatial coverage description</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../data_quality_notes/">data_quality_notes</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Notes on data quality, known issues, or limitations</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../lineage/">lineage</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Provenance or lineage information for this data source</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../documentation_url/">documentation_url</a></td>
+<td>0..1 <br/> <a href="../Uri/">Uri</a></td>
+<td>URL to external documentation for this data source</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../instrument/">instrument</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Instrument or sensor that generated the data</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../modality/">modality</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Data modality (e</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../size_bytes/">size_bytes</a></td>
+<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>Total size of the data source in bytes</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../row_count/">row_count</a></td>
+<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>Number of rows or records in the data source</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../table_count/">table_count</a></td>
+<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>Number of tables or collections in the data source</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../source_type/">source_type</a></td>
+<td>0..1 <br/> <a href="../SourceType/">SourceType</a></td>
+<td>Type of data source within the lakehouse (e</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../database_engine/">database_engine</a></td>
+<td>0..1 <br/> <a href="../DatabaseEngine/">DatabaseEngine</a></td>
+<td>Database engine for Dremio database sources (e</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../category/">category</a></td>
+<td>0..1 <br/> <a href="../DataSourceCategory/">DataSourceCategory</a></td>
+<td>Organizational category (project, shared, personal, system)</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../id/">id</a></td>
+<td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>Unique identifier for this catalog entity</td>
+<td><a href="../CatalogEntity/">CatalogEntity</a></td>
+</tr>
+<tr>
+<td><a href="../title/">title</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>Human-readable name for this entity</td>
+<td><a href="../CatalogEntity/">CatalogEntity</a></td>
+</tr>
+<tr>
+<td><a href="../description/">description</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>Free-text description of this entity</td>
+<td><a href="../CatalogEntity/">CatalogEntity</a></td>
+</tr>
+<tr>
+<td><a href="../created_date/">created_date</a></td>
+<td>1 <br/> <a href="../Date/">Date</a></td>
+<td>Date this entity was first created or registered</td>
+<td><a href="../CatalogEntity/">CatalogEntity</a></td>
+</tr>
+<tr>
+<td><a href="../last_modified/">last_modified</a></td>
+<td>0..1 <br/> <a href="../Date/">Date</a></td>
+<td>Date this entity was last updated</td>
+<td><a href="../CatalogEntity/">CatalogEntity</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../DataRegistry/">DataRegistry</a></td>
+<td><a href="../data_sources/">data_sources</a></td>
+<td>range</td>
+<td><a href="./">DataSource</a></td>
+</tr>
+<tr>
+<td><a href="./">DataSource</a></td>
+<td><a href="../replaced_by/">replaced_by</a></td>
+<td>range</td>
+<td><a href="./">DataSource</a></td>
+</tr>
+<tr>
+<td><a href="./">DataSource</a></td>
+<td><a href="../previous_version/">previous_version</a></td>
+<td>range</td>
+<td><a href="./">DataSource</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://w3id.org/ber-data/ber-data-registry</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>dcat:Dataset</td>
+</tr>
+<tr>
+<td>native</td>
+<td>ber_registry:DataSource</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+<h3 id="direct">Direct</h3>
+<details>
+<pre><code class="language-yaml">name: DataSource
+description: A cataloged data source within a lakehouse. Represents a namespace, database,
+  object storage source, or other data collection. All required fields must be present
+  on every submission.
+from_schema: https://w3id.org/ber-data/ber-data-registry
+is_a: CatalogEntity
+slots:
+- owner
+- contact_point
+- lakehouse
+- namespace
+- status
+- is_deprecated
+- update_schedule
+- access_level
+- keywords
+- project_affiliation
+- license
+- domain
+- version
+- doi
+- facility
+- format
+- deprecation_date
+- deprecation_reason
+- replaced_by
+- previous_version
+- temporal_coverage_start
+- temporal_coverage_end
+- spatial_coverage
+- data_quality_notes
+- lineage
+- documentation_url
+- instrument
+- modality
+- size_bytes
+- row_count
+- table_count
+- source_type
+- database_engine
+- category
+slot_usage:
+  description:
+    name: description
+    required: true
+  created_date:
+    name: created_date
+    required: true
+  owner:
+    name: owner
+    required: true
+  contact_point:
+    name: contact_point
+    required: true
+  lakehouse:
+    name: lakehouse
+    required: true
+  namespace:
+    name: namespace
+    required: true
+  status:
+    name: status
+    required: true
+  is_deprecated:
+    name: is_deprecated
+    required: true
+  update_schedule:
+    name: update_schedule
+    required: true
+  access_level:
+    name: access_level
+    required: true
+class_uri: dcat:Dataset
+
+</code></pre>
+</details>
+<h3 id="induced">Induced</h3>
+<details>
+<pre><code class="language-yaml">name: DataSource
+description: A cataloged data source within a lakehouse. Represents a namespace, database,
+  object storage source, or other data collection. All required fields must be present
+  on every submission.
+from_schema: https://w3id.org/ber-data/ber-data-registry
+is_a: CatalogEntity
+slot_usage:
+  description:
+    name: description
+    required: true
+  created_date:
+    name: created_date
+    required: true
+  owner:
+    name: owner
+    required: true
+  contact_point:
+    name: contact_point
+    required: true
+  lakehouse:
+    name: lakehouse
+    required: true
+  namespace:
+    name: namespace
+    required: true
+  status:
+    name: status
+    required: true
+  is_deprecated:
+    name: is_deprecated
+    required: true
+  update_schedule:
+    name: update_schedule
+    required: true
+  access_level:
+    name: access_level
+    required: true
+attributes:
+  owner:
+    name: owner
+    description: Person or team responsible for this data source.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    slot_uri: dcterms:publisher
+    alias: owner
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: string
+    required: true
+  contact_point:
+    name: contact_point
+    description: Structured contact information for this data source.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    slot_uri: dcat:contactPoint
+    alias: contact_point
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: ContactPoint
+    required: true
+    inlined: true
+  lakehouse:
+    name: lakehouse
+    description: Reference to the hosting lakehouse for this data source.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: lakehouse
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: Lakehouse
+    required: true
+  namespace:
+    name: namespace
+    description: Database name, source name, or space name within the lakehouse (e.g.
+      "kbase_public", "jgi_object_store").
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: namespace
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: string
+    required: true
+  status:
+    name: status
+    description: Current lifecycle status of this data source.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    slot_uri: dcat:status
+    alias: status
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: DataSourceStatus
+    required: true
+  is_deprecated:
+    name: is_deprecated
+    description: Whether this data source is deprecated. Must always be explicitly
+      set.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: is_deprecated
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: boolean
+    required: true
+  update_schedule:
+    name: update_schedule
+    description: How frequently this data source is updated.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    slot_uri: dcterms:accrualPeriodicity
+    alias: update_schedule
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: UpdateFrequency
+    required: true
+  access_level:
+    name: access_level
+    description: Visibility/access level of this data source.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: access_level
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: AccessLevel
+    required: true
+  keywords:
+    name: keywords
+    description: Discovery tags for this data source.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    slot_uri: dcat:keyword
+    alias: keywords
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: string
+    multivalued: true
+  project_affiliation:
+    name: project_affiliation
+    description: BER program affiliations (e.g. KBase, NMDC, JGI, Phage Foundry).
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: project_affiliation
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: string
+    multivalued: true
+  license:
+    name: license
+    description: License governing use of this data source.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    slot_uri: dcterms:license
+    alias: license
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: string
+  domain:
+    name: domain
+    description: Scientific domain(s) covered by this data source.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    slot_uri: dcat:theme
+    alias: domain
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: string
+    multivalued: true
+  version:
+    name: version
+    description: Version identifier for this data source.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    slot_uri: pav:version
+    alias: version
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: string
+  doi:
+    name: doi
+    description: DOI if this data source has been published.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: doi
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: string
+  facility:
+    name: facility
+    description: Originating facility (e.g. NERSC, JGI, EMSL) per HPDF report recommendations.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: facility
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: string
+  format:
+    name: format
+    description: Data format(s) available (e.g. Parquet, CSV, HDF5, Zarr, NetCDF,
+      FITS).
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    slot_uri: dcterms:format
+    alias: format
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: string
+    multivalued: true
+  deprecation_date:
+    name: deprecation_date
+    description: Date this data source was deprecated.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: deprecation_date
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: date
+  deprecation_reason:
+    name: deprecation_reason
+    description: Explanation for why this data source was deprecated.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: deprecation_reason
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: string
+  replaced_by:
+    name: replaced_by
+    description: Reference to the data source that replaces this deprecated one.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: replaced_by
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: DataSource
+  previous_version:
+    name: previous_version
+    description: Reference to the previous version of this data source.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: previous_version
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: DataSource
+  temporal_coverage_start:
+    name: temporal_coverage_start
+    description: Start date of the temporal coverage of this data.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: temporal_coverage_start
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: date
+  temporal_coverage_end:
+    name: temporal_coverage_end
+    description: End date of the temporal coverage of this data.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: temporal_coverage_end
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: date
+  spatial_coverage:
+    name: spatial_coverage
+    description: Geographic or spatial coverage description.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: spatial_coverage
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: string
+  data_quality_notes:
+    name: data_quality_notes
+    description: Notes on data quality, known issues, or limitations.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: data_quality_notes
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: string
+  lineage:
+    name: lineage
+    description: Provenance or lineage information for this data source.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    slot_uri: prov:wasDerivedFrom
+    alias: lineage
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: string
+  documentation_url:
+    name: documentation_url
+    description: URL to external documentation for this data source.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: documentation_url
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: uri
+  instrument:
+    name: instrument
+    description: Instrument or sensor that generated the data.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: instrument
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: string
+  modality:
+    name: modality
+    description: Data modality (e.g. genomic, proteomic, imaging).
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: modality
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: string
+  size_bytes:
+    name: size_bytes
+    description: Total size of the data source in bytes.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: size_bytes
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: integer
+  row_count:
+    name: row_count
+    description: Number of rows or records in the data source.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: row_count
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: integer
+  table_count:
+    name: table_count
+    description: Number of tables or collections in the data source.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: table_count
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: integer
+  source_type:
+    name: source_type
+    description: Type of data source within the lakehouse (e.g. namespace, object_storage,
+      relational_database).
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: source_type
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: SourceType
+  database_engine:
+    name: database_engine
+    description: Database engine for Dremio database sources (e.g. postgresql, mysql,
+      mongodb).
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: database_engine
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: DatabaseEngine
+  category:
+    name: category
+    description: Organizational category (project, shared, personal, system).
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    alias: category
+    owner: DataSource
+    domain_of:
+    - DataSource
+    range: DataSourceCategory
+  id:
+    name: id
+    description: Unique identifier for this catalog entity.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    slot_uri: schema:identifier
+    identifier: true
+    alias: id
+    owner: DataSource
+    domain_of:
+    - DataRegistry
+    - CatalogEntity
+    range: uriorcurie
+    required: true
+  title:
+    name: title
+    description: Human-readable name for this entity.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    slot_uri: dcterms:title
+    alias: title
+    owner: DataSource
+    domain_of:
+    - DataRegistry
+    - CatalogEntity
+    range: string
+    required: true
+  description:
+    name: description
+    description: Free-text description of this entity.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    slot_uri: dcterms:description
+    alias: description
+    owner: DataSource
+    domain_of:
+    - DataRegistry
+    - CatalogEntity
+    range: string
+    required: true
+  created_date:
+    name: created_date
+    description: Date this entity was first created or registered.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    slot_uri: dcterms:created
+    alias: created_date
+    owner: DataSource
+    domain_of:
+    - CatalogEntity
+    range: date
+    required: true
+  last_modified:
+    name: last_modified
+    description: Date this entity was last updated.
+    from_schema: https://w3id.org/ber-data/ber-data-registry
+    rank: 1000
+    slot_uri: dcterms:modified
+    alias: last_modified
+    owner: DataSource
+    domain_of:
+    - CatalogEntity
+    range: date
+class_uri: dcat:Dataset
+
+</code></pre>
+</details>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@11.4.1/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>
