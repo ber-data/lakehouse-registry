@@ -343,8 +343,8 @@
 
 
 
-        Lakehouse --&gt; "*" CatalogEntity : catalog_entries
-        click CatalogEntity href "../CatalogEntity/"
+        Lakehouse --&gt; "*" DataSource : catalog_entries
+        click DataSource href "../DataSource/"
 
 
 
@@ -413,7 +413,7 @@
 </tr>
 <tr>
 <td><a href="../catalog_entries/">catalog_entries</a></td>
-<td>* <br/> <a href="../CatalogEntity/">CatalogEntity</a></td>
+<td>* <br/> <a href="../DataSource/">DataSource</a></td>
 <td>Catalog entries (data sources) hosted in this lakehouse</td>
 <td>direct</td>
 </tr>
@@ -559,7 +559,7 @@ attributes:
     owner: Lakehouse
     domain_of:
     - Lakehouse
-    range: CatalogEntity
+    range: DataSource
     multivalued: true
     inlined: true
     inlined_as_list: true
