@@ -409,17 +409,6 @@
 
       DataSource : keywords
 
-      DataSource : lakehouse
-
-
-
-
-
-        DataSource --&gt; "1" Lakehouse : lakehouse
-        click Lakehouse href "../Lakehouse/"
-
-
-
       DataSource : last_modified
 
       DataSource : license
@@ -535,12 +524,6 @@
 <td><a href="../contact_point/">contact_point</a></td>
 <td>1 <br/> <a href="../ContactPoint/">ContactPoint</a></td>
 <td>Structured contact information for this data source</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../lakehouse/">lakehouse</a></td>
-<td>1 <br/> <a href="../Lakehouse/">Lakehouse</a></td>
-<td>Reference to the hosting lakehouse for this data source</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -773,12 +756,6 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../DataRegistry/">DataRegistry</a></td>
-<td><a href="../data_sources/">data_sources</a></td>
-<td>range</td>
-<td><a href="./">DataSource</a></td>
-</tr>
-<tr>
 <td><a href="./">DataSource</a></td>
 <td><a href="../replaced_by/">replaced_by</a></td>
 <td>range</td>
@@ -829,7 +806,6 @@ is_a: CatalogEntity
 slots:
 - owner
 - contact_point
-- lakehouse
 - namespace
 - status
 - is_deprecated
@@ -874,9 +850,6 @@ slot_usage:
   contact_point:
     name: contact_point
     required: true
-  lakehouse:
-    name: lakehouse
-    required: true
   namespace:
     name: namespace
     required: true
@@ -916,9 +889,6 @@ slot_usage:
     required: true
   contact_point:
     name: contact_point
-    required: true
-  lakehouse:
-    name: lakehouse
     required: true
   namespace:
     name: namespace
@@ -961,17 +931,6 @@ attributes:
     range: ContactPoint
     required: true
     inlined: true
-  lakehouse:
-    name: lakehouse
-    description: Reference to the hosting lakehouse for this data source.
-    from_schema: https://w3id.org/ber-data/ber-data-registry
-    rank: 1000
-    alias: lakehouse
-    owner: DataSource
-    domain_of:
-    - DataSource
-    range: Lakehouse
-    required: true
   namespace:
     name: namespace
     description: Database name, source name, or space name within the lakehouse (e.g.
@@ -1314,7 +1273,7 @@ attributes:
     alias: id
     owner: DataSource
     domain_of:
-    - DataRegistry
+    - Catalog
     - CatalogEntity
     range: uriorcurie
     required: true
@@ -1327,7 +1286,7 @@ attributes:
     alias: title
     owner: DataSource
     domain_of:
-    - DataRegistry
+    - Catalog
     - CatalogEntity
     range: string
     required: true
@@ -1340,7 +1299,7 @@ attributes:
     alias: description
     owner: DataSource
     domain_of:
-    - DataRegistry
+    - Catalog
     - CatalogEntity
     range: string
     required: true

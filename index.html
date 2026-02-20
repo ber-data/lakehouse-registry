@@ -382,10 +382,9 @@ standards.</p>
 </ul>
 <h2 id="core-schema-at-a-glance">Core Schema at a Glance</h2>
 <div class="mermaid">graph LR
-    DR[DataRegistry&lt;br/&gt;&lt;i&gt;dcat:Catalog&lt;/i&gt;] --&gt;|lakehouses| LH[Lakehouse&lt;br/&gt;&lt;i&gt;dcat:DataService&lt;/i&gt;]
-    DR --&gt;|data_sources| DS[DataSource&lt;br/&gt;&lt;i&gt;dcat:Dataset&lt;/i&gt;]
+    C[Catalog&lt;br/&gt;&lt;i&gt;dcat:Catalog&lt;/i&gt;] --&gt;|lakehouses| LH[Lakehouse&lt;br/&gt;&lt;i&gt;dcat:DataService&lt;/i&gt;]
+    LH --&gt;|catalog_entries| DS[DataSource&lt;br/&gt;&lt;i&gt;dcat:Dataset&lt;/i&gt;]
     DS --&gt;|contact_point| CP[ContactPoint&lt;br/&gt;&lt;i&gt;vcard:Kind&lt;/i&gt;]
-    DS --&gt;|lakehouse| LH
     DS -.-&gt;|replaced_by| DS
 </div>
 <table>
@@ -398,14 +397,14 @@ standards.</p>
 </thead>
 <tbody>
 <tr>
-<td><strong>DataRegistry</strong></td>
+<td><strong>Catalog</strong></td>
 <td><code>dcat:Catalog</code></td>
-<td>Top-level container for lakehouses and data sources</td>
+<td>Top-level container for lakehouses</td>
 </tr>
 <tr>
 <td><strong>Lakehouse</strong></td>
 <td><code>dcat:DataService</code></td>
-<td>A hosting platform (Spark, Dremio)</td>
+<td>A hosting platform (Spark, Dremio) containing data sources</td>
 </tr>
 <tr>
 <td><strong>DataSource</strong></td>

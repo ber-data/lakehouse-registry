@@ -463,7 +463,7 @@ slots:
     identifier: true
     owner: CatalogEntity
     domain_of:
-    - DataRegistry
+    - Catalog
     - CatalogEntity
     range: uriorcurie
     required: true
@@ -477,7 +477,7 @@ slots:
     slot_uri: dcterms:title
     owner: CatalogEntity
     domain_of:
-    - DataRegistry
+    - Catalog
     - CatalogEntity
     range: string
     required: true
@@ -491,7 +491,7 @@ slots:
     slot_uri: dcterms:description
     owner: CatalogEntity
     domain_of:
-    - DataRegistry
+    - Catalog
     - CatalogEntity
     range: string
   created_date:
@@ -578,16 +578,6 @@ slots:
     range: ContactPoint
     inlined: true
     inlined_as_list: true
-  lakehouse:
-    name: lakehouse
-    definition_uri: https://w3id.org/ber-data/ber-data-registry/lakehouse
-    description: Reference to the hosting lakehouse for this data source.
-    from_schema: https://w3id.org/ber-data/ber-data-registry
-    slot_uri: ber_registry:lakehouse
-    owner: DataSource
-    domain_of:
-    - DataSource
-    range: Lakehouse
   namespace:
     name: namespace
     definition_uri: https://w3id.org/ber-data/ber-data-registry/namespace
@@ -929,23 +919,23 @@ slots:
     description: Lakehouses registered in this catalog.
     from_schema: https://w3id.org/ber-data/ber-data-registry
     slot_uri: ber_registry:lakehouses
-    owner: DataRegistry
+    owner: Catalog
     domain_of:
-    - DataRegistry
+    - Catalog
     range: Lakehouse
     multivalued: true
     inlined: true
     inlined_as_list: true
-  data_sources:
-    name: data_sources
-    definition_uri: https://w3id.org/ber-data/ber-data-registry/data_sources
-    description: Data sources registered in this catalog.
+  catalog_entries:
+    name: catalog_entries
+    definition_uri: https://w3id.org/ber-data/ber-data-registry/catalog_entries
+    description: Catalog entries (data sources) hosted in this lakehouse.
     from_schema: https://w3id.org/ber-data/ber-data-registry
-    slot_uri: ber_registry:data_sources
-    owner: DataRegistry
+    slot_uri: ber_registry:catalog_entries
+    owner: Lakehouse
     domain_of:
-    - DataRegistry
-    range: DataSource
+    - Lakehouse
+    range: CatalogEntity
     multivalued: true
     inlined: true
     inlined_as_list: true
@@ -1049,22 +1039,6 @@ slots:
     required: true
     inlined: true
     inlined_as_list: true
-  DataSource_lakehouse:
-    name: DataSource_lakehouse
-    definition_uri: https://w3id.org/ber-data/ber-data-registry/lakehouse
-    description: Reference to the hosting lakehouse for this data source.
-    from_schema: https://w3id.org/ber-data/ber-data-registry
-    is_a: lakehouse
-    domain: DataSource
-    slot_uri: ber_registry:lakehouse
-    alias: lakehouse
-    owner: DataSource
-    domain_of:
-    - DataSource
-    is_usage_slot: true
-    usage_slot_name: lakehouse
-    range: Lakehouse
-    required: true
   DataSource_namespace:
     name: DataSource_namespace
     definition_uri: https://w3id.org/ber-data/ber-data-registry/namespace
@@ -1152,9 +1126,9 @@ slots:
     range: AccessLevel
     required: true
 classes:
-  DataRegistry:
-    name: DataRegistry
-    definition_uri: https://w3id.org/ber-data/ber-data-registry/DataRegistry
+  Catalog:
+    name: Catalog
+    definition_uri: https://w3id.org/ber-data/ber-data-registry/Catalog
     description: Top-level container for the BER data catalog, holding references
       to lakehouses and their cataloged data sources.
     from_schema: https://w3id.org/ber-data/ber-data-registry
@@ -1165,7 +1139,6 @@ classes:
     - title
     - description
     - lakehouses
-    - data_sources
     class_uri: dcat:Catalog
     tree_root: true
   CatalogEntity:
@@ -1200,6 +1173,7 @@ classes:
     - endpoint_url
     - operator
     - platform_type
+    - catalog_entries
     class_uri: dcat:DataService
   DataSource:
     name: DataSource
@@ -1217,7 +1191,6 @@ classes:
     - last_modified
     - DataSource_owner
     - DataSource_contact_point
-    - DataSource_lakehouse
     - DataSource_namespace
     - DataSource_status
     - DataSource_is_deprecated
@@ -1264,9 +1237,6 @@ classes:
       contact_point:
         name: contact_point
         required: true
-      lakehouse:
-        name: lakehouse
-        required: true
       namespace:
         name: namespace
         required: true
@@ -1297,7 +1267,7 @@ classes:
     class_uri: vcard:Kind
 metamodel_version: 1.7.0
 source_file: ber_data_registry.yaml
-source_file_date: '2026-02-20T22:55:01'
-source_file_size: 13655
-generation_date: '2026-02-20T22:55:12'
+source_file_date: '2026-02-20T23:07:38'
+source_file_size: 13503
+generation_date: '2026-02-20T23:07:50'
 

@@ -25,6 +25,10 @@
          <lastmod>2026-02-20</lastmod>
     </url>
     <url>
+         <loc>https://sierra-moxon.github.io/ber-data-registry/elements/Catalog/</loc>
+         <lastmod>2026-02-20</lastmod>
+    </url>
+    <url>
          <loc>https://sierra-moxon.github.io/ber-data-registry/elements/CatalogEntity/</loc>
          <lastmod>2026-02-20</lastmod>
     </url>
@@ -34,10 +38,6 @@
     </url>
     <url>
          <loc>https://sierra-moxon.github.io/ber-data-registry/elements/Curie/</loc>
-         <lastmod>2026-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://sierra-moxon.github.io/ber-data-registry/elements/DataRegistry/</loc>
          <lastmod>2026-02-20</lastmod>
     </url>
     <url>
@@ -149,6 +149,10 @@
          <lastmod>2026-02-20</lastmod>
     </url>
     <url>
+         <loc>https://sierra-moxon.github.io/ber-data-registry/elements/catalog_entries/</loc>
+         <lastmod>2026-02-20</lastmod>
+    </url>
+    <url>
          <loc>https://sierra-moxon.github.io/ber-data-registry/elements/category/</loc>
          <lastmod>2026-02-20</lastmod>
     </url>
@@ -170,10 +174,6 @@
     </url>
     <url>
          <loc>https://sierra-moxon.github.io/ber-data-registry/elements/data_quality_notes/</loc>
-         <lastmod>2026-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://sierra-moxon.github.io/ber-data-registry/elements/data_sources/</loc>
          <lastmod>2026-02-20</lastmod>
     </url>
     <url>
@@ -230,10 +230,6 @@
     </url>
     <url>
          <loc>https://sierra-moxon.github.io/ber-data-registry/elements/keywords/</loc>
-         <lastmod>2026-02-20</lastmod>
-    </url>
-    <url>
-         <loc>https://sierra-moxon.github.io/ber-data-registry/elements/lakehouse/</loc>
          <lastmod>2026-02-20</lastmod>
     </url>
     <url>

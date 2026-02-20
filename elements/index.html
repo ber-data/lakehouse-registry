@@ -633,6 +633,10 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="Catalog/">Catalog</a></td>
+<td>Top-level container for the BER data catalog, holding references to lakehouse...</td>
+</tr>
+<tr>
 <td><a href="CatalogEntity/">CatalogEntity</a></td>
 <td>Abstract base class providing shared metadata fields for all catalog entries</td>
 </tr>
@@ -648,10 +652,6 @@
 <td><a href="ContactPoint/">ContactPoint</a></td>
 <td>Structured contact information for a data source, providing a name and email ...</td>
 </tr>
-<tr>
-<td><a href="DataRegistry/">DataRegistry</a></td>
-<td>Top-level container for the BER data catalog, holding references to lakehouse...</td>
-</tr>
 </tbody>
 </table>
 <h2 id="slots">Slots</h2>
@@ -666,6 +666,10 @@
 <tr>
 <td><a href="access_level/">access_level</a></td>
 <td>Visibility/access level of this data source</td>
+</tr>
+<tr>
+<td><a href="catalog_entries/">catalog_entries</a></td>
+<td>Catalog entries (data sources) hosted in this lakehouse</td>
 </tr>
 <tr>
 <td><a href="category/">category</a></td>
@@ -690,10 +694,6 @@
 <tr>
 <td><a href="data_quality_notes/">data_quality_notes</a></td>
 <td>Notes on data quality, known issues, or limitations</td>
-</tr>
-<tr>
-<td><a href="data_sources/">data_sources</a></td>
-<td>Data sources registered in this catalog</td>
 </tr>
 <tr>
 <td><a href="database_engine/">database_engine</a></td>
@@ -750,10 +750,6 @@
 <tr>
 <td><a href="keywords/">keywords</a></td>
 <td>Discovery tags for this data source</td>
-</tr>
-<tr>
-<td><a href="lakehouse/">lakehouse</a></td>
-<td>Reference to the hosting lakehouse for this data source</td>
 </tr>
 <tr>
 <td><a href="lakehouses/">lakehouses</a></td>

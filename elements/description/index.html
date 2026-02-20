@@ -545,11 +545,6 @@ Alias: description</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../DataRegistry/">DataRegistry</a></td>
-<td>Top-level container for the BER data catalog, holding references to lakehouse...</td>
-<td>no</td>
-</tr>
-<tr>
 <td><a href="../Lakehouse/">Lakehouse</a></td>
 <td>A lakehouse environment such as the KBASE Spark lakehouse or a Dremio instanc...</td>
 <td>no</td>
@@ -563,6 +558,11 @@ Alias: description</p>
 <td><a href="../DataSource/">DataSource</a></td>
 <td>A cataloged data source within a lakehouse</td>
 <td>yes</td>
+</tr>
+<tr>
+<td><a href="../Catalog/">Catalog</a></td>
+<td>Top-level container for the BER data catalog, holding references to lakehouse...</td>
+<td>no</td>
 </tr>
 </tbody>
 </table>
@@ -604,7 +604,7 @@ rank: 1000
 slot_uri: dcterms:description
 alias: description
 domain_of:
-- DataRegistry
+- Catalog
 - CatalogEntity
 range: string
 
