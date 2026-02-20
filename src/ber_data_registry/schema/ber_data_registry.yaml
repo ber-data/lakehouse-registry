@@ -353,7 +353,7 @@ slots:
     description: Lakehouses registered in this catalog.
 
   catalog_entries:
-    range: CatalogEntity
+    range: DataSource
     multivalued: true
     inlined_as_list: true
     description: Catalog entries (data sources) hosted in this lakehouse.

@@ -14,9 +14,9 @@ current schema.
 
 | File | Description |
 |------|-------------|
-| [DataRegistry-001.yaml](examples/DataRegistry-001.yaml) | Minimal example with one KBASE lakehouse and one public data source |
-| [DataRegistry-002.yaml](examples/DataRegistry-002.yaml) | Deprecation chain showing version tracking between two linked data sources |
-| [DataRegistry-003.yaml](examples/DataRegistry-003.yaml) | Dremio lakehouse with object storage, relational, and document database sources |
+| [Catalog-001.yaml](examples/Catalog-001.yaml) | Minimal example with one KBASE lakehouse and one public data source |
+| [Catalog-002.yaml](examples/Catalog-002.yaml) | Deprecation chain showing version tracking between two linked data sources |
+| [Catalog-003.yaml](examples/Catalog-003.yaml) | Dremio lakehouse with object storage, relational, and document database sources |
 
 ## Minimal Example
 
