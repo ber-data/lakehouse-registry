@@ -22,6 +22,10 @@ plugins:
   #     scripts:
   #       - gen_pages.py  # or any other name or path
 
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+
 watch:
   - src/ber_data_registry/schema
 
