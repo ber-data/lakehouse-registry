@@ -1,0 +1,34 @@
+id: ber_registry:catalog-001
+title: BER Data Registry - Minimal Example
+description: A minimal valid catalog with one lakehouse and one data source.
+lakehouses:
+  - id: ber_registry:lakehouse-kbase
+    title: KBASE Lakehouse
+    description: Spark-based lakehouse at NERSC for KBase and related projects.
+    endpoint_url: https://kbase-lakehouse.nersc.gov
+    operator: Lawrence Berkeley National Laboratory
+    platform_type: spark
+    created_date: "2023-01-15"
+data_sources:
+  - id: ber_registry:ds-kbase-public
+    title: KBase Public Data
+    description: >-
+      Public reference data shared across all KBase users, including genome
+      annotations, metabolic models, and community datasets.
+    owner: KBase Team
+    contact_point:
+      contact_name: KBase Data Support
+      contact_email: kbase-help@lbl.gov
+    lakehouse: ber_registry:lakehouse-kbase
+    namespace: kbase_public
+    status: active
+    is_deprecated: false
+    update_schedule: weekly
+    access_level: public
+    created_date: "2023-06-01"
+    keywords:
+      - genomics
+      - metabolic models
+      - reference data
+    project_affiliation:
+      - KBase

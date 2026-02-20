@@ -1,0 +1,76 @@
+id: ber_registry:catalog-002
+title: BER Data Registry - Deprecation Chain
+description: >-
+  Demonstrates version tracking and deprecation with two linked data sources.
+lakehouses:
+  - id: ber_registry:lakehouse-kbase
+    title: KBASE Lakehouse
+    description: Spark-based lakehouse at NERSC for KBase and related projects.
+    operator: Lawrence Berkeley National Laboratory
+    platform_type: spark
+    created_date: "2023-01-15"
+data_sources:
+  - id: ber_registry:ds-nmdc-v1
+    title: NMDC Metadata Store v1
+    description: >-
+      Original NMDC metadata store containing sample and biosample metadata.
+      Deprecated in favor of v2 with improved schema and data quality.
+    owner: NMDC Team
+    contact_point:
+      contact_name: NMDC Data Manager
+      contact_email: nmdc-support@lbl.gov
+    lakehouse: ber_registry:lakehouse-kbase
+    namespace: nmdc_metadata_v1
+    status: deprecated
+    is_deprecated: true
+    update_schedule: static
+    access_level: internal
+    created_date: "2022-03-01"
+    last_modified: "2024-11-15"
+    version: "1.0"
+    keywords:
+      - metagenomics
+      - biosample
+      - NMDC
+    project_affiliation:
+      - NMDC
+    domain:
+      - environmental metagenomics
+    deprecation_date: "2024-11-15"
+    deprecation_reason: >-
+      Replaced by v2 with improved schema validation and additional fields
+      for instrument and facility tracking.
+    replaced_by: ber_registry:ds-nmdc-v2
+    category: project
+  - id: ber_registry:ds-nmdc-v2
+    title: NMDC Metadata Store v2
+    description: >-
+      Updated NMDC metadata store with improved schema, facility tracking,
+      and instrument metadata following HPDF report recommendations.
+    owner: NMDC Team
+    contact_point:
+      contact_name: NMDC Data Manager
+      contact_email: nmdc-support@lbl.gov
+    lakehouse: ber_registry:lakehouse-kbase
+    namespace: nmdc_metadata_v2
+    status: active
+    is_deprecated: false
+    update_schedule: daily
+    access_level: public
+    created_date: "2024-11-15"
+    version: "2.0"
+    keywords:
+      - metagenomics
+      - biosample
+      - NMDC
+    project_affiliation:
+      - NMDC
+    domain:
+      - environmental metagenomics
+    previous_version: ber_registry:ds-nmdc-v1
+    facility: NERSC
+    license: CC-BY-4.0
+    format:
+      - Parquet
+    category: project
+    table_count: 42

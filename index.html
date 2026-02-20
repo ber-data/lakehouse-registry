@@ -235,6 +235,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="." class="md-nav__link md-nav__link--active">
         
   
@@ -251,6 +269,47 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -271,6 +330,33 @@
     
   
     Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
   
 
     
@@ -330,6 +416,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -348,10 +464,21 @@
   
 
 
-<h1 id="ber-data-registry">ber-data-registry</h1>
-<p>This is the project description.</p>
+<h1 id="ber-data-registry">BER Data Registry</h1>
+<p>A metadata catalog for scientific data sources across BER-funded lakehouses at LBNL,
+built with <a href="https://linkml.io/">LinkML</a> and aligned with
+<a href="https://www.w3.org/TR/vocab-dcat-3/">DCAT v3</a> and
+<a href="https://resources.data.gov/resources/dcat-us/">DCAT-US</a>.</p>
+<h2 id="overview">Overview</h2>
+<p>The BER Data Registry provides a standardized schema for cataloging databases and
+data sources across scientific lakehouses, including the KBASE Spark lakehouse at
+NERSC and Dremio-based environments. It captures ownership, access control, lifecycle
+status, versioning, and technical metadata for each data source.</p>
+<h2 id="resources">Resources</h2>
 <ul>
 <li>Auto-generated <a href="elements/">schema documentation</a></li>
+<li><a href="examples/">Example YAML files</a> validated against the schema</li>
+<li><a href="about/">About this project</a></li>
 </ul>
 
 
