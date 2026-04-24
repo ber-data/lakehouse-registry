@@ -1,0 +1,349 @@
+id: ber_registry:catalog-jgi-dremio
+title: JGI Dremio Lakehouse Registry
+description: Auto-discovered data sources from the JGI Dremio lakehouse at https://lakehouse-poc.jgi.lbl.gov.
+lakehouses:
+- id: ber_registry:lakehouse-jgi-dremio
+  title: JGI Dremio Lakehouse
+  description: Dremio-based data lakehouse at JGI providing unified query access across
+    MySQL, PostgreSQL, S3, and Iceberg catalogs.
+  endpoint_url: https://lakehouse-poc.jgi.lbl.gov
+  operator: Lawrence Berkeley National Laboratory
+  platform_type: dremio
+  created_date: '2026-03-16'
+  catalog_entries:
+  - id: ber_registry:ds-portal-db-1
+    title: portal-db-1
+    description: Data source 'portal-db-1' (MYSQL) in the JGI Dremio lakehouse.
+    created_date: '2026-03-16'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: portal-db-1
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: relational_database
+    database_engine: mysql
+    table_count: 375
+  - id: ber_registry:ds-smc-db-postgresql
+    title: smc-db postgresql
+    description: Data source 'smc-db postgresql' (POSTGRES) in the JGI Dremio lakehouse.
+    created_date: '2026-03-16'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: smc-db postgresql
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: relational_database
+    database_engine: postgresql
+    table_count: 124
+  - id: ber_registry:ds-plant-db-4
+    title: plant-db-4
+    description: Data source 'plant-db-4' (MONGO) in the JGI Dremio lakehouse.
+    created_date: '2026-03-16'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: plant-db-4
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: document_database
+    database_engine: mongodb
+    table_count: 123632
+  - id: ber_registry:ds-numg-read-only
+    title: numg read only
+    description: Data source 'numg read only' (S3) in the JGI Dremio lakehouse.
+    created_date: '2026-03-16'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: numg read only
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: object_storage
+  - id: ber_registry:ds-ncbi-sourced
+    title: ncbi-sourced
+    description: Data source 'ncbi-sourced' (S3) in the JGI Dremio lakehouse.
+    created_date: '2026-03-16'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: ncbi-sourced
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: object_storage
+  - id: ber_registry:ds-numg-hive-ro
+    title: numg-hive ro
+    description: Data source 'numg-hive ro' (S3) in the JGI Dremio lakehouse.
+    created_date: '2026-03-16'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: numg-hive ro
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: object_storage
+  - id: ber_registry:ds-numg-iceberg
+    title: numg-iceberg
+    description: Data source 'numg-iceberg' (S3) in the JGI Dremio lakehouse.
+    created_date: '2026-03-16'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: numg-iceberg
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: object_storage
+  - id: ber_registry:ds-merfs
+    title: merfs
+    description: Data source 'merfs' (S3) in the JGI Dremio lakehouse.
+    created_date: '2026-03-16'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: merfs
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: object_storage
+    table_count: 1
+  - id: ber_registry:ds-gcs-vm-1-postgresql
+    title: gcs-vm-1 postgresql
+    description: Data source 'gcs-vm-1 postgresql' (POSTGRES) in the JGI Dremio lakehouse.
+    created_date: '2026-03-16'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: gcs-vm-1 postgresql
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: relational_database
+    database_engine: postgresql
+    table_count: 40
+  - id: ber_registry:ds-ese-bridge-bigquery
+    title: ese_bridge_bigquery
+    description: Data source 'ese_bridge_bigquery' (S3) in the JGI Dremio lakehouse.
+    created_date: '2026-03-16'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: ese_bridge_bigquery
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: object_storage
+  - id: ber_registry:ds-cloudflare-logs
+    title: cloudflare logs
+    description: Data source 'cloudflare logs' (S3) in the JGI Dremio lakehouse.
+    created_date: '2026-03-16'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: cloudflare logs
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: object_storage
+    table_count: 1
+  - id: ber_registry:ds-dtdoering-s3
+    title: dtdoering s3
+    description: Data source 'dtdoering s3' (S3) in the JGI Dremio lakehouse.
+    created_date: '2026-03-16'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: dtdoering s3
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: object_storage
+  - id: ber_registry:ds-img-db-1-mysql
+    title: img-db-1 mysql
+    description: Data source 'img-db-1 mysql' (MYSQL) in the JGI Dremio lakehouse.
+    created_date: '2026-03-16'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: img-db-1 mysql
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: relational_database
+    database_engine: mysql
+    table_count: 251
+  - id: ber_registry:ds-plant-db-7-postgresql
+    title: plant-db-7 postgresql
+    description: Data source 'plant-db-7 postgresql' (POSTGRES) in the JGI Dremio
+      lakehouse.
+    created_date: '2026-03-16'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: plant-db-7 postgresql
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: relational_database
+    database_engine: postgresql
+    table_count: 822
+  - id: ber_registry:ds-jgi
+    title: JGI
+    description: Data source 'JGI' (DREMIO_CATALOG_V1) in the JGI Dremio lakehouse.
+    created_date: '2026-03-16'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: JGI
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: namespace
+    table_count: 34
+  - id: ber_registry:ds-sgrid-lakehouse
+    title: sgrid lakehouse
+    description: Data source 'sgrid lakehouse' (S3) in the JGI Dremio lakehouse.
+    created_date: '2026-03-17'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: sgrid lakehouse
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: object_storage
+    table_count: 9
+  - id: ber_registry:ds-myco-db-3-mysql
+    title: myco-db-3 mysql
+    description: Data source 'myco-db-3 mysql' (MYSQL) in the JGI Dremio lakehouse.
+    created_date: '2026-03-20'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: myco-db-3 mysql
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: relational_database
+    database_engine: mysql
+    table_count: 44093
+  - id: ber_registry:ds-myco-db-2-mysql
+    title: myco-db-2 mysql
+    description: Data source 'myco-db-2 mysql' (MYSQL) in the JGI Dremio lakehouse.
+    created_date: '2026-03-20'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: myco-db-2 mysql
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: relational_database
+    database_engine: mysql
+    table_count: 511453
+  - id: ber_registry:ds-myco-db-1-mysql
+    title: myco-db-1 mysql
+    description: Data source 'myco-db-1 mysql' (MYSQL) in the JGI Dremio lakehouse.
+    created_date: '2026-03-16'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: myco-db-1 mysql
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: relational_database
+    database_engine: mysql
+    table_count: 460519
+  - id: ber_registry:ds-poc-staging
+    title: poc-staging
+    description: Data source 'poc-staging' (S3) in the JGI Dremio lakehouse.
+    created_date: '2026-03-25'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: poc-staging
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: object_storage
+    table_count: 42
+  - id: ber_registry:ds-img-db-2-postgresql
+    title: img-db-2 postgresql
+    description: Data source 'img-db-2 postgresql' (POSTGRES) in the JGI Dremio lakehouse.
+    created_date: '2026-03-16'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: img-db-2 postgresql
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: relational_database
+    database_engine: postgresql
+    table_count: 929
+  - id: ber_registry:ds-gold-db-2-postgresql
+    title: gold-db-2 postgresql
+    description: Data source 'gold-db-2 postgresql' (POSTGRES) in the JGI Dremio lakehouse.
+    created_date: '2026-03-16'
+    owner: Unknown
+    contact_point:
+      contact_name: Unknown
+      contact_email: unknown@lbl.gov
+    namespace: gold-db-2 postgresql
+    status: active
+    is_deprecated: false
+    update_schedule: unknown
+    access_level: internal
+    source_type: relational_database
+    database_engine: postgresql
+    table_count: 378
