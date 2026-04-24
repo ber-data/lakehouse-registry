@@ -7,6 +7,7 @@ theme:
   #  primary: cyan
   features:
     - content.tabs.link
+    - navigation.tabs
 
 # for adding extra css/js see https://www.mkdocs.org/user-guide/customizing-your-theme/
 
@@ -21,12 +22,17 @@ plugins:
   #     scripts:
   #       - gen_pages.py  # or any other name or path
 
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+
 watch:
   - src/ber_data_registry/schema
 
 nav:
   - Home: index.md
   - Schema: elements/index.md
+  - Examples: examples.md
   - About: about.md
 
 exclude_docs: |
