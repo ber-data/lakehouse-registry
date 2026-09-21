@@ -31,6 +31,7 @@ watch:
 
 nav:
   - Home: index.md
+  - View Registry: registry.md
   - Schema: elements/index.md
   - Examples: examples.md
   - About: about.md
@@ -38,8 +39,8 @@ nav:
 exclude_docs: |
   /templates-linkml/
 
-site_url: https://sierra-moxon.github.io/ber-data-registry
-repo_url: https://github.com/sierra-moxon/ber-data-registry
+site_url: https://ber-data.github.io/lakehouse-registry
+repo_url: https://github.com/ber-data/lakehouse-registry
 
 # Uncomment this block to enable use of Google Analytics.
 # Replace the property value with your own ID.
