@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://ber-data.github.io/lakehouse-registry/elements/">
+        <link rel="canonical" href="https://ber-data.github.io/lakehouse-registry/registry/">
       
       
-        <link rel="prev" href="../registry/">
+        <link rel="prev" href="..">
       
       
-        <link rel="next" href="../examples/">
+        <link rel="next" href="../elements/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Schema - ber-data-registry</title>
+        <title>View Registry - ber-data-registry</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ber-data-registry" class="md-skip">
+        <a href="#ber-lakehouse-registry" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Schema
+              View Registry
             
           </span>
         </div>
@@ -208,9 +208,11 @@
   
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../registry/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
   
@@ -227,11 +229,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../elements/" class="md-tabs__link">
         
   
   
@@ -358,33 +358,6 @@
       
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../registry/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    View Registry
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -404,7 +377,7 @@
   <span class="md-ellipsis">
     
   
-    Schema
+    View Registry
   
 
     
@@ -422,7 +395,7 @@
   <span class="md-ellipsis">
     
   
-    Schema
+    View Registry
   
 
     
@@ -448,54 +421,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#classes" class="md-nav__link">
+  <a href="#bridge-lakehouse" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Classes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#slots" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Slots
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enumerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Enumerations
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Types
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#subsets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Subsets
+        BRIDGE Lakehouse
       
     </span>
   </a>
@@ -506,6 +435,33 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -591,54 +547,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#classes" class="md-nav__link">
+  <a href="#bridge-lakehouse" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Classes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#slots" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Slots
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enumerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Enumerations
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Types
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#subsets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Subsets
+        BRIDGE Lakehouse
       
     </span>
   </a>
@@ -665,370 +577,359 @@
   
 
 
-<h1 id="ber-data-registry">BER Data Registry</h1>
-<p>A LinkML schema for cataloging databases and data sources across scientific lakehouses at LBNL, including KBASE (Spark-based) and Dremio environments. Informed by the HPDF Data Catalog &amp; Lakehouse Demo report (Cohoon &amp; Paine, LBNL-2001745, Dec 2025), DCAT v3, and DCAT-US.</p>
-<p>URI: https://w3id.org/ber-data/ber-data-registry</p>
-<p>Name: ber_data_registry</p>
-<h2 id="classes">Classes</h2>
+<h1 id="ber-lakehouse-registry">BER Lakehouse Registry</h1>
+<p>The BER lakehouse registry. Schemas, standards, and reporting formats relevant to BER lakehouse data, imported from the BER data management "schema sources" tracking sheet. Each schema/standard is registered as a data source hosted (or planned to be hosted) in the BRIDGE lakehouse. This file is the registry itself: edit it to add or update entries, and validate with <code>just test</code>.</p>
+<p>Download the registry as YAML: <a href="../lakehouse-registry.yaml">lakehouse-registry.yaml</a></p>
+<p>To add or update an entry, edit <a href="https://github.com/ber-data/lakehouse-registry/blob/main/lakehouse-registry.yaml"><code>lakehouse-registry.yaml</code></a> in the repository root and open a pull request. Entries are validated against the <a href="../elements/">registry schema</a> in CI.</p>
+<h2 id="bridge-lakehouse">BRIDGE Lakehouse</h2>
+<p>Starburst-based BRIDGE data lakehouse serving as the primary hosting platform for data conforming to the registered BER schema sources. Platform is Starburst (Trino); recorded as 'other' because the PlatformType enum does not yet include starburst.</p>
+<p><em>Operator: Lawrence Berkeley National Laboratory · Platform: other · Entries: 48</em></p>
 <table>
 <thead>
 <tr>
-<th>Class</th>
+<th>Entry</th>
 <th>Description</th>
+<th>Owner (Contact)</th>
+<th>Status</th>
+<th>Access</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="Catalog/">Catalog</a></td>
-<td>Top-level container for the BER data catalog, holding references to lakehouse...</td>
+<td><a href="https://github.com/microbiomedata/nmdc-schema">nmdc-schema</a></td>
+<td>National Microbiome Data Collaborative (NMDC) LinkML schema and submission schema. Field/element names are intended to be clearly defined with metadata, not ju…</td>
+<td>Montana Smith</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="CatalogEntity/">CatalogEntity</a></td>
-<td>Abstract base class providing shared metadata fields for all catalog entries</td>
+<td>IDeA-schema</td>
+<td>A schema for AI-driven enzyme discovery and biosynthetic pathway optimization. Represents a target reaction, the enzyme families ranked against it, candidate e…</td>
+<td>Arvind Ramanathan</td>
+<td>experimental</td>
+<td>internal</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="DataSource/">DataSource</a></td>
-<td>A cataloged data source within a lakehouse</td>
+<td><a href="https://github.com/MIAPPE/MIAPPE/blob/master/MIAPPE_Checklist_Data_Model.pdf">plant phenotyping schema</a></td>
+<td>Plant phenotyping schema for APPL (Advanced Plant Phenotyping Laboratory) based on the MIAPPE checklist and data model.</td>
+<td>Priya Ranjan</td>
+<td>experimental</td>
+<td>public</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Lakehouse/">Lakehouse</a></td>
-<td>A lakehouse environment such as the KBASE Spark lakehouse or a Dremio instanc...</td>
+<td><a href="https://github.com/lambda-ber/lambda-ber-schema/tree/main/src/lambda_ber_schema/schema">lambda-ber-schema</a></td>
+<td>A comprehensive LinkML schema for representing multimodal structural biology imaging data, from atomic-resolution structures to tissue-level organization.</td>
+<td>Harry Caufield</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="ContactPoint/">ContactPoint</a></td>
-<td>Structured contact information for a data source, providing a name and email ...</td>
+<td><a href="https://github.com/lambda-ber/aims-leaf/tree/main/src/aims_leaf_schema/schema">aims-leaf</a></td>
+<td>A schema for plant biology data, built on the lambda-ber-schema.</td>
+<td>Sam Webb (Harry Caufield)</td>
+<td>experimental</td>
+<td>public</td>
 </tr>
-</tbody>
-</table>
-<h2 id="slots">Slots</h2>
-<table>
-<thead>
 <tr>
-<th>Slot</th>
-<th>Description</th>
+<td>JBEI Ganymede</td>
+<td>Plant protein expression and sample data from the JBEI Ganymede system. Only a pseudo-schema is available.</td>
+<td>Chris Petzold (Valerie Skye)</td>
+<td>experimental</td>
+<td>internal</td>
 </tr>
-</thead>
-<tbody>
 <tr>
-<td><a href="access_level/">access_level</a></td>
-<td>Visibility/access level of this data source</td>
+<td><a href="https://github.com/bioenergy-research-centers/brc-schema/tree/main/src/brc_schema/schema">brc-schema</a></td>
+<td>A schema for the Bioenergy Research Center portal. Describes properties of datasets in bioenergy, environmental science, earth science, and related fields.</td>
+<td>Harry Caufield</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="catalog_entries/">catalog_entries</a></td>
-<td>Catalog entries (data sources) hosted in this lakehouse</td>
+<td><a href="https://github.com/bioenergy-research-centers/brc-schema/blob/main/src/brc_schema/schema/osti_schema.yaml">osti-schema</a></td>
+<td>A LinkML representation of the E-Link 2.0 schema used by OSTI. Includes slots for legacy compatibility with previous E-Link versions. Developed as part of the…</td>
+<td>Harry Caufield</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="category/">category</a></td>
-<td>Organizational category (project, shared, personal, system)</td>
+<td><a href="https://github.com/Knowledge-Graph-Hub/kg-registry/tree/main/src/kg_registry/kg_registry_schema/schema">kg-registry-schema</a></td>
+<td>A schema defining properties and relationships between knowledge graphs, data resources, interfaces, tools, and documentation. Part of the KG-Registry project…</td>
+<td>Harry Caufield</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="contact_email/">contact_email</a></td>
-<td>Email address of the contact person</td>
+<td><a href="https://github.com/bridge2ai/standards-schemas">standards-schemas</a></td>
+<td>A schema for metadata about biomedical data standards, including their AI/ML applications, related topics, substrates, organizations, and more. Part of the Bri…</td>
+<td>Harry Caufield</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="contact_name/">contact_name</a></td>
-<td>Full name of the contact person</td>
+<td><a href="https://github.com/bridge2ai/data-sheets-schema">data-sheets-schema</a></td>
+<td>A schema for detailed metadata about biological and biomedical datasets. Implemented as part of the Bridge2AI project.</td>
+<td>Marcin Joachimiak (Harry Caufield)</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="contact_point/">contact_point</a></td>
-<td>Structured contact information for this data source</td>
+<td><a href="https://github.com/bridge2ai/model-card-schema">model-card-schema</a></td>
+<td>A schema for detailed metadata about computational models. Implemented as part of the Bridge2AI project.</td>
+<td>Marcin Joachimiak (Harry Caufield)</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="created_date/">created_date</a></td>
-<td>Date this entity was first created or registered</td>
+<td><a href="https://github.com/dschristianson/basin3dschema">basin3d-linkml</a></td>
+<td>Prototype basin3d data model in LinkML schema.</td>
+<td>Danielle Christianson</td>
+<td>experimental</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="data_quality_notes/">data_quality_notes</a></td>
-<td>Notes on data quality, known issues, or limitations</td>
+<td><a href="https://github.com/BASIN-3D/basin3d">basin3d</a></td>
+<td>Customizable on-demand data synthesis software based on OGC O&amp;M data models; timeseries support.</td>
+<td>Danielle Christianson</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="database_engine/">database_engine</a></td>
-<td>Database engine for Dremio database sources (e</td>
+<td><a href="https://github.com/ess-dive-workspace">ess-dive-rf</a></td>
+<td>ESS-DIVE Reporting Formats.</td>
+<td>Danielle Christianson</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="deprecation_date/">deprecation_date</a></td>
-<td>Date this data source was deprecated</td>
+<td><a href="https://ameriflux.lbl.gov/data/aboutdata/data-variables/">flux-processing</a></td>
+<td>Fluxnet (AmeriFlux) standard for flux/met timeseries data; developed and supported by AmeriFlux, ICOS / EuroFlux.</td>
+<td>Danielle Christianson</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="deprecation_reason/">deprecation_reason</a></td>
-<td>Explanation for why this data source was deprecated</td>
+<td><a href="https://ameriflux.lbl.gov/data/badm/badm-standards/">badm</a></td>
+<td>Biological Ancillary Disturbance Metadata (BADM) standard followed by the Fluxnet community for contextual and ancillary data observed at / near flux research…</td>
+<td>Danielle Christianson</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="description/">description</a></td>
-<td>Free-text description of this entity</td>
+<td><a href="https://datatracker.ietf.org/doc/html/rfc7946">geojson</a></td>
+<td>GeoJSON format (IETF RFC 7946). Listed here as a reference standard.</td>
+<td>Danielle Christianson</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="documentation_url/">documentation_url</a></td>
-<td>URL to external documentation for this data source</td>
+<td><a href="https://docs.ogc.org/as/20-082r4/20-082r4.html">ogc-om3</a></td>
+<td>OGC Observations &amp; Measurements v3 (ISO 19156:2023(E); OGC 20-082r4 v3.0). Listed here as a reference standard.</td>
+<td>Danielle Christianson</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="doi/">doi</a></td>
-<td>DOI if this data source has been published</td>
+<td><a href="https://docs.ogc.org/DRAFTS/21-045r1.html">OGC Features and Geometries JSON</a></td>
+<td>Proposed OGC Features &amp; Geometries JSON standard (draft). Listed here as a reference standard.</td>
+<td>Unknown</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="domain/">domain</a></td>
-<td>Scientific domain(s) covered by this data source</td>
+<td><a href="https://www.ogc.org/standards/eo-geojson/">OGC EO JSON-LD</a></td>
+<td>OGC Earth Observation JSON-LD standard. Listed here as a reference standard.</td>
+<td>Unknown</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="endpoint_url/">endpoint_url</a></td>
-<td>URL endpoint for accessing the lakehouse</td>
+<td><a href="https://odm2.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2SamplingFeatures.html">ODM2</a></td>
+<td>Observations Data Model 2 (ODM2), including sampling features, sampling feature geotypes, and elevation datum vocabularies. Listed here as a reference standard.</td>
+<td>Danielle Christianson</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="facility/">facility</a></td>
-<td>Originating facility (e</td>
+<td><a href="https://www.fgdc.gov/standards/projects/metadata/base-metadata/v2_0698.pdf">fgdc</a></td>
+<td>FGDC (Federal Geographic Data Committee) metadata and framework data standards. Listed here as a reference standard.</td>
+<td>Danielle Christianson</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="format/">format</a></td>
-<td>Data format(s) available (e</td>
+<td><a href="https://stacspec.org/en">STAC</a></td>
+<td>SpatioTemporal Asset Catalog (STAC) specification. Listed here as a reference standard.</td>
+<td>Unknown</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="id/">id</a></td>
-<td>Unique identifier for this catalog entity</td>
+<td><a href="https://ngmdb.usgs.gov/Info/standards/GeMS/">USGS GeMS</a></td>
+<td>USGS Geologic Map Schema (GeMS). Listed here as a reference standard.</td>
+<td>Unknown</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="instrument/">instrument</a></td>
-<td>Instrument or sensor that generated the data</td>
+<td><a href="https://resources.data.gov/standards/catalog/dcat-us/">EDX / DCAT</a></td>
+<td>NETL EDX data discovery and the DCAT-US metadata standard. Listed here as a reference standard.</td>
+<td>Unknown</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="is_deprecated/">is_deprecated</a></td>
-<td>Whether this data source is deprecated</td>
+<td><a href="https://compass.astm.org/content-access?contentCode=ISO%7CISO%2FIEC%2030173%3A2023%7Cen-US">iso19115-loc-meta</a></td>
+<td>ISO 19115 Location Metadata standard. Listed here as a reference standard.</td>
+<td>Danielle Christianson</td>
+<td>active</td>
+<td>restricted</td>
 </tr>
 <tr>
-<td><a href="keywords/">keywords</a></td>
-<td>Discovery tags for this data source</td>
+<td><a href="https://docs.ogc.org/is/19-086r4/19-086r4.html">OGC API - EDR</a></td>
+<td>OGC API - Environmental Data Retrieval (EDR) standard. Listed here as a reference standard.</td>
+<td>Unknown</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="lakehouses/">lakehouses</a></td>
-<td>Lakehouses registered in this catalog</td>
+<td><a href="https://ogcapi.ogc.org/features/">OGC API - Features</a></td>
+<td>OGC API - Features standard. Listed here as a reference standard.</td>
+<td>Unknown</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="last_modified/">last_modified</a></td>
-<td>Date this entity was last updated</td>
+<td><a href="https://osduforum.org/01-the-osdu-technical-standard/">The Open Group OSDU Technical Standard</a></td>
+<td>The Open Group OSDU technical standard (industry standards organization). Listed here as a reference standard.</td>
+<td>Unknown</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="license/">license</a></td>
-<td>License governing use of this data source</td>
+<td><a href="https://docs.ogc.org/is/10-157r4/10-157r4.html">OGC Earth Observation Metadata</a></td>
+<td>OGC Earth Observation Metadata profile. Listed here as a reference standard.</td>
+<td>Unknown</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="lineage/">lineage</a></td>
-<td>Provenance or lineage information for this data source</td>
+<td><a href="https://ber-data.github.io/bertron-schema/">BERtron</a></td>
+<td>Cross-BER sample metadata, geolocation-centric, with attributes, for NMDC, JGI, EMSL, ESS-DIVE.</td>
+<td>Montana Smith (Sierra Moxon)</td>
+<td>experimental</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="modality/">modality</a></td>
-<td>Data modality (e</td>
+<td><a href="https://github.com/biodatamodels/gff-schema">JGI GFF</a></td>
+<td>Annotations for JGI-produced genomes.</td>
+<td>Valerie Skye</td>
+<td>experimental</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="namespace/">namespace</a></td>
-<td>Database name, source name, or space name within the lakehouse (e</td>
+<td>JGI GOLD</td>
+<td>JGI project, sample, and analysis metadata (GOLD).</td>
+<td>Valerie Skye</td>
+<td>experimental</td>
+<td>internal</td>
 </tr>
 <tr>
-<td><a href="operator/">operator</a></td>
-<td>Organization or team operating this lakehouse</td>
+<td>JGI Proposal DB</td>
+<td>JGI proposal database (via the data warehouse).</td>
+<td>Valerie Skye</td>
+<td>experimental</td>
+<td>internal</td>
 </tr>
 <tr>
-<td><a href="owner/">owner</a></td>
-<td>Person or team responsible for this data source</td>
+<td><a href="https://kbase.github.io/cdm-schema/">kbase-cdm</a></td>
+<td>KBase Central Data Model (CDM) schema.</td>
+<td>AJ</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="platform_type/">platform_type</a></td>
-<td>The technology platform underlying this lakehouse</td>
+<td><a href="https://www.kbase.us/news/kbase-credit-metadata-schema/">kbase-credit</a></td>
+<td>KBase Credit Metadata schema.</td>
+<td>AJ</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="previous_version/">previous_version</a></td>
-<td>Reference to the previous version of this data source</td>
+<td><a href="https://github.com/EMSL-Computing/BASALT-Schema">BASALT-Schema</a></td>
+<td>MONet data model broadening to support EMSL in general.</td>
+<td>Yuri Corilo</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="project_affiliation/">project_affiliation</a></td>
-<td>BER program affiliations (e</td>
+<td><a href="https://sierra-moxon.github.io/geochem-rf-linkml/elements/erdiagram/">geochem-rf</a></td>
+<td>A LinkML representation of the ESS-DIVE Reporting Formats for Sample Data, Sample ID and Metadata, Location Metadata, and File-level Metadata (the same content…</td>
+<td>Danielle Christianson</td>
+<td>experimental</td>
+<td>internal</td>
 </tr>
 <tr>
-<td><a href="replaced_by/">replaced_by</a></td>
-<td>Reference to the data source that replaces this deprecated one</td>
+<td>AmSC Open Metadata</td>
+<td>American Science Cloud (AmSC) Open Metadata. Not for data loading into the lakehouse, but something the registry may need to conform or map to in order to be c…</td>
+<td>Valerie Skye</td>
+<td>experimental</td>
+<td>restricted</td>
 </tr>
 <tr>
-<td><a href="row_count/">row_count</a></td>
-<td>Number of rows or records in the data source</td>
+<td><a href="https://github.com/jmchandonia/CORAL">CORAL</a></td>
+<td>A framework for rigorous self-validated data modeling and integrative, reproducible data analysis. In some ways more like a data modeling framework (like LinkM…</td>
+<td>Unknown</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="size_bytes/">size_bytes</a></td>
-<td>Total size of the data source in bytes</td>
+<td><a href="https://geoparquet.org/releases/v1.1.0/">GeoParquet</a></td>
+<td>Parquet extension for geospatial data properties.</td>
+<td>Unknown</td>
+<td>active</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="source_type/">source_type</a></td>
-<td>Type of data source within the lakehouse (e</td>
+<td><a href="https://github.com/pranjan77/linkml-test/blob/main/src/linkml_test/schema/linkml_test.yaml">linkml-test</a></td>
+<td>A LinkML test schema.</td>
+<td>Unknown</td>
+<td>experimental</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="spatial_coverage/">spatial_coverage</a></td>
-<td>Geographic or spatial coverage description</td>
+<td><a href="https://github.com/sierra-moxon/miappe-linkml/blob/main/src/miappe_linkml/schema/miappe_linkml.yaml">miappe-linkml</a></td>
+<td>A LinkML representation of the MIAPPE plant phenotyping standard. Related to the plant phenotyping schema.</td>
+<td>Unknown</td>
+<td>experimental</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="status/">status</a></td>
-<td>Current lifecycle status of this data source</td>
+<td><a href="https://github.com/cidgoh/pathogen-genomics-package/blob/main/templates/wastewater/schema.yaml">pathogen-genomics-package</a></td>
+<td>LinkML schema templates for pathogen genomics, including a wastewater template.</td>
+<td>Unknown</td>
+<td>experimental</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="table_count/">table_count</a></td>
-<td>Number of tables or collections in the data source</td>
+<td><a href="https://github.com/microbiomedata/nmdc-lakehouse-schema/blob/main/src/nmdc_lakehouse_schema/schema/nmdc_schema_flattened.yaml">nmdc-lakehouse-schema</a></td>
+<td>A flattened LinkML representation of the NMDC schema for lakehouse use. Related to nmdc-schema.</td>
+<td>Unknown</td>
+<td>experimental</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="temporal_coverage_end/">temporal_coverage_end</a></td>
-<td>End date of the temporal coverage of this data</td>
+<td><a href="https://github.com/sierra-moxon/lakehouse-schema-extraction/tree/main/schemas">lakehouse-schema-extraction</a></td>
+<td>Schemas extracted from lakehouse sources, represented in LinkML.</td>
+<td>Unknown</td>
+<td>experimental</td>
+<td>public</td>
 </tr>
 <tr>
-<td><a href="temporal_coverage_start/">temporal_coverage_start</a></td>
-<td>Start date of the temporal coverage of this data</td>
-</tr>
-<tr>
-<td><a href="title/">title</a></td>
-<td>Human-readable name for this entity</td>
-</tr>
-<tr>
-<td><a href="update_schedule/">update_schedule</a></td>
-<td>How frequently this data source is updated</td>
-</tr>
-<tr>
-<td><a href="version/">version</a></td>
-<td>Version identifier for this data source</td>
-</tr>
-</tbody>
-</table>
-<h2 id="enumerations">Enumerations</h2>
-<table>
-<thead>
-<tr>
-<th>Enumeration</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="AccessLevel/">AccessLevel</a></td>
-<td>Visibility and access restrictions for a data source</td>
-</tr>
-<tr>
-<td><a href="DatabaseEngine/">DatabaseEngine</a></td>
-<td>Specific database engine for database-type sources</td>
-</tr>
-<tr>
-<td><a href="DataSourceCategory/">DataSourceCategory</a></td>
-<td>Organizational category for a data source</td>
-</tr>
-<tr>
-<td><a href="DataSourceStatus/">DataSourceStatus</a></td>
-<td>Lifecycle status of a data source</td>
-</tr>
-<tr>
-<td><a href="PlatformType/">PlatformType</a></td>
-<td>Technology platform for a lakehouse</td>
-</tr>
-<tr>
-<td><a href="SourceType/">SourceType</a></td>
-<td>Type of data source within a lakehouse, particularly relevant for Dremio envi...</td>
-</tr>
-<tr>
-<td><a href="UpdateFrequency/">UpdateFrequency</a></td>
-<td>How often a data source is updated</td>
-</tr>
-</tbody>
-</table>
-<h2 id="types">Types</h2>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="Boolean/">Boolean</a></td>
-<td>A binary (true or false) value</td>
-</tr>
-<tr>
-<td><a href="Curie/">Curie</a></td>
-<td>a compact URI</td>
-</tr>
-<tr>
-<td><a href="Date/">Date</a></td>
-<td>a date (year, month and day) in an idealized calendar</td>
-</tr>
-<tr>
-<td><a href="DateOrDatetime/">DateOrDatetime</a></td>
-<td>Either a date or a datetime</td>
-</tr>
-<tr>
-<td><a href="Datetime/">Datetime</a></td>
-<td>The combination of a date and time</td>
-</tr>
-<tr>
-<td><a href="Decimal/">Decimal</a></td>
-<td>A real number with arbitrary precision that conforms to the xsd:decimal speci...</td>
-</tr>
-<tr>
-<td><a href="Double/">Double</a></td>
-<td>A real number that conforms to the xsd:double specification</td>
-</tr>
-<tr>
-<td><a href="Float/">Float</a></td>
-<td>A real number that conforms to the xsd:float specification</td>
-</tr>
-<tr>
-<td><a href="Integer/">Integer</a></td>
-<td>An integer</td>
-</tr>
-<tr>
-<td><a href="Jsonpath/">Jsonpath</a></td>
-<td>A string encoding a JSON Path</td>
-</tr>
-<tr>
-<td><a href="Jsonpointer/">Jsonpointer</a></td>
-<td>A string encoding a JSON Pointer</td>
-</tr>
-<tr>
-<td><a href="Ncname/">Ncname</a></td>
-<td>Prefix part of CURIE</td>
-</tr>
-<tr>
-<td><a href="Nodeidentifier/">Nodeidentifier</a></td>
-<td>A URI, CURIE or BNODE that represents a node in a model</td>
-</tr>
-<tr>
-<td><a href="Objectidentifier/">Objectidentifier</a></td>
-<td>A URI or CURIE that represents an object in the model</td>
-</tr>
-<tr>
-<td><a href="Sparqlpath/">Sparqlpath</a></td>
-<td>A string encoding a SPARQL Property Path</td>
-</tr>
-<tr>
-<td><a href="String/">String</a></td>
-<td>A character string</td>
-</tr>
-<tr>
-<td><a href="Time/">Time</a></td>
-<td>A time object represents a (local) time of day, independent of any particular...</td>
-</tr>
-<tr>
-<td><a href="Uri/">Uri</a></td>
-<td>a complete URI</td>
-</tr>
-<tr>
-<td><a href="Uriorcurie/">Uriorcurie</a></td>
-<td>a URI or a CURIE</td>
-</tr>
-</tbody>
-</table>
-<h2 id="subsets">Subsets</h2>
-<table>
-<thead>
-<tr>
-<th>Subset</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
+<td><a href="https://github.com/cmungall/basin3d_schema/blob/main/src/basin3d_schema/schema/basin3d_schema.yaml">basin3d-schema</a></td>
+<td>A LinkML schema for the basin3d data model. Related to basin3d-linkml and basin3d.</td>
+<td>Unknown</td>
+<td>experimental</td>
+<td>public</td>
 </tr>
 </tbody>
 </table>
