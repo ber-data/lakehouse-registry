@@ -1,0 +1,1270 @@
+id: ber_registry:lakehouse-registry
+title: BER Lakehouse Registry
+description: >-
+  The BER lakehouse registry. Schemas, standards, and reporting formats
+  relevant to BER lakehouse data, imported from the BER data management
+  "schema sources" tracking sheet. Each schema/standard is registered as a
+  data source hosted (or planned to be hosted) in the BRIDGE lakehouse.
+  This file is the registry itself: edit it to add or update entries, and
+  validate with `just test`.
+lakehouses:
+  - id: ber_registry:lakehouse-bridge-starburst
+    title: BRIDGE Lakehouse
+    description: >-
+      Starburst-based BRIDGE data lakehouse serving as the primary hosting
+      platform for data conforming to the registered BER schema sources.
+      Platform is Starburst (Trino); recorded as 'other' because the
+      PlatformType enum does not yet include starburst.
+    operator: Lawrence Berkeley National Laboratory
+    platform_type: other
+    created_date: "2026-09-21"
+    catalog_entries:
+
+      - id: ber_registry:schema-nmdc-schema
+        title: nmdc-schema
+        description: >-
+          National Microbiome Data Collaborative (NMDC) LinkML schema and
+          submission schema. Field/element names are intended to be clearly
+          defined with metadata, not just data labels.
+        created_date: "2026-09-21"
+        owner: Montana Smith
+        contact_point:
+          contact_name: Montana Smith
+          contact_email: unknown@lbl.gov
+        namespace: nmdc_schema
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/microbiomedata/nmdc-schema
+        facility: LBNL, PNNL
+        project_affiliation:
+          - NMDC
+        keywords:
+          - schema
+          - linkml
+          - microbiome
+        format:
+          - LinkML YAML
+        data_quality_notes: >-
+          Supports embargoed data and pipelines/workflows. See also the
+          submission schema at
+          https://github.com/microbiomedata/submission-schema. Collaborate
+          with user groups/use cases to identify how to condense if need be.
+
+      - id: ber_registry:schema-idea-schema
+        title: IDeA-schema
+        description: >-
+          A schema for AI-driven enzyme discovery and biosynthetic pathway
+          optimization. Represents a target reaction, the enzyme families
+          ranked against it, candidate enzymes and their catalytic sites,
+          predicted and mechanistically explained mutational effects on
+          catalysis, and multi-enzyme pathways to a target molecule. Designed
+          to run over federated DOE data (KBase, JGI, EMSL) accessed through
+          the BER Data Lakehouse.
+        created_date: "2026-09-21"
+        owner: Arvind Ramanathan
+        contact_point:
+          contact_name: Arvind Ramanathan
+          contact_email: unknown@lbl.gov
+        namespace: idea_schema
+        status: experimental
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        facility: ANL, ORNL
+        project_affiliation:
+          - Genesis Mission
+        keywords:
+          - schema
+          - enzyme discovery
+          - AI
+        data_quality_notes: >-
+          In development under the Genesis Mission / DOE BER IDeA (Intelligent
+          Design Assistant) concept. Two-agent design: a discovery agent that
+          ranks enzyme families against a plain reaction description, and a
+          reasoner agent that predicts and explains mutational effects on
+          catalysis. Class list is proposed and pending formal LinkML
+          implementation; repo link and 'using LinkML' / 'production' status
+          to be updated once the schema is stood up. Supports embargoed data
+          and pipelines/workflows.
+
+      - id: ber_registry:schema-plant-phenotyping
+        title: plant phenotyping schema
+        description: >-
+          Plant phenotyping schema for APPL (Advanced Plant Phenotyping
+          Laboratory) based on the MIAPPE checklist and data model.
+        created_date: "2026-09-21"
+        owner: Priya Ranjan
+        contact_point:
+          contact_name: Priya Ranjan
+          contact_email: unknown@lbl.gov
+        namespace: plant_phenotyping_schema
+        status: experimental
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/MIAPPE/MIAPPE/blob/master/MIAPPE_Checklist_Data_Model.pdf
+        facility: ORNL
+        project_affiliation:
+          - APPL
+        keywords:
+          - schema
+          - plant phenotyping
+          - MIAPPE
+        data_quality_notes: >-
+          MIAPPE schema as a basis - needs a schema expert to work with Priya
+          to go through it one by one. Valerie has started working with Swen
+          Boehm to see how this corresponds to LAMBDA and AIMS-LEAF. Sam Webb
+          and Harry were advised by Valerie in this project. Also see
+          https://github.com/MIAPPE/MIAPPE/blob/master/MIAPPE_diagram.svg.
+
+      - id: ber_registry:schema-lambda-ber-schema
+        title: lambda-ber-schema
+        description: >-
+          A comprehensive LinkML schema for representing multimodal structural
+          biology imaging data, from atomic-resolution structures to
+          tissue-level organization.
+        created_date: "2026-09-21"
+        owner: Harry Caufield
+        contact_point:
+          contact_name: Harry Caufield
+          contact_email: unknown@lbl.gov
+        namespace: lambda_ber_schema
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/lambda-ber/lambda-ber-schema/tree/main/src/lambda_ber_schema/schema
+        facility: LBNL, ANL, BNL, ORNL, PNNL, SLAC
+        project_affiliation:
+          - LAMBDA
+        keywords:
+          - schema
+          - linkml
+          - structural biology
+          - imaging
+        format:
+          - LinkML YAML
+        data_quality_notes: >-
+          Supports embargoed data and pipelines/workflows. Beam/image/electron
+          microscopy CryoEM data all resides close to instrumentation - various
+          combinations of technical data, bespoke data management, overlapping
+          vocabularies for annotating.
+
+      - id: ber_registry:schema-aims-leaf
+        title: aims-leaf
+        description: >-
+          A schema for plant biology data, built on the lambda-ber-schema.
+        created_date: "2026-09-21"
+        owner: Sam Webb
+        contact_point:
+          contact_name: Harry Caufield
+          contact_email: unknown@lbl.gov
+        namespace: aims_leaf_schema
+        status: experimental
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/lambda-ber/aims-leaf/tree/main/src/aims_leaf_schema/schema
+        facility: LBNL, SLAC
+        project_affiliation:
+          - AIMS-LEAF
+        keywords:
+          - schema
+          - linkml
+          - plant biology
+        format:
+          - LinkML YAML
+        data_quality_notes: >-
+          Sam Webb (SLAC) is responsible for this schema. Valerie Skye is also
+          a DM team expert. AIMS-LEAF - beam.
+
+      - id: ber_registry:schema-jbei-ganymede
+        title: JBEI Ganymede
+        description: >-
+          Plant protein expression and sample data from the JBEI Ganymede
+          system. Only a pseudo-schema is available.
+        created_date: "2026-09-21"
+        owner: Chris Petzold
+        contact_point:
+          contact_name: Valerie Skye
+          contact_email: unknown@lbl.gov
+        namespace: jbei_ganymede
+        status: experimental
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        facility: LBNL
+        project_affiliation:
+          - OPAL
+          - JBEI
+        keywords:
+          - schema
+          - proteomics
+          - plant biology
+        data_quality_notes: >-
+          Part of OPAL project. Chris Petzold is primary maintainer of the
+          Ganymede lakehouse. Only a pseudo-schema is available. Sierra created
+          ETL for Dremio: https://github.com/sierra-moxon/gbdq-ganymede.
+
+      - id: ber_registry:schema-brc-schema
+        title: brc-schema
+        description: >-
+          A schema for the Bioenergy Research Center portal. Describes
+          properties of datasets in bioenergy, environmental science, earth
+          science, and related fields.
+        created_date: "2026-09-21"
+        owner: Harry Caufield
+        contact_point:
+          contact_name: Harry Caufield
+          contact_email: unknown@lbl.gov
+        namespace: brc_schema
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/bioenergy-research-centers/brc-schema/tree/main/src/brc_schema/schema
+        facility: LBNL, ORNL, Other
+        project_affiliation:
+          - BRC
+        keywords:
+          - schema
+          - linkml
+          - bioenergy
+        format:
+          - LinkML YAML
+        data_quality_notes: >-
+          Much (but not all) of the genome data is produced by JGI. Very
+          publication-centric. Only public data is represented in the repo.
+          See https://api.bioenergy.org/api/datasets and
+          https://bioenergy.org/schema. Valerie Skye is also a DM team expert.
+
+      - id: ber_registry:schema-osti-schema
+        title: osti-schema
+        description: >-
+          A LinkML representation of the E-Link 2.0 schema used by OSTI.
+          Includes slots for legacy compatibility with previous E-Link
+          versions. Developed as part of the xBRC project.
+        created_date: "2026-09-21"
+        owner: Harry Caufield
+        contact_point:
+          contact_name: Harry Caufield
+          contact_email: unknown@lbl.gov
+        namespace: osti_schema
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/bioenergy-research-centers/brc-schema/blob/main/src/brc_schema/schema/osti_schema.yaml
+        facility: LBNL, ORNL, Other
+        project_affiliation:
+          - xBRC
+        keywords:
+          - schema
+          - linkml
+          - OSTI
+          - publications
+        format:
+          - LinkML YAML
+        data_quality_notes: >-
+          Published datasets, public focused, various kinds of datasets
+          (genome, other), multiple versions of the schema in play at any
+          time. Access raw data from each BRC, access combined data from
+          Bioenergy.org. Candidate for lakehouse(s)? Chris Petzold is also PI
+          here. Supports embargoed data and pipelines/workflows.
+
+      - id: ber_registry:schema-kg-registry-schema
+        title: kg-registry-schema
+        description: >-
+          A schema defining properties and relationships between knowledge
+          graphs, data resources, interfaces, tools, and documentation. Part
+          of the KG-Registry project (https://kghub.org/kg-registry/).
+        created_date: "2026-09-21"
+        owner: Harry Caufield
+        contact_point:
+          contact_name: Harry Caufield
+          contact_email: unknown@lbl.gov
+        namespace: kg_registry_schema
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/Knowledge-Graph-Hub/kg-registry/tree/main/src/kg_registry/kg_registry_schema/schema
+        facility: LBNL
+        project_affiliation:
+          - KG-Registry
+        keywords:
+          - schema
+          - linkml
+          - knowledge graph
+        format:
+          - LinkML YAML
+        data_quality_notes: >-
+          Schema/graph to track KG projects that are already publicly
+          available. Can we use this for our "lakehouse registry" schema?
+          (PROV used here.)
+
+      - id: ber_registry:schema-standards-schemas
+        title: standards-schemas
+        description: >-
+          A schema for metadata about biomedical data standards, including
+          their AI/ML applications, related topics, substrates, organizations,
+          and more. Part of the Bridge2AI Standards Explorer
+          (https://b2ai.standards.synapse.org/).
+        created_date: "2026-09-21"
+        owner: Harry Caufield
+        contact_point:
+          contact_name: Harry Caufield
+          contact_email: unknown@lbl.gov
+        namespace: standards_schemas
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/bridge2ai/standards-schemas
+        facility: LBNL, Other
+        project_affiliation:
+          - Bridge2AI
+        keywords:
+          - schema
+          - linkml
+          - data standards
+        format:
+          - LinkML YAML
+        data_quality_notes: >-
+          See also
+          https://github.com/bridge2ai/b2ai-standards-registry/tree/main/src/schema
+          (a mirror of the schema, used in production).
+
+      - id: ber_registry:schema-data-sheets-schema
+        title: data-sheets-schema
+        description: >-
+          A schema for detailed metadata about biological and biomedical
+          datasets. Implemented as part of the Bridge2AI project.
+        created_date: "2026-09-21"
+        owner: Marcin Joachimiak
+        contact_point:
+          contact_name: Harry Caufield
+          contact_email: unknown@lbl.gov
+        namespace: data_sheets_schema
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/bridge2ai/data-sheets-schema
+        facility: LBNL, Other
+        project_affiliation:
+          - Bridge2AI
+        keywords:
+          - schema
+          - linkml
+          - dataset metadata
+        format:
+          - LinkML YAML
+        data_quality_notes: >-
+          Marcin Joachimiak (LBNL) is responsible for this schema. In use on
+          the Bridge2AI Standards Explorer. Supports embargoed data and
+          pipelines/workflows.
+
+      - id: ber_registry:schema-model-card-schema
+        title: model-card-schema
+        description: >-
+          A schema for detailed metadata about computational models.
+          Implemented as part of the Bridge2AI project.
+        created_date: "2026-09-21"
+        owner: Marcin Joachimiak
+        contact_point:
+          contact_name: Harry Caufield
+          contact_email: unknown@lbl.gov
+        namespace: model_card_schema
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/bridge2ai/model-card-schema
+        facility: LBNL, Other
+        project_affiliation:
+          - Bridge2AI
+        keywords:
+          - schema
+          - linkml
+          - model cards
+        format:
+          - LinkML YAML
+        data_quality_notes: >-
+          Marcin Joachimiak (LBNL) is responsible for this schema. Kjiersten
+          was asking about this concept recently; Google has an Agentic Card
+          quasi-standard:
+          https://developers.googleblog.com/en/announcing-the-agentic-resource-discovery-specification/
+
+      - id: ber_registry:schema-basin3d-linkml
+        title: basin3d-linkml
+        description: Prototype basin3d data model in LinkML schema.
+        created_date: "2026-09-21"
+        owner: Danielle Christianson
+        contact_point:
+          contact_name: Danielle Christianson
+          contact_email: unknown@lbl.gov
+        namespace: basin3d_linkml
+        status: experimental
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/dschristianson/basin3dschema
+        facility: LBNL
+        keywords:
+          - schema
+          - linkml
+          - hydrology
+        format:
+          - LinkML YAML
+        data_quality_notes: >-
+          Map existing data to this common data model - current model is in
+          Python dataclasses. Supports embargoed data.
+
+      - id: ber_registry:schema-basin3d
+        title: basin3d
+        description: >-
+          Customizable on-demand data synthesis software based on OGC O&M data
+          models; timeseries support.
+        created_date: "2026-09-21"
+        owner: Danielle Christianson
+        contact_point:
+          contact_name: Danielle Christianson
+          contact_email: unknown@lbl.gov
+        namespace: basin3d
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/BASIN-3D/basin3d
+        facility: LBNL
+        project_affiliation:
+          - Watershed Function SFA
+          - ESS-DIVE
+        keywords:
+          - data synthesis
+          - timeseries
+          - OGC O&M
+        data_quality_notes: >-
+          Used in Watershed Function - SFA, iNAIADS project, supported by
+          ESS-DIVE. Connections to USGS Daily and Instantaneous Water Service,
+          EPA Water Quality (WQX). Connections to AmeriFlux FLUXNET and ARM
+          met data in FY26.
+
+      - id: ber_registry:schema-ess-dive-rf
+        title: ess-dive-rf
+        description: ESS-DIVE Reporting Formats.
+        created_date: "2026-09-21"
+        owner: Danielle Christianson
+        contact_point:
+          contact_name: Danielle Christianson
+          contact_email: unknown@lbl.gov
+        namespace: ess_dive_rf
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/ess-dive-workspace
+        facility: LBNL
+        project_affiliation:
+          - ESS-DIVE
+        keywords:
+          - reporting format
+          - environmental science
+        data_quality_notes: >-
+          RFs under revision; to be released in Fall 2026; links are to most
+          likely version available in Fall 2026. High-priority RFs for BRIDGE
+          consideration: Dataset Metadata
+          (https://github.com/ess-dive-workspace/essdive-dataset-metadata),
+          File-level Metadata
+          (https://github.com/ess-dive-workspace/essdive-file-level-metadata),
+          Sample ID and Metadata v2
+          (https://github.com/ess-dive-workspace/essdive-sample-id-metadata/tree/release-v2.0,
+          SESAR), Location Metadata v2
+          (https://github.com/ess-dive-workspace/essdive-location-metadata/tree/release-v2.0.0),
+          Sample Data
+          (https://github.com/ess-dive-workspace/essdive-sample-data-full/tree/release-v1.0.0),
+          Sensor Time Series
+          (https://github.com/ess-dive-workspace/essdive-sensor-time-series-full/tree/release-v1.0.0).
+
+      - id: ber_registry:schema-flux-processing
+        title: flux-processing
+        description: >-
+          Fluxnet (AmeriFlux) standard for flux/met timeseries data; developed
+          and supported by AmeriFlux, ICOS / EuroFlux.
+        created_date: "2026-09-21"
+        owner: Danielle Christianson
+        contact_point:
+          contact_name: Danielle Christianson
+          contact_email: unknown@lbl.gov
+        namespace: flux_processing
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://ameriflux.lbl.gov/data/aboutdata/data-variables/
+        facility: LBNL, Other
+        project_affiliation:
+          - AmeriFlux
+          - FLUXNET
+        keywords:
+          - flux
+          - timeseries
+          - standard
+        data_quality_notes: >-
+          Fluxnet and AmeriFlux flux/met time series use this format.
+          AmeriFlux has an automated pipeline for Format and Data QA/QC based
+          on this standard.
+
+      - id: ber_registry:schema-badm
+        title: badm
+        description: >-
+          Biological Ancillary Disturbance Metadata (BADM) standard followed
+          by the Fluxnet community for contextual and ancillary data observed
+          at / near flux research sites; supported by AmeriFlux and ICOS /
+          EuroFlux.
+        created_date: "2026-09-21"
+        owner: Danielle Christianson
+        contact_point:
+          contact_name: Danielle Christianson
+          contact_email: unknown@lbl.gov
+        namespace: badm
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://ameriflux.lbl.gov/data/badm/badm-standards/
+        facility: LBNL, Other
+        project_affiliation:
+          - AmeriFlux
+          - FLUXNET
+        keywords:
+          - metadata standard
+          - flux sites
+        data_quality_notes: >-
+          Fluxnet and AmeriFlux use BADM for (meta-)data supporting flux/met
+          timeseries and earth system science at flux research sites.
+          AmeriFlux has automated pipelines that rely on these standards.
+
+      - id: ber_registry:schema-geojson
+        title: geojson
+        description: GeoJSON format (IETF RFC 7946). Listed here as a reference standard.
+        created_date: "2026-09-21"
+        owner: Danielle Christianson
+        contact_point:
+          contact_name: Danielle Christianson
+          contact_email: unknown@lbl.gov
+        namespace: geojson
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://datatracker.ietf.org/doc/html/rfc7946
+        facility: Other
+        keywords:
+          - reference standard
+          - geospatial
+
+      - id: ber_registry:schema-ogc-om3
+        title: ogc-om3
+        description: >-
+          OGC Observations & Measurements v3 (ISO 19156:2023(E); OGC 20-082r4
+          v3.0). Listed here as a reference standard.
+        created_date: "2026-09-21"
+        owner: Danielle Christianson
+        contact_point:
+          contact_name: Danielle Christianson
+          contact_email: unknown@lbl.gov
+        namespace: ogc_om3
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://docs.ogc.org/as/20-082r4/20-082r4.html
+        facility: Other
+        keywords:
+          - reference standard
+          - observations and measurements
+
+      - id: ber_registry:schema-ogc-features-geometries-json
+        title: OGC Features and Geometries JSON
+        description: >-
+          Proposed OGC Features & Geometries JSON standard (draft). Listed
+          here as a reference standard.
+        created_date: "2026-09-21"
+        owner: Unknown
+        contact_point:
+          contact_name: Unknown
+          contact_email: unknown@lbl.gov
+        namespace: ogc_features_geometries_json
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://docs.ogc.org/DRAFTS/21-045r1.html
+        facility: Other
+        keywords:
+          - reference standard
+          - geospatial
+
+      - id: ber_registry:schema-ogc-eo-geojson
+        title: OGC EO JSON-LD
+        description: >-
+          OGC Earth Observation JSON-LD standard. Listed here as a reference
+          standard.
+        created_date: "2026-09-21"
+        owner: Unknown
+        contact_point:
+          contact_name: Unknown
+          contact_email: unknown@lbl.gov
+        namespace: ogc_eo_geojson
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://www.ogc.org/standards/eo-geojson/
+        facility: Other
+        keywords:
+          - reference standard
+          - earth observation
+
+      - id: ber_registry:schema-odm2
+        title: ODM2
+        description: >-
+          Observations Data Model 2 (ODM2), including sampling features,
+          sampling feature geotypes, and elevation datum vocabularies. Listed
+          here as a reference standard.
+        created_date: "2026-09-21"
+        owner: Danielle Christianson
+        contact_point:
+          contact_name: Danielle Christianson
+          contact_email: unknown@lbl.gov
+        namespace: odm2
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://odm2.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2SamplingFeatures.html
+        facility: Other
+        keywords:
+          - reference standard
+          - observations
+        data_quality_notes: >-
+          Additional references:
+          https://odm2.github.io/ODM2/schemas/ODM2_Current/tables/ODM2Core_SamplingFeatures.html,
+          http://vocabulary.odm2.org/samplingfeaturegeotype/,
+          http://vocabulary.odm2.org/elevationdatum/
+
+      - id: ber_registry:schema-fgdc
+        title: fgdc
+        description: >-
+          FGDC (Federal Geographic Data Committee) metadata and framework data
+          standards. Listed here as a reference standard.
+        created_date: "2026-09-21"
+        owner: Danielle Christianson
+        contact_point:
+          contact_name: Danielle Christianson
+          contact_email: unknown@lbl.gov
+        namespace: fgdc
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://www.fgdc.gov/standards/projects/metadata/base-metadata/v2_0698.pdf
+        facility: Other
+        keywords:
+          - reference standard
+          - geospatial metadata
+        data_quality_notes: >-
+          Additional references:
+          https://www.fgdc.gov/standards/projects/framework-data-standard/GI_FrameworkDataStandard_Part0_Base.pdf,
+          https://www.fgdc.gov/standards/projects/framework-data-standard/GI_FrameworkDataStandard_Part3_Elevation.pdf
+
+      - id: ber_registry:schema-stac
+        title: STAC
+        description: >-
+          SpatioTemporal Asset Catalog (STAC) specification. Listed here as a
+          reference standard.
+        created_date: "2026-09-21"
+        owner: Unknown
+        contact_point:
+          contact_name: Unknown
+          contact_email: unknown@lbl.gov
+        namespace: stac
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://stacspec.org/en
+        facility: Other
+        keywords:
+          - reference standard
+          - spatiotemporal
+        data_quality_notes: >-
+          Additional reference: https://docs.ogc.org/cs/25-004/25-004.html
+
+      - id: ber_registry:schema-usgs-gems
+        title: USGS GeMS
+        description: >-
+          USGS Geologic Map Schema (GeMS). Listed here as a reference
+          standard.
+        created_date: "2026-09-21"
+        owner: Unknown
+        contact_point:
+          contact_name: Unknown
+          contact_email: unknown@lbl.gov
+        namespace: usgs_gems
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://ngmdb.usgs.gov/Info/standards/GeMS/
+        facility: Other
+        keywords:
+          - reference standard
+          - geologic maps
+
+      - id: ber_registry:schema-edx-dcat
+        title: EDX / DCAT
+        description: >-
+          NETL EDX data discovery and the DCAT-US metadata standard. Listed
+          here as a reference standard.
+        created_date: "2026-09-21"
+        owner: Unknown
+        contact_point:
+          contact_name: Unknown
+          contact_email: unknown@lbl.gov
+        namespace: edx_dcat
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://resources.data.gov/standards/catalog/dcat-us/
+        keywords:
+          - reference standard
+          - data catalog
+        data_quality_notes: >-
+          Additional references:
+          https://edx.netl.doe.gov/sites/discover/find-data/,
+          https://resources.data.gov/resources/dcat-us/#spatial
+
+      - id: ber_registry:schema-iso19115-loc-meta
+        title: iso19115-loc-meta
+        description: >-
+          ISO 19115 Location Metadata standard. Listed here as a reference
+          standard.
+        created_date: "2026-09-21"
+        owner: Danielle Christianson
+        contact_point:
+          contact_name: Danielle Christianson
+          contact_email: unknown@lbl.gov
+        namespace: iso19115_loc_meta
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: restricted
+        documentation_url: https://compass.astm.org/content-access?contentCode=ISO%7CISO%2FIEC%2030173%3A2023%7Cen-US
+        facility: Other
+        keywords:
+          - reference standard
+          - location metadata
+        data_quality_notes: Standard text accessible from VPN via ASTM Compass.
+
+      - id: ber_registry:schema-ogc-api-edr
+        title: OGC API - EDR
+        description: >-
+          OGC API - Environmental Data Retrieval (EDR) standard. Listed here
+          as a reference standard.
+        created_date: "2026-09-21"
+        owner: Unknown
+        contact_point:
+          contact_name: Unknown
+          contact_email: unknown@lbl.gov
+        namespace: ogc_api_edr
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://docs.ogc.org/is/19-086r4/19-086r4.html
+        facility: Other
+        keywords:
+          - reference standard
+          - environmental data retrieval
+
+      - id: ber_registry:schema-ogc-api-features
+        title: OGC API - Features
+        description: >-
+          OGC API - Features standard. Listed here as a reference standard.
+        created_date: "2026-09-21"
+        owner: Unknown
+        contact_point:
+          contact_name: Unknown
+          contact_email: unknown@lbl.gov
+        namespace: ogc_api_features
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://ogcapi.ogc.org/features/
+        facility: Other
+        keywords:
+          - reference standard
+          - geospatial features
+
+      - id: ber_registry:schema-osdu-technical-standard
+        title: The Open Group OSDU Technical Standard
+        description: >-
+          The Open Group OSDU technical standard (industry standards
+          organization). Listed here as a reference standard.
+        created_date: "2026-09-21"
+        owner: Unknown
+        contact_point:
+          contact_name: Unknown
+          contact_email: unknown@lbl.gov
+        namespace: osdu_technical_standard
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://osduforum.org/01-the-osdu-technical-standard/
+        facility: Other
+        keywords:
+          - reference standard
+          - industry standard
+
+      - id: ber_registry:schema-ogc-eo-metadata
+        title: OGC Earth Observation Metadata
+        description: >-
+          OGC Earth Observation Metadata profile. Listed here as a reference
+          standard.
+        created_date: "2026-09-21"
+        owner: Unknown
+        contact_point:
+          contact_name: Unknown
+          contact_email: unknown@lbl.gov
+        namespace: ogc_eo_metadata
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://docs.ogc.org/is/10-157r4/10-157r4.html
+        facility: Other
+        keywords:
+          - reference standard
+          - earth observation
+
+      - id: ber_registry:schema-bertron
+        title: BERtron
+        description: >-
+          Cross-BER sample metadata, geolocation-centric, with attributes, for
+          NMDC, JGI, EMSL, ESS-DIVE.
+        created_date: "2026-09-21"
+        owner: Montana Smith
+        contact_point:
+          contact_name: Sierra Moxon
+          contact_email: smoxon@lbl.gov
+        namespace: bertron
+        status: experimental
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://ber-data.github.io/bertron-schema/
+        facility: LBNL, PNNL
+        project_affiliation:
+          - BERtron
+        keywords:
+          - schema
+          - linkml
+          - sample metadata
+          - geolocation
+        format:
+          - LinkML YAML
+        data_quality_notes: >-
+          NMDC, JGI, EMSL, ESS-DIVE combined catalog with sample, project, and
+          other dataset metadata. Note: ESS-DIVE has alignment on dataset
+          metadata (i.e., catalog info) but not ESS-DIVE sample metadata.
+          Additional DM team experts: Montana Smith, Valerie Skye.
+
+      - id: ber_registry:schema-jgi-gff
+        title: JGI GFF
+        description: Annotations for JGI-produced genomes.
+        created_date: "2026-09-21"
+        owner: Valerie Skye
+        contact_point:
+          contact_name: Valerie Skye
+          contact_email: unknown@lbl.gov
+        namespace: jgi_gff
+        status: experimental
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/biodatamodels/gff-schema
+        facility: LBNL
+        project_affiliation:
+          - JGI
+        keywords:
+          - genome annotation
+          - GFF
+        data_quality_notes: >-
+          This is already in the Dremio Lakehouse instance and adheres to a
+          pseudo-standard format with a lot of variations.
+
+      - id: ber_registry:schema-jgi-gold
+        title: JGI GOLD
+        description: JGI project, sample, and analysis metadata (GOLD).
+        created_date: "2026-09-21"
+        owner: Valerie Skye
+        contact_point:
+          contact_name: Valerie Skye
+          contact_email: unknown@lbl.gov
+        namespace: jgi_gold
+        status: experimental
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        facility: LBNL
+        project_affiliation:
+          - JGI
+        keywords:
+          - project metadata
+          - sample metadata
+        data_quality_notes: >-
+          The GOLD API(s) emit JSON, but it does not conform to a schema.
+
+      - id: ber_registry:schema-jgi-proposal-db
+        title: JGI Proposal DB
+        description: JGI proposal database (via the data warehouse).
+        created_date: "2026-09-21"
+        owner: Valerie Skye
+        contact_point:
+          contact_name: Valerie Skye
+          contact_email: unknown@lbl.gov
+        namespace: jgi_proposal_db
+        status: experimental
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        facility: LBNL
+        project_affiliation:
+          - JGI
+        keywords:
+          - proposals
+
+      - id: ber_registry:schema-kbase-cdm
+        title: kbase-cdm
+        description: KBase Central Data Model (CDM) schema.
+        created_date: "2026-09-21"
+        owner: AJ
+        contact_point:
+          contact_name: AJ
+          contact_email: unknown@lbl.gov
+        namespace: kbase_cdm
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://kbase.github.io/cdm-schema/
+        facility: LBNL
+        project_affiliation:
+          - KBase
+        keywords:
+          - schema
+          - linkml
+          - central data model
+        format:
+          - LinkML YAML
+        data_quality_notes: KBase CDM and Credit Metadata schema.
+
+      - id: ber_registry:schema-kbase-credit
+        title: kbase-credit
+        description: KBase Credit Metadata schema.
+        created_date: "2026-09-21"
+        owner: AJ
+        contact_point:
+          contact_name: AJ
+          contact_email: unknown@lbl.gov
+        namespace: kbase_credit
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://www.kbase.us/news/kbase-credit-metadata-schema/
+        facility: LBNL
+        project_affiliation:
+          - KBase
+        keywords:
+          - schema
+          - linkml
+          - credit metadata
+        format:
+          - LinkML YAML
+
+      - id: ber_registry:schema-basalt-schema
+        title: BASALT-Schema
+        description: >-
+          MONet data model broadening to support EMSL in general.
+        created_date: "2026-09-21"
+        owner: Yuri Corilo
+        contact_point:
+          contact_name: Yuri Corilo
+          contact_email: unknown@lbl.gov
+        namespace: basalt_schema
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/EMSL-Computing/BASALT-Schema
+        facility: PNNL
+        project_affiliation:
+          - MONet
+          - EMSL
+        keywords:
+          - schema
+          - linkml
+          - soil
+        format:
+          - LinkML YAML
+        data_quality_notes: >-
+          Currently managed on the PNNL internal GitLab but included here
+          because Montana, Yuri, and Bea all work on it and similar modelling
+          is being built out.
+
+      - id: ber_registry:schema-geochem-rf
+        title: geochem-rf
+        description: >-
+          A LinkML representation of the ESS-DIVE Reporting Formats for Sample
+          Data, Sample ID and Metadata, Location Metadata, and File-level
+          Metadata (the same content as ess-dive-rf, represented as LinkML).
+        created_date: "2026-09-21"
+        owner: Danielle Christianson
+        contact_point:
+          contact_name: Danielle Christianson
+          contact_email: unknown@lbl.gov
+        namespace: geochem_rf
+        status: experimental
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        documentation_url: https://sierra-moxon.github.io/geochem-rf-linkml/elements/erdiagram/
+        facility: LBNL
+        project_affiliation:
+          - ESS-DIVE
+        keywords:
+          - schema
+          - linkml
+          - geochemistry
+          - reporting format
+        data_quality_notes: Internal for now.
+
+      - id: ber_registry:schema-amsc-open-metadata
+        title: AmSC Open Metadata
+        description: >-
+          American Science Cloud (AmSC) Open Metadata. Not for data loading
+          into the lakehouse, but something the registry may need to conform
+          or map to in order to be compatible with Open Metadata / American
+          Science Cloud. They are working on permission support / access
+          control.
+        created_date: "2026-09-21"
+        owner: Valerie Skye
+        contact_point:
+          contact_name: Valerie Skye
+          contact_email: unknown@lbl.gov
+        namespace: amsc_open_metadata
+        status: experimental
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: restricted
+        facility: Other
+        keywords:
+          - metadata standard
+          - access control
+        data_quality_notes: >-
+          Not publicly available. Valerie Skye and Val Hendrix have access.
+          Karlo Berket is also a good contact for this. Supports embargoed
+          data.
+
+      - id: ber_registry:schema-coral
+        title: CORAL
+        description: >-
+          A framework for rigorous self-validated data modeling and
+          integrative, reproducible data analysis. In some ways more like a
+          data modeling framework (like LinkML), but with support for defining
+          specific data types in terms of their parameters, properties, etc.
+        created_date: "2026-09-21"
+        owner: Unknown
+        contact_point:
+          contact_name: Unknown
+          contact_email: unknown@lbl.gov
+        namespace: coral
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/jmchandonia/CORAL
+        facility: LBNL
+        project_affiliation:
+          - ENIGMA
+        keywords:
+          - data modeling framework
+        data_quality_notes: Applied in the ENIGMA project.
+
+      - id: ber_registry:schema-geoparquet
+        title: GeoParquet
+        description: Parquet extension for geospatial data properties.
+        created_date: "2026-09-21"
+        owner: Unknown
+        contact_point:
+          contact_name: Unknown
+          contact_email: unknown@lbl.gov
+        namespace: geoparquet
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://geoparquet.org/releases/v1.1.0/
+        facility: Other
+        keywords:
+          - reference standard
+          - geospatial
+          - parquet
+
+      - id: ber_registry:schema-linkml-test
+        title: linkml-test
+        description: A LinkML test schema.
+        created_date: "2026-09-21"
+        owner: Unknown
+        contact_point:
+          contact_name: Unknown
+          contact_email: unknown@lbl.gov
+        namespace: linkml_test
+        status: experimental
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/pranjan77/linkml-test/blob/main/src/linkml_test/schema/linkml_test.yaml
+        keywords:
+          - schema
+          - linkml
+        format:
+          - LinkML YAML
+
+      - id: ber_registry:schema-miappe-linkml
+        title: miappe-linkml
+        description: >-
+          A LinkML representation of the MIAPPE plant phenotyping standard.
+          Related to the plant phenotyping schema.
+        created_date: "2026-09-21"
+        owner: Unknown
+        contact_point:
+          contact_name: Unknown
+          contact_email: unknown@lbl.gov
+        namespace: miappe_linkml
+        status: experimental
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/sierra-moxon/miappe-linkml/blob/main/src/miappe_linkml/schema/miappe_linkml.yaml
+        keywords:
+          - schema
+          - linkml
+          - plant phenotyping
+          - MIAPPE
+        format:
+          - LinkML YAML
+
+      - id: ber_registry:schema-pathogen-genomics-package
+        title: pathogen-genomics-package
+        description: >-
+          LinkML schema templates for pathogen genomics, including a
+          wastewater template.
+        created_date: "2026-09-21"
+        owner: Unknown
+        contact_point:
+          contact_name: Unknown
+          contact_email: unknown@lbl.gov
+        namespace: pathogen_genomics_package
+        status: experimental
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/cidgoh/pathogen-genomics-package/blob/main/templates/wastewater/schema.yaml
+        keywords:
+          - schema
+          - linkml
+          - pathogen genomics
+        format:
+          - LinkML YAML
+
+      - id: ber_registry:schema-nmdc-lakehouse-schema
+        title: nmdc-lakehouse-schema
+        description: >-
+          A flattened LinkML representation of the NMDC schema for lakehouse
+          use. Related to nmdc-schema.
+        created_date: "2026-09-21"
+        owner: Unknown
+        contact_point:
+          contact_name: Unknown
+          contact_email: unknown@lbl.gov
+        namespace: nmdc_lakehouse_schema
+        status: experimental
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/microbiomedata/nmdc-lakehouse-schema/blob/main/src/nmdc_lakehouse_schema/schema/nmdc_schema_flattened.yaml
+        project_affiliation:
+          - NMDC
+        keywords:
+          - schema
+          - linkml
+          - microbiome
+        format:
+          - LinkML YAML
+
+      - id: ber_registry:schema-lakehouse-schema-extraction
+        title: lakehouse-schema-extraction
+        description: >-
+          Schemas extracted from lakehouse sources, represented in LinkML.
+        created_date: "2026-09-21"
+        owner: Unknown
+        contact_point:
+          contact_name: Unknown
+          contact_email: unknown@lbl.gov
+        namespace: lakehouse_schema_extraction
+        status: experimental
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/sierra-moxon/lakehouse-schema-extraction/tree/main/schemas
+        keywords:
+          - schema
+          - linkml
+          - schema extraction
+        format:
+          - LinkML YAML
+        data_quality_notes: >-
+          Needs checking subdirectories for LinkML YAML.
+
+      - id: ber_registry:schema-basin3d-schema
+        title: basin3d-schema
+        description: >-
+          A LinkML schema for the basin3d data model. Related to
+          basin3d-linkml and basin3d.
+        created_date: "2026-09-21"
+        owner: Unknown
+        contact_point:
+          contact_name: Unknown
+          contact_email: unknown@lbl.gov
+        namespace: basin3d_schema
+        status: experimental
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        documentation_url: https://github.com/cmungall/basin3d_schema/blob/main/src/basin3d_schema/schema/basin3d_schema.yaml
+        keywords:
+          - schema
+          - linkml
+          - hydrology
+        format:
+          - LinkML YAML
