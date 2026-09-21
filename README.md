@@ -2,14 +2,29 @@
 
 # ber-data-registry
 
-This is the project description.
+The BER Lakehouse Registry: a catalog of schemas, standards, and data sources
+for BER lakehouses, validated against a LinkML schema.
+
+## The Registry
+
+The registry itself lives in [`lakehouse-registry.yaml`](lakehouse-registry.yaml)
+at the root of this repository. **To register a schema or data source, edit that
+file and open a pull request.** Entries are validated against the
+[registry schema](src/ber_data_registry/schema/ber_data_registry.yaml) by
+`just test` and in CI.
+
+The registry is published on the documentation site:
+
+* Browsable view: <https://ber-data.github.io/lakehouse-registry/registry/>
+* Raw YAML: <https://ber-data.github.io/lakehouse-registry/lakehouse-registry.yaml>
 
 ## Documentation Website
 
-[https://sierra-moxon.github.io/ber-data-registry](https://sierra-moxon.github.io/ber-data-registry)
+[https://ber-data.github.io/lakehouse-registry](https://ber-data.github.io/lakehouse-registry)
 
 ## Repository Structure
 
+* [lakehouse-registry.yaml](lakehouse-registry.yaml) - the registry itself (edit this to add entries)
 * [docs/](docs/) - mkdocs-managed documentation
   * [elements/](docs/elements/) - generated schema documentation
 * [examples/](examples/) - Examples of using the schema
