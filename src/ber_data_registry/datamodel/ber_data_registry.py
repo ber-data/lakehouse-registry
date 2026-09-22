@@ -1,5 +1,5 @@
 # Auto generated from ber_data_registry.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-04-10T08:25:47
+# Generation date: 2026-09-21T16:51:27
 # Schema: ber_data_registry
 #
 # id: https://w3id.org/ber-data/ber-data-registry
