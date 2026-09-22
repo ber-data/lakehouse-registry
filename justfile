@@ -86,7 +86,7 @@ deploy: site
 
 # Run all tests
 [group('model development')]
-test: _test-schema _test-python _test-examples
+test: _test-schema _test-python _test-examples _test-registry
 
 # Run linting
 [group('model development')]
@@ -95,7 +95,7 @@ lint:
 
 # Generate md documentation for the schema
 [group('model development')]
-gen-doc: _gen-yaml _copy-examples _copy-docs
+gen-doc: _gen-yaml _copy-examples _copy-docs _copy-registry
   uv run gen-doc {{gen_doc_args}} -d {{docdir}} {{source_schema_path}}
 
 # Build docs and run test server
@@ -197,6 +197,20 @@ _test-examples: _ensure_examples_output
     --input-directory tests/data/valid \
     --output-directory examples/output \
     --schema {{source_schema_path}} > examples/output/README.md
+
+# Validate the root registry file against the schema
+_test-registry:
+  uv run linkml-validate -s {{source_schema_path}} -C Catalog lakehouse-registry.yaml
+
+# Copy the registry file to docs and generate the registry view page
+_copy-registry:
+  @echo "Copying registry file to docs..."
+  -mkdir -p docs
+  cp lakehouse-registry.yaml docs/
+  uv run python src/scripts/generate_registry_docs.py \
+    --registry-file lakehouse-registry.yaml \
+    --output docs/registry.md
+  @echo "Registry copied and registry page generated!"
 
 # Copy example data files to docs directory for documentation site
 _copy-examples:
