@@ -761,3 +761,38 @@ lakehouses:
           - LinkML YAML
         data_quality_notes: >-
           Needs checking subdirectories for LinkML YAML.
+
+      - id: ber_registry:essdive-dataset-metadata
+        title: ESS-DIVE Dataset Metadata
+        description: >-
+          ESS-DIVE Dataset Metadata for publicly available datasets at ess-dive.lbl.gov.
+          The Environmental System Science Data Infrastructure for a Virtual Ecosystem (ESS-DIVE)
+          is a data repository for Earth and environmental sciences. ESS-DIVE stores data
+          generated from research funded by or related to the DOE’s Office of Science Biological and
+          Environmental Research program (BER). This includes a variety of observational, experimental,
+          modeling and other data products from a wide range of ecological and urban systems. The
+          Dataset Metadata fully describe datasets to FAIR standards so that others can more easily
+          find and use relevant data from dataset searches.
+        created_date: "2026-09-29"
+        last_modified: "2026-09-29"
+        owner: ESS-DIVE
+        contact_point:
+          contact_name: ESS-DIVE Support
+          contact_email: ess-dive-support@lbl.gov
+        namespace: essdive_dataset_metadata
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: public
+        keywords:
+          - dataset metadata
+          - environmental science
+        project_affiliation:
+          - ESS-DIVE
+        license: CC0
+        facility: LBNL
+        documentation_url: https://github.com/ess-dive/essdive-linkml-schemas
+        modality: metadata
+        data_quality_notes: >-
+          ESS-DIVE Dataset Metadata records are reviewed by ESS-DIVE staff for
+          completeness and compliance with FAIR standards.
