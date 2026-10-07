@@ -583,7 +583,7 @@
 <p>To add or update an entry, edit <a href="https://github.com/ber-data/lakehouse-registry/blob/main/lakehouse-registry.yaml"><code>lakehouse-registry.yaml</code></a> in the repository root and open a pull request. Entries are validated against the <a href="../elements/">registry schema</a> in CI.</p>
 <h2 id="bridge-lakehouse">BRIDGE Lakehouse</h2>
 <p>Starburst-based BRIDGE data lakehouse serving as the primary hosting platform for data conforming to the registered BER schema sources. Platform is Starburst (Trino); recorded as 'other' because the PlatformType enum does not yet include starburst.</p>
-<p><em>Operator: Lawrence Berkeley National Laboratory · Platform: other · Entries: 48</em></p>
+<p><em>Operator: Lawrence Berkeley National Laboratory · Platform: other · Entries: 27</em></p>
 <table>
 <thead>
 <tr>
@@ -680,139 +680,6 @@
 <td>public</td>
 </tr>
 <tr>
-<td><a href="https://github.com/dschristianson/basin3dschema">basin3d-linkml</a></td>
-<td>Prototype basin3d data model in LinkML schema.</td>
-<td>Danielle Christianson</td>
-<td>experimental</td>
-<td>public</td>
-</tr>
-<tr>
-<td><a href="https://github.com/BASIN-3D/basin3d">basin3d</a></td>
-<td>Customizable on-demand data synthesis software based on OGC O&amp;M data models; timeseries support.</td>
-<td>Danielle Christianson</td>
-<td>active</td>
-<td>public</td>
-</tr>
-<tr>
-<td><a href="https://github.com/ess-dive-workspace">ess-dive-rf</a></td>
-<td>ESS-DIVE Reporting Formats.</td>
-<td>Danielle Christianson</td>
-<td>active</td>
-<td>public</td>
-</tr>
-<tr>
-<td><a href="https://ameriflux.lbl.gov/data/aboutdata/data-variables/">flux-processing</a></td>
-<td>Fluxnet (AmeriFlux) standard for flux/met timeseries data; developed and supported by AmeriFlux, ICOS / EuroFlux.</td>
-<td>Danielle Christianson</td>
-<td>active</td>
-<td>public</td>
-</tr>
-<tr>
-<td><a href="https://ameriflux.lbl.gov/data/badm/badm-standards/">badm</a></td>
-<td>Biological Ancillary Disturbance Metadata (BADM) standard followed by the Fluxnet community for contextual and ancillary data observed at / near flux research…</td>
-<td>Danielle Christianson</td>
-<td>active</td>
-<td>public</td>
-</tr>
-<tr>
-<td><a href="https://datatracker.ietf.org/doc/html/rfc7946">geojson</a></td>
-<td>GeoJSON format (IETF RFC 7946). Listed here as a reference standard.</td>
-<td>Danielle Christianson</td>
-<td>active</td>
-<td>public</td>
-</tr>
-<tr>
-<td><a href="https://docs.ogc.org/as/20-082r4/20-082r4.html">ogc-om3</a></td>
-<td>OGC Observations &amp; Measurements v3 (ISO 19156:2023(E); OGC 20-082r4 v3.0). Listed here as a reference standard.</td>
-<td>Danielle Christianson</td>
-<td>active</td>
-<td>public</td>
-</tr>
-<tr>
-<td><a href="https://docs.ogc.org/DRAFTS/21-045r1.html">OGC Features and Geometries JSON</a></td>
-<td>Proposed OGC Features &amp; Geometries JSON standard (draft). Listed here as a reference standard.</td>
-<td>Unknown</td>
-<td>active</td>
-<td>public</td>
-</tr>
-<tr>
-<td><a href="https://www.ogc.org/standards/eo-geojson/">OGC EO JSON-LD</a></td>
-<td>OGC Earth Observation JSON-LD standard. Listed here as a reference standard.</td>
-<td>Unknown</td>
-<td>active</td>
-<td>public</td>
-</tr>
-<tr>
-<td><a href="https://odm2.github.io/ODM2/schemas/ODM2_Current/diagrams/ODM2SamplingFeatures.html">ODM2</a></td>
-<td>Observations Data Model 2 (ODM2), including sampling features, sampling feature geotypes, and elevation datum vocabularies. Listed here as a reference standard.</td>
-<td>Danielle Christianson</td>
-<td>active</td>
-<td>public</td>
-</tr>
-<tr>
-<td><a href="https://www.fgdc.gov/standards/projects/metadata/base-metadata/v2_0698.pdf">fgdc</a></td>
-<td>FGDC (Federal Geographic Data Committee) metadata and framework data standards. Listed here as a reference standard.</td>
-<td>Danielle Christianson</td>
-<td>active</td>
-<td>public</td>
-</tr>
-<tr>
-<td><a href="https://stacspec.org/en">STAC</a></td>
-<td>SpatioTemporal Asset Catalog (STAC) specification. Listed here as a reference standard.</td>
-<td>Unknown</td>
-<td>active</td>
-<td>public</td>
-</tr>
-<tr>
-<td><a href="https://ngmdb.usgs.gov/Info/standards/GeMS/">USGS GeMS</a></td>
-<td>USGS Geologic Map Schema (GeMS). Listed here as a reference standard.</td>
-<td>Unknown</td>
-<td>active</td>
-<td>public</td>
-</tr>
-<tr>
-<td><a href="https://resources.data.gov/standards/catalog/dcat-us/">EDX / DCAT</a></td>
-<td>NETL EDX data discovery and the DCAT-US metadata standard. Listed here as a reference standard.</td>
-<td>Unknown</td>
-<td>active</td>
-<td>public</td>
-</tr>
-<tr>
-<td><a href="https://compass.astm.org/content-access?contentCode=ISO%7CISO%2FIEC%2030173%3A2023%7Cen-US">iso19115-loc-meta</a></td>
-<td>ISO 19115 Location Metadata standard. Listed here as a reference standard.</td>
-<td>Danielle Christianson</td>
-<td>active</td>
-<td>restricted</td>
-</tr>
-<tr>
-<td><a href="https://docs.ogc.org/is/19-086r4/19-086r4.html">OGC API - EDR</a></td>
-<td>OGC API - Environmental Data Retrieval (EDR) standard. Listed here as a reference standard.</td>
-<td>Unknown</td>
-<td>active</td>
-<td>public</td>
-</tr>
-<tr>
-<td><a href="https://ogcapi.ogc.org/features/">OGC API - Features</a></td>
-<td>OGC API - Features standard. Listed here as a reference standard.</td>
-<td>Unknown</td>
-<td>active</td>
-<td>public</td>
-</tr>
-<tr>
-<td><a href="https://osduforum.org/01-the-osdu-technical-standard/">The Open Group OSDU Technical Standard</a></td>
-<td>The Open Group OSDU technical standard (industry standards organization). Listed here as a reference standard.</td>
-<td>Unknown</td>
-<td>active</td>
-<td>public</td>
-</tr>
-<tr>
-<td><a href="https://docs.ogc.org/is/10-157r4/10-157r4.html">OGC Earth Observation Metadata</a></td>
-<td>OGC Earth Observation Metadata profile. Listed here as a reference standard.</td>
-<td>Unknown</td>
-<td>active</td>
-<td>public</td>
-</tr>
-<tr>
 <td><a href="https://ber-data.github.io/bertron-schema/">BERtron</a></td>
 <td>Cross-BER sample metadata, geolocation-centric, with attributes, for NMDC, JGI, EMSL, ESS-DIVE.</td>
 <td>Montana Smith (Sierra Moxon)</td>
@@ -860,13 +727,6 @@
 <td>Yuri Corilo</td>
 <td>active</td>
 <td>public</td>
-</tr>
-<tr>
-<td><a href="https://sierra-moxon.github.io/geochem-rf-linkml/elements/erdiagram/">geochem-rf</a></td>
-<td>A LinkML representation of the ESS-DIVE Reporting Formats for Sample Data, Sample ID and Metadata, Location Metadata, and File-level Metadata (the same content…</td>
-<td>Danielle Christianson</td>
-<td>experimental</td>
-<td>internal</td>
 </tr>
 <tr>
 <td>AmSC Open Metadata</td>
@@ -920,13 +780,6 @@
 <tr>
 <td><a href="https://github.com/sierra-moxon/lakehouse-schema-extraction/tree/main/schemas">lakehouse-schema-extraction</a></td>
 <td>Schemas extracted from lakehouse sources, represented in LinkML.</td>
-<td>Unknown</td>
-<td>experimental</td>
-<td>public</td>
-</tr>
-<tr>
-<td><a href="https://github.com/cmungall/basin3d_schema/blob/main/src/basin3d_schema/schema/basin3d_schema.yaml">basin3d-schema</a></td>
-<td>A LinkML schema for the basin3d data model. Related to basin3d-linkml and basin3d.</td>
 <td>Unknown</td>
 <td>experimental</td>
 <td>public</td>
