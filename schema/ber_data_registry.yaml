@@ -1267,7 +1267,7 @@ classes:
     class_uri: vcard:Kind
 metamodel_version: 1.7.0
 source_file: ber_data_registry.yaml
-source_file_date: '2026-10-07T17:11:23'
+source_file_date: '2026-10-07T17:11:50'
 source_file_size: 13500
-generation_date: '2026-10-07T17:11:34'
+generation_date: '2026-10-07T17:11:58'
 
