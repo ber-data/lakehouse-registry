@@ -1,0 +1,821 @@
+id: ber_registry:kbase-lakehouse
+title: KBase Data Lakehouse
+description: Spark + Polaris/Iceberg lakehouse with s3-compatible raw data storage. Tenants map to Iceberg
+  catalogs.
+lakehouses:
+  - id: ber_registry:kbase-lakehouse-refdata
+    title: KBase Data Lakehouse RefData Registry
+    description: Reference datasets available in the KBase Data Lakehouse.
+    operator: KBase
+    platform_type: spark
+    created_date: '2026-03-01'
+    catalog_entries:
+      - id: ber_registry:kbase-lakehouse-refdata-spire
+        title: SPIRE v01
+        description: SPIRE v01 — Sequence-based Planetary-scale mIcrobiome REcovery MAG catalog. 2.8M
+          MAGs from 95K samples (EMBL, September 2023).
+        created_date: '2026-04-30'
+        last_modified: '2026-06-18'
+        owner: Elisha WC
+        contact_point:
+          contact_name: Elisha WC
+          contact_email: engage@kbase.us
+        namespace: refdata.spire
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        documentation_url: https://spire.embl.de/
+        format:
+          - Apache Iceberg
+          - Parquet
+          - TSV
+        size_bytes: 88300000000
+        row_count: 5781283
+        table_count: 6
+        lineage: 'Source: https://spire.embl.de/ (accessed 2026-03-23). Citation: Replacement et al.,
+          SPIRE MAG catalog v01. Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/spire/
+          (22 objects), imported by ewc 2026-04-30. Bronze notes: 4 parquets + mag_coordinates TSV + raw
+          data + metadata. Iceberg ingest by ewc 2026-06-18. Ingest script: data/refdata_spire/ingest_spire.py.
+          Schema doc: docs/schemas/refdata_spire.md.'
+        data_quality_notes: 'Pending tables: environment_envo_map (Not yet in parquet — needs conversion
+          from reference table).'
+      - id: ber_registry:kbase-lakehouse-refdata-jgi-gem
+        title: JGI Genomes from Earth's Microbiomes (GEM)
+        description: JGI Genomes from Earth's Microbiomes (GEM) — 52,515 MAGs from globally distributed
+          metagenomes.
+        created_date: '2026-04-30'
+        last_modified: '2026-06-18'
+        owner: Elisha WC
+        contact_point:
+          contact_name: Elisha WC
+          contact_email: engage@kbase.us
+        namespace: refdata.jgi_gem
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        category: shared
+        project_affiliation:
+          - JGI
+        source_type: namespace
+        database_engine: spark_sql
+        documentation_url: https://genome.jgi.doe.gov/portal/GEMs
+        format:
+          - Apache Iceberg
+          - Parquet
+          - TSV
+          - FASTA
+          - GFF3
+        size_bytes: 4679300000000
+        row_count: 154551
+        table_count: 3
+        lineage: 'Source: https://genome.jgi.doe.gov/portal/GEMs (accessed 2026-04-30). Citation: Nayfach
+          et al. 2020, Nature Biotechnology. Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/jgi_gem/
+          (11582 objects), imported by ewc 2026-04-30. Bronze notes: gem_mags/ (parquet + TSV) + gem_metag/
+          (5 DTS batches, 3.2 TB FNA + 1.1 TB GFF). Iceberg ingest by ewc 2026-06-18. Ingest script: data/refdata_jgi_gem/ingest_jgi_gem.py.
+          Schema doc: docs/schemas/refdata_jgi_gem.md.'
+        data_quality_notes: 'Iceberg ingest is partial. Pending tables: gem_metag (metagenome assemblies)
+          (5,784 submission IDs across 11,571 files. Blocked on submission ID → taxon OID mapping (see
+          TODO.md). Cannot ingest until crosswalk is resolved.).'
+      - id: ber_registry:kbase-lakehouse-refdata-jgi-virus
+        title: IMG/VR v4 and MetaVR
+        description: IMG/VR v4 and MetaVR — JGI viral sequence databases. 24.4M MetaVR viral OTUs + 369M
+          protein annotations + 15.7M IMG/VR sequences.
+        created_date: '2026-05-14'
+        last_modified: '2026-06-18'
+        owner: Elisha WC
+        contact_point:
+          contact_name: Elisha WC
+          contact_email: engage@kbase.us
+        namespace: refdata.jgi_virus
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        category: shared
+        project_affiliation:
+          - JGI
+        source_type: namespace
+        database_engine: spark_sql
+        doi: 10.1093/nar/gkac1037
+        documentation_url: https://img.jgi.doe.gov/vr/
+        format:
+          - Apache Iceberg
+          - Parquet
+        size_bytes: 633700000000
+        row_count: 436225243
+        table_count: 6
+        lineage: 'Source: https://img.jgi.doe.gov/vr/ (accessed 2026-05-14). Citation: Camargo et al.
+          2023, NAR (doi:10.1093/nar/gkac1037). Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/jgi_virus/
+          (58 objects), imported by ewc 2026-05-14. Bronze notes: METAVR/ (2 parquets) + CUSTOM_MPI-IMG_VR/
+          (analyses, analyses-42, analyses-44). Iceberg ingest by ewc 2026-06-18. Ingest script: data/refdata_jgi_virus/ingest_jgi_virus.py.
+          Schema doc: docs/schemas/refdata_jgi_virus.md.'
+      - id: ber_registry:kbase-lakehouse-refdata-bvbrc
+        title: BV-BRC (Bacterial and Viral Bioinformatics Resource Center)
+        description: BV-BRC (Bacterial and Viral Bioinformatics Resource Center) — pathogen genome annotations,
+          pathways, and specialty genes.
+        created_date: '2026-04-01'
+        last_modified: '2026-04-01'
+        owner: berdl-admin
+        contact_point:
+          contact_name: berdl-admin
+          contact_email: engage@kbase.us
+        namespace: refdata.bvbrc
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        doi: 10.1093/nar/gkac1003
+        documentation_url: https://www.bv-brc.org/
+        format:
+          - Apache Iceberg
+        size_bytes: 1833700000000
+        row_count: 2497987670
+        table_count: 5
+        lineage: 'Source: https://www.bv-brc.org/ (accessed 2026-04). Citation: Olson et al. 2023, Nucleic
+          Acids Res. 51(D1):D678-D689. Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/bvbrc/
+          (592 objects), imported by berdl-admin 2026-04. Iceberg ingest by berdl-admin 2026-04.'
+      - id: ber_registry:kbase-lakehouse-refdata-ontology-source
+        title: OBO ontology statements and entailed edges
+        description: OBO ontology statements and entailed edges — ENVO, GO, CHEBI, etc. Used for ontology
+          label lookups and graph queries.
+        created_date: '2026-04-01'
+        last_modified: '2026-04-01'
+        owner: berdl-admin
+        contact_point:
+          contact_name: berdl-admin
+          contact_email: engage@kbase.us
+        namespace: refdata.ontology_source
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        documentation_url: https://obofoundry.org/
+        format:
+          - Apache Iceberg
+        row_count: 161066650
+        table_count: 3
+        lineage: 'Source: https://obofoundry.org/ (accessed 2026-04). Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/,
+          imported by berdl-admin 2026-04. Bronze notes: Bronze location uncertain — may be under a different
+          prefix. Iceberg ingest by berdl-admin 2026-04.'
+      - id: ber_registry:kbase-lakehouse-refdata-smag
+        title: SMAG (Soil MAGs)
+        description: SMAG (Soil MAGs) — MAG quality, taxonomy, biosynthetic gene clusters, CRISPR-Cas
+          proteins, CPR/DPANN ultra-small MAGs, and virus-host associations.
+        created_date: '2026-06-03'
+        last_modified: '2026-07-13'
+        owner: Elisha WC
+        contact_point:
+          contact_name: Elisha WC
+          contact_email: engage@kbase.us
+        namespace: refdata.smag
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        format:
+          - Apache Iceberg
+          - Parquet
+          - FASTA
+        size_bytes: 142100000000
+        row_count: 162245
+        table_count: 10
+        lineage: 'Source: (no URL recorded) (accessed 2026-06-03). Citation: SMAG catalog. Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/smag/
+          (31870 objects), imported by ewc 2026-06-03. Bronze notes: 7 parquets + 31,863 .fa sequence
+          files extracted from 8223844.zip. Iceberg ingest by ewc 2026-06.'
+      - id: ber_registry:kbase-lakehouse-refdata-emp-16s
+        title: Earth Microbiome Project (EMP) 16S rRNA amplicon survey
+        description: Earth Microbiome Project (EMP) 16S rRNA amplicon survey — 125 studies, 27,751 samples
+          spanning host-associated, free-living, and saline environments. Deblur ASVs, closed-ref/open-ref
+          OTU tables, alpha/beta diversity, and sample metadata with EMPO classification and ENVO biomes.
+        created_date: '2026-06-23'
+        last_modified: '2026-06-25'
+        owner: Elisha WC
+        contact_point:
+          contact_name: Elisha WC
+          contact_email: engage@kbase.us
+        namespace: refdata.emp_16s
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        doi: 10.5281/zenodo.890000
+        documentation_url: https://earthmicrobiome.org/
+        format:
+          - Apache Iceberg
+          - TSV
+          - CSV
+          - BIOM
+        size_bytes: 45100000000
+        row_count: 765686
+        table_count: 8
+        lineage: 'Source: https://earthmicrobiome.org/ (accessed 2026-06-23). Citation: Thompson et al.
+          2017, Nature (doi:10.1038/nature24621). Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/emp_16s/
+          (34 objects), imported by berdl-admin 2026-06-23. Bronze notes: Tabular files (CSV/TSV) + BIOM
+          observation matrices + UniFrac distance matrices + PCoA + Emperor plots + Redbiom DB. Only tabular
+          files ingested to Iceberg; BIOM/UniFrac remain bronze-only. Iceberg ingest by ewc 2026-06-25.
+          Ingest script: data/refdata_emp_16s/ingest_emp_16s.py.'
+        data_quality_notes: 'Pending tables: (BIOM observation matrices) (6 BIOM files (deblur 90/100/150bp,
+          closed-ref GG/Silva, open-ref GG). Would need biom-format conversion to long-format tables.
+          Largest is open-ref GG at 3 GB compressed.); (UniFrac distance matrices) (23.9 GB deblur unifrac
+          distances + 8.8 GB PCoA. Very large; likely stay as bronze artifacts.). Cross-references: refdata.ontology_source.statements,
+          (NCBI taxonomy), nmdc_metadata.biosample_set, (EBI/MGnify), refdata.emp_16s.studies, (spatial).'
+      - id: ber_registry:kbase-lakehouse-refdata-microagrobiome
+        title: Micro-agrobiome
+        description: Micro-agrobiome — biosynthetic gene cluster (BGC) catalog and sample file index from
+          soil agrobiome metagenomes. 554 samples with antiSMASH annotations.
+        created_date: '2026-06-01'
+        last_modified: '2026-06-01'
+        owner: Elisha WC
+        contact_point:
+          contact_name: Elisha WC
+          contact_email: engage@kbase.us
+        namespace: refdata.microagrobiome
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        format:
+          - Apache Iceberg
+          - CSV
+          - JSON
+          - tar archive
+        row_count: 280553
+        table_count: 3
+        lineage: 'Source: (no URL recorded) (accessed 2026-06). Citation: Micro-agrobiome BGC catalog.
+          Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/microagrobiome/, imported by
+          ewc 2026-06. Bronze notes: CSV catalog + per-sample .tar.gz antiSMASH JSON archives. Iceberg
+          ingest by ewc 2026-06.'
+        data_quality_notes: 'Iceberg ingest is partial. Pending tables: (antiSMASH JSON extraction) (Each
+          sample has a .tar.gz with antiSMASH JSON. Need to extract and flatten to tabular (gene annotations,
+          NRPS/PKS domains, knownclusterblast). See TODO.md for detailed plan.).'
+      - id: ber_registry:kbase-lakehouse-refdata-ncbi
+        title: NCBI reference data
+        description: NCBI reference data — assembly summaries (RefSeq, GenBank), file manifests, and GTDB
+          mapping tables.
+        created_date: '2026-04-01'
+        owner: Elisha WC
+        contact_point:
+          contact_name: Elisha WC
+          contact_email: engage@kbase.us
+        namespace: cdm-lake/tenant-general-warehouse/refdata/datasets/ncbi
+        status: experimental
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        category: shared
+        source_type: object_storage
+        documentation_url: https://ftp.ncbi.nlm.nih.gov/
+        size_bytes: 3515000000000
+        lineage: 'Source: https://ftp.ncbi.nlm.nih.gov/ (accessed 2026-04). Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/ncbi/
+          (6630768 objects), imported by ewc 2026-04. Bronze notes: Assembly summaries, GenBank files,
+          GTDB mapping, datasets API exports.'
+        data_quality_notes: 'Namespace created in Polaris but 0 tables registered. Was previously ingested
+          as Delta tables (refdata_ncbi.assembly_summary_refseq_2026_04 and refdata_ncbi.ncbi_file_manifest).
+          Lost in the Polaris/Iceberg migration — old Delta silver path is empty. Needs re-ingest to Iceberg.
+          Pending tables: assembly_summary_refseq_2026_04 (Previously verified — needs re-ingest); ncbi_file_manifest
+          (Previously verified — needs re-ingest).'
+      - id: ber_registry:kbase-lakehouse-refdata-uniprot-2025-03
+        title: UniProt KB (2025-03)
+        description: UniProt KB — protein sequences, identifiers, names, clusters, cross-references. Three
+          versioned snapshots (2025-03, 2026-01, 2026-02) with 8 Iceberg tables each. Bronze also includes
+          raw UniRef XML.gz and additional Delta tables not yet migrated.
+        created_date: '2026-03-01'
+        last_modified: '2026-07-01'
+        owner: AJ Ireland
+        contact_point: &id001
+          contact_name: AJ Ireland
+          contact_email: engage@kbase.us
+        namespace: refdata.uniprot_2025_03__raw
+        status: active
+        is_deprecated: false
+        update_schedule: static
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        version: 2025-03
+        documentation_url: https://www.uniprot.org/
+        format: &id002
+          - Apache Iceberg
+          - Parquet
+          - XML
+        size_bytes: 3249700000000
+        table_count: 8
+        lineage: 'Source: https://www.uniprot.org/ (accessed 2026-03). Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/uniprot/
+          (143221 objects), imported by berdl-admin 2026-03. Bronze notes: uniprot_kb/ (legacy Delta),
+          cdm_schema/ (versioned Parquet snapshots), derived/ (raw UniRef XML.gz for uniref50/90/100),
+          raw_data/. Old Delta S3 paths no longer exist; all live data is in Iceberg. Iceberg ingest by
+          AJ Ireland 2026-07.'
+        data_quality_notes: One of 3 versioned snapshots of uniprot. Three versioned snapshots, each with
+          8 tables (same schema).
+      - id: ber_registry:kbase-lakehouse-refdata-uniprot-2026-01
+        title: UniProt KB (2026-01)
+        description: UniProt KB — protein sequences, identifiers, names, clusters, cross-references. Three
+          versioned snapshots (2025-03, 2026-01, 2026-02) with 8 Iceberg tables each. Bronze also includes
+          raw UniRef XML.gz and additional Delta tables not yet migrated.
+        created_date: '2026-03-01'
+        last_modified: '2026-07-01'
+        owner: AJ Ireland
+        contact_point: *id001
+        namespace: refdata.uniprot_2026_01__raw
+        status: active
+        is_deprecated: false
+        update_schedule: static
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        version: 2026-01
+        documentation_url: https://www.uniprot.org/
+        format: *id002
+        size_bytes: 3249700000000
+        table_count: 8
+        lineage: 'Source: https://www.uniprot.org/ (accessed 2026-03). Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/uniprot/
+          (143221 objects), imported by berdl-admin 2026-03. Bronze notes: uniprot_kb/ (legacy Delta),
+          cdm_schema/ (versioned Parquet snapshots), derived/ (raw UniRef XML.gz for uniref50/90/100),
+          raw_data/. Old Delta S3 paths no longer exist; all live data is in Iceberg. Iceberg ingest by
+          AJ Ireland 2026-07.'
+        data_quality_notes: One of 3 versioned snapshots of uniprot. Three versioned snapshots, each with
+          8 tables (same schema).
+        previous_version: ber_registry:kbase-lakehouse-refdata-uniprot-2025-03
+      - id: ber_registry:kbase-lakehouse-refdata-uniprot-2026-02
+        title: UniProt KB (2026-02)
+        description: UniProt KB — protein sequences, identifiers, names, clusters, cross-references. Three
+          versioned snapshots (2025-03, 2026-01, 2026-02) with 8 Iceberg tables each. Bronze also includes
+          raw UniRef XML.gz and additional Delta tables not yet migrated.
+        created_date: '2026-03-01'
+        last_modified: '2026-07-01'
+        owner: AJ Ireland
+        contact_point: *id001
+        namespace: refdata.uniprot_2026_02__raw
+        status: active
+        is_deprecated: false
+        update_schedule: static
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        version: 2026-02
+        documentation_url: https://www.uniprot.org/
+        format: *id002
+        size_bytes: 3249700000000
+        table_count: 8
+        lineage: 'Source: https://www.uniprot.org/ (accessed 2026-03). Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/uniprot/
+          (143221 objects), imported by berdl-admin 2026-03. Bronze notes: uniprot_kb/ (legacy Delta),
+          cdm_schema/ (versioned Parquet snapshots), derived/ (raw UniRef XML.gz for uniref50/90/100),
+          raw_data/. Old Delta S3 paths no longer exist; all live data is in Iceberg. Iceberg ingest by
+          AJ Ireland 2026-07.'
+        data_quality_notes: One of 3 versioned snapshots of uniprot. Three versioned snapshots, each with
+          8 tables (same schema).
+        previous_version: ber_registry:kbase-lakehouse-refdata-uniprot-2026-01
+      - id: ber_registry:kbase-lakehouse-refdata-gbif-backbone
+        title: GBIF Backbone Taxonomy v2023-08-28
+        description: GBIF Backbone Taxonomy v2023-08-28 — taxonomic hierarchy, vernacular names, distributions,
+          type specimens, references, multimedia, and descriptions.
+        created_date: '2026-07-01'
+        last_modified: '2026-07-01'
+        owner: Adam Arkin
+        contact_point:
+          contact_name: Adam Arkin
+          contact_email: engage@kbase.us
+        namespace: refdata.gbif_backbone
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        doi: 10.15468/39omei
+        documentation_url: https://www.gbif.org/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c
+        format:
+          - Apache Iceberg
+        table_count: 7
+        lineage: 'Source: https://www.gbif.org/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c (accessed
+          2026-07). Citation: GBIF Secretariat 2023, Backbone Taxonomy v2023-08-28. Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/gbif_backbone/,
+          imported by Adam Arkin 2026-07. Iceberg ingest by Adam Arkin 2026-07.'
+        data_quality_notes: Row counts not recorded for all tables.
+      - id: ber_registry:kbase-lakehouse-refdata-itis
+        title: Integrated Taxonomic Information System (ITIS)
+        description: Integrated Taxonomic Information System (ITIS) — authoritative taxonomic information
+          on plants, animals, fungi, and microbes. 25 tables covering taxonomic units, hierarchy, synonyms,
+          vernacular names, geographic divisions, experts, publications, and change tracking.
+        created_date: '2026-07-01'
+        last_modified: '2026-07-01'
+        owner: Adam Arkin
+        contact_point:
+          contact_name: Adam Arkin
+          contact_email: engage@kbase.us
+        namespace: refdata.itis
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        doi: 10.5066/F7KH0KBK
+        documentation_url: https://www.itis.gov/
+        format:
+          - Apache Iceberg
+        table_count: 25
+        lineage: 'Source: https://www.itis.gov/ (accessed 2026-07). Citation: ITIS, retrieved 2026, CC0.
+          Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/itis/, imported by Adam Arkin
+          2026-07. Iceberg ingest by Adam Arkin 2026-07.'
+        data_quality_notes: Row counts not recorded for all tables.
+      - id: ber_registry:kbase-lakehouse-refdata-rhea
+        title: Rhea
+        description: Rhea — expert-curated knowledgebase of biochemical reactions, maintained by Swiss-Prot
+          at SIB. Release 141. Includes reaction directions, EC/GO/KEGG/MetaCyc/ UniProt cross-references,
+          ChEBI compound mappings, and reaction SMILES. 18 TSV tables inside a single release archive.
+        created_date: '2026-07-01'
+        last_modified: '2026-07-09'
+        owner: Elisha WC
+        contact_point:
+          contact_name: Elisha WC
+          contact_email: engage@kbase.us
+        namespace: refdata.rhea
+        status: active
+        is_deprecated: false
+        update_schedule: static
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        version: release-141
+        doi: 10.1093/nar/gkab1016
+        documentation_url: https://www.rhea-db.org/
+        format:
+          - Apache Iceberg
+          - tar archive
+        size_bytes: 400000000
+        row_count: 58013675
+        table_count: 22
+        lineage: 'Source: https://www.rhea-db.org/ (accessed 2026-07). Citation: Bansal et al. 2022, Rhea,
+          the reaction knowledgebase in 2022. Nucleic Acids Res. Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/rhea/
+          (2 objects), imported by KBase Data Transfer Service 2026-07. Bronze notes: Single archive:
+          rhea-release-141.tar.bz2. Iceberg ingest by Elisha WC 2026-07-08.'
+        data_quality_notes: 19 tables ingested from release-141 TSVs. 3 headerless files (chebi_id_name,
+          rhea_chebi_smiles, rhea_reaction_smiles) had headers added before ingest. rhea2uniprot_trembl
+          (29.7M rows) is the largest table.
+      - id: ber_registry:kbase-lakehouse-refdata-brenda
+        title: BRENDA
+        description: BRENDA — comprehensive enzyme information system. Release 2026.1. JSON and flat-text
+          archives with enzyme kinetics, substrates, inhibitors, and organism-specific data.
+        created_date: '2026-07-01'
+        last_modified: '2026-07-09'
+        owner: Elisha WC
+        contact_point:
+          contact_name: Elisha WC
+          contact_email: engage@kbase.us
+        namespace: refdata.brenda
+        status: active
+        is_deprecated: false
+        update_schedule: static
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        version: '2026.1'
+        doi: 10.1093/nar/gkaa1025
+        documentation_url: https://www.brenda-enzymes.org/
+        format:
+          - Apache Iceberg
+          - JSON
+          - tar archive
+        size_bytes: 100000000
+        row_count: 5290610
+        table_count: 21
+        lineage: 'Source: https://www.brenda-enzymes.org/ (accessed 2026-07). Citation: Chang et al. 2021,
+          BRENDA, the ELIXIR core data resource in 2021. Nucleic Acids Res. Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/brenda/
+          (4 objects), imported by KBase Data Transfer Service 2026-07. Bronze notes: brenda_2026_1.json.tar.gz,
+          brenda_2026_1.txt.tar.gz, README. Iceberg ingest by Elisha WC 2026-07-09.'
+        data_quality_notes: '19 tables extracted from brenda_2026_1.json (710 MB JSON, 8,129 EC entries).
+          Flat relational schema: one enzyme master table, per-field observation tables with ec_id foreign
+          key. 111,901 protein entries (40% with UniProt accessions). 187,941 literature references with
+          PubMed IDs. Kinetics table merges km, kcat, ki, ic50, kcat_km, specific_activity with parameter_type
+          discriminator. Cross-references: refdata.rhea, refdata.ontology_source.statements, refdata.uniprot_2026_02__raw.entity,
+          refdata.uniprot_2026_02__raw.identifier.'
+      - id: ber_registry:kbase-lakehouse-refdata-interpro
+        title: InterPro
+        description: InterPro — protein families, domains, and functional sites database. Includes XML
+          entry definitions, match_complete assignments, protein2ipr mappings, uniparc matches, GO mappings,
+          and parent-child hierarchy.
+        created_date: '2026-07-01'
+        last_modified: '2026-07-09'
+        owner: Elisha WC
+        contact_point:
+          contact_name: Elisha WC
+          contact_email: engage@kbase.us
+        namespace: refdata.interpro
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        doi: 10.1093/nar/gkaa977
+        documentation_url: https://www.ebi.ac.uk/interpro/
+        format:
+          - Apache Iceberg
+          - XML
+          - tar archive
+        size_bytes: 457600000000
+        row_count: 626408304
+        table_count: 4
+        lineage: 'Source: https://www.ebi.ac.uk/interpro/ (accessed 2026-07). Citation: Blum et al. 2021,
+          The InterPro protein families and domains database. Nucleic Acids Res. Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/interpro/
+          (11 objects), imported by KBase Data Transfer Service 2026-07. Bronze notes: match_complete.xml.gz
+          (52 GB), uniparc_match.tar.gz (367 GB), protein2ipr.data.gz (12 GB), interpro-n.xml.gz (26 GB),
+          interpro.xml.gz, entry.list, interpro2go, ParentChildTreeFile.txt. Iceberg ingest by Elisha
+          WC 2026-07-09.'
+        data_quality_notes: 'Iceberg ingest is partial. Tier 1 ingest: 3 small tabular files parsed and
+          ingested. Tier 2 pending: protein2ipr.data.gz (12.3 GB), match_complete.xml.gz (52 GB), uniparc_match.tar.gz
+          (367 GB). Validated against UniProt identifier (630M InterPro assignments, 163M proteins). Pending
+          tables: protein2ipr (Protein to InterPro assignments (12.3 GB compressed). Tab-delimited, maps
+          UniProt accessions to InterPro entries with match coordinates. Tier 2 — needs decompress + ingest
+          pipeline. Note: entry_xref already covers the entry↔protein mapping (626M rows); protein2ipr
+          adds match start/end positions.). Cross-references: refdata.uniprot_2026_02__raw.identifier,
+          refdata.ontology_source.statements.'
+      - id: ber_registry:kbase-lakehouse-refdata-ensembl
+        title: Ensembl Genomes
+        description: Ensembl Genomes — genome sequences, gene annotations, and protein sequences for bacteria,
+          fungi, and plants. GFF3 annotations, CDS and peptide FASTAs, and genomic DNA across three kingdoms.
+        created_date: '2026-07-01'
+        last_modified: '2026-07-13'
+        owner: Elisha WC
+        contact_point:
+          contact_name: Elisha WC
+          contact_email: engage@kbase.us
+        namespace: refdata.ensembl
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        doi: 10.1093/nar/gkab1049
+        documentation_url: https://www.ensembl.org/
+        format:
+          - Apache Iceberg
+          - CSV
+          - FASTA
+          - GFF3
+        size_bytes: 2182800000000
+        row_count: 955205
+        table_count: 9
+        lineage: 'Source: https://www.ensembl.org/ (accessed 2026-07). Citation: Cunningham et al. 2022,
+          Ensembl 2022. Nucleic Acids Res. Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/ensembl/
+          (321167 objects), imported by KBase Data Transfer Service 2026-07. Bronze notes: Three kingdoms:
+          bacteria/ (282,573 objects, 313 GB), fungi/ (21,489 objects, 97 GB), plants/ (17,104 objects,
+          1,772 GB). Per-species GFF3, CDS FASTA, PEP FASTA, and genomic DNA FASTA files. file_manifest.csv
+          (98.8 MB) uploaded alongside genome files. Iceberg ingest by ewc 2026-07-13. Ingest script:
+          projects/ensembl_ingest/data/ingest_manifest.py.'
+        data_quality_notes: 'Pending tables: (plants GCA recovery) (294 plant assemblies have NULL gca_accession
+          — filename parser does not extract accessions from the plant naming convention (no _gca_ in
+          name). Could recover from Ensembl REST API or filename heuristics.). Cross-references: kbase.ke_pangenome.gtdb_metadata,
+          refdata.ontology_source.statements, refdata.ontology_source.entailed_edge, refdata.bvbrc.bvbrc_genome_wide,
+          refdata.gbif_backbone.Taxon.'
+      - id: ber_registry:kbase-lakehouse-refdata-all-the-bacteria
+        title: AllTheBacteria
+        description: AllTheBacteria — community-assembled bacterial genome collection. v0.2 + incremental
+          releases 2024-08 and 2025-05. 2.44M high-quality assemblies from 11,273 species with standardized
+          taxonomy (GTDB), Bakta annotations, AMR calls, and antiphage-defence annotations. Server-side
+          copied from kbase tenant 2026-06-03.
+        created_date: '2026-06-03'
+        owner: berdl-admin
+        contact_point:
+          contact_name: berdl-admin
+          contact_email: engage@kbase.us
+        namespace: refdata.all_the_bacteria
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        doi: 10.1101/2024.03.08.584059
+        documentation_url: https://osf.io/dnz87/
+        format:
+          - Apache Iceberg
+        size_bytes: 1706400000000
+        row_count: 10732320
+        table_count: 5
+        lineage: 'Source: https://osf.io/dnz87/ (accessed 2026-06-03). Citation: Hunt M et al. 2024, bioRxiv
+          (preprint v8, not yet peer-reviewed). Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/all_the_bacteria/
+          (2065 objects), imported by ewc 2026-06-03. Bronze notes: Server-side copy from kbase tenant
+          (copy_atb_bronze.py). 2,060 skipped + 5 copied. Iceberg ingest by berdl-admin.'
+      - id: ber_registry:kbase-lakehouse-refdata-pdb
+        title: PDB structural data
+        description: PDB structural data — protein structure files and metadata.
+        created_date: '2026-04-01'
+        owner: Elisha WC
+        contact_point:
+          contact_name: Elisha WC
+          contact_email: engage@kbase.us
+        namespace: cdm-lake/tenant-general-warehouse/refdata/datasets/pdb
+        status: experimental
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        category: shared
+        source_type: object_storage
+        documentation_url: https://www.rcsb.org/
+        size_bytes: 1100000000
+        lineage: 'Source: https://www.rcsb.org/ (accessed 2026-04). Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/pdb/
+          (34 objects), imported by ewc 2026-04.'
+        data_quality_notes: No tables planned yet.
+      - id: ber_registry:kbase-lakehouse-refdata-tara-ocean
+        title: TARA Oceans
+        description: TARA Oceans — oceanographic station metadata, metagenome sample catalog, and 1,888
+          MAGs with GTDB taxonomy, genome quality (anvi'o v6), abundance across size fractions and ocean
+          regions, nitrogen fixation markers, and cosmopolitan scores.
+        created_date: '2026-06-24'
+        last_modified: '2026-06-24'
+        owner: Elisha WC
+        contact_point:
+          contact_name: Elisha WC
+          contact_email: engage@kbase.us
+        namespace: refdata.tara_ocean
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        doi: 10.1038/s41396-021-01135-1
+        documentation_url: https://fondationtaraocean.org/
+        format:
+          - Apache Iceberg
+          - CSV
+        row_count: 4928
+        table_count: 4
+        lineage: 'Source: https://fondationtaraocean.org/ (accessed 2026-06-24). Citation: Delmont et
+          al. 2022, ISME J (doi:10.1038/s41396-021-01135-1). Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/tara_ocean/,
+          imported by ewc 2026-06-24. Bronze notes: Original .numbers files converted to CSV before ingest.
+          Iceberg ingest by ewc 2026-06-24.'
+        data_quality_notes: 'Cross-references: refdata.tara_ocean.env_conditions, refdata.tara_ocean.mags.'
+      - id: ber_registry:kbase-lakehouse-refdata-tara-ocean-bac-arc-mags
+        title: TARA Oceans Bacterial and Archaeal MAGs
+        description: TARA Oceans Bacterial and Archaeal MAGs — 1,888 MAG FASTA sequences from Delmont
+          et al. 2022 (same MAGs as refdata.tara_ocean.mags tabular catalog). Individual per-MAG FASTAs
+          (TARA_XXX_MAG_YYYYYYY naming) plus bulk tarballs at 1000nt, 2500nt, and full-length cutoffs.
+        created_date: '2026-06-01'
+        last_modified: '2026-07-14'
+        owner: Elisha WC
+        contact_point:
+          contact_name: Elisha WC
+          contact_email: engage@kbase.us
+        namespace: refdata.tara_ocean_bac_arc_mags
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        doi: 10.1038/s41396-021-01135-1
+        documentation_url: https://doi.org/10.6084/m9.figshare.14820226
+        format:
+          - Apache Iceberg
+          - FASTA
+          - tar archive
+        size_bytes: 70600000000
+        row_count: 1888
+        table_count: 1
+        lineage: 'Source: https://doi.org/10.6084/m9.figshare.14820226 (accessed 2026-06). Citation: Delmont
+          et al. 2022, ISME J (doi:10.1038/s41396-021-01135-1). Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/tara_ocean_bac_arc_mags/
+          (1893 objects), imported by berdl-admin 2026-06. Bronze notes: fastas/ (1888 individual .fa
+          files, 4.85 GB, 15 ocean regions). 4 bulk tarballs: Assemblies_1000nt.tar.gz (44 GB), Assemblies_2500nt.tar.gz
+          (16 GB), FASTA_1888_MAGs_Bac_Arc.tar.gz (4.8 GB), TARA_SOC_Subset_01_1500nt.fa.tar.gz (529 MB).
+          Iceberg ingest by ewc 2026-07-14. Ingest script: /tmp/ingest_tara_mags.py.'
+        data_quality_notes: 'Cross-references: refdata.tara_ocean.mags.'
+      - id: ber_registry:kbase-lakehouse-refdata-agmicrobiome
+        title: UK Crop Microbiome CryoBank (PRJEB58189)
+        description: UK Crop Microbiome CryoBank (PRJEB58189) — rhizosphere amplicon sequencing (16S V3-V4
+          + ITS2) of 6 UK crops across 7 locations and 4 soil types. BBSRC-funded. 736 ENA runs (453 with
+          raw data in S3, 3.3 TB).
+        created_date: '2026-07-01'
+        last_modified: '2026-07-16'
+        owner: Elisha WC
+        contact_point:
+          contact_name: Elisha WC
+          contact_email: engage@kbase.us
+        namespace: refdata.agmicrobiome
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        documentation_url: https://www.ebi.ac.uk/ena/browser/view/PRJEB58189
+        format:
+          - Apache Iceberg
+          - FASTQ
+          - BAM
+        size_bytes: 3277000000000
+        row_count: 3454
+        table_count: 3
+        lineage: 'Source: https://www.ebi.ac.uk/ena/browser/view/PRJEB58189 (accessed 2026-07-13). Citation:
+          UK Crop Microbiome CryoBank (PRJEB58189). Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/agmicrobiome/
+          (2266 objects), imported by berdl-admin 2026-07. Bronze notes: 2,265 raw sequencing files across
+          453 ENA run accessions. 5 files per run (BAM + 2 ERR-named FASTQs + 2 original-name FASTQs).
+          283 culturable isolate/control runs not in S3. Iceberg ingest by ewc 2026-07-16. Ingest script:
+          data/agmicrobiome/ingest_agmicrobiome.py.'
+        data_quality_notes: 'Iceberg ingest is partial. Pending tables: (16S processing pipeline) (Raw
+          FASTQs → QC → ASV calling (DADA2/Deblur) → taxonomy → community matrix. 453 runs, 3.3 TB. Significant
+          compute effort — not yet scoped.).'
+      - id: ber_registry:kbase-lakehouse-refdata-cazy
+        title: CAZy (Carbohydrate-Active enZymes)
+        description: CAZy (Carbohydrate-Active enZymes) — protein-to-family assignments for 6M proteins
+          across 881 CAZ families (glycoside hydrolases, glycosyltransferases, polysaccharide lyases,
+          carbohydrate esterases, auxiliary activities, carbohydrate-binding modules). GenBank accession
+          keyed. Joins to UniProt via identifier.xref where db='genbank' at ~26.6% rate (~1.1M of 4.13M
+          NCBI accessions hit UniProt).
+        created_date: '2026-07-16'
+        last_modified: '2026-07-16'
+        owner: Elisha WC
+        contact_point:
+          contact_name: Elisha WC
+          contact_email: engage@kbase.us
+        namespace: refdata.cazy
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        doi: 10.1093/nar/gkt1178
+        documentation_url: http://www.cazy.org/
+        format:
+          - Apache Iceberg
+        row_count: 6006576
+        table_count: 1
+        lineage: 'Source: http://www.cazy.org/ (accessed 2026-07). Citation: Lombard et al. 2014, NAR
+          (doi:10.1093/nar/gkt1178). Bronze: s3a://cdm-lake/users-general-warehouse/elishawc/tmp/cazy_data_staging.txt,
+          imported by ewc 2026-07-16. Bronze notes: CAZyDB.07262022.txt.gz downloaded from cazy.org FTP;
+          extracted and staged via MinIO S3A for Spark Connect remote read (JVM executor cannot access
+          /tmp). Staging file deleted after ingest. Iceberg ingest by ewc 2026-07-16. Ingest script: /tmp/ingest_cazy_v2.py.'
+        data_quality_notes: 'Pending tables: cazy_uniprot_xref (Materialized join: annotations.protein_accession
+          → refdata.uniprot_2026_02__raw.identifier.xref WHERE db=''genbank''. ~1.1M rows expected (~26.6%
+          of 4.13M NCBI accessions). Blocked on NCBI Iceberg tables being restored first.).'
+      - id: ber_registry:kbase-lakehouse-refdata-tcdb
+        title: TCDB (Transporter Classification Database)
+        description: TCDB (Transporter Classification Database) — UniProt-keyed transport protein classifications.
+          5 hierarchical classes (channels/carriers/primary-active/ group-translocators/transmembrane
+          electron carriers), 800+ families. Includes GO/Pfam cross-references, substrate annotations,
+          and superfamily groupings.
+        created_date: '2026-07-16'
+        last_modified: '2026-07-16'
+        owner: Elisha WC
+        contact_point:
+          contact_name: Elisha WC
+          contact_email: engage@kbase.us
+        namespace: refdata.tcdb
+        status: active
+        is_deprecated: false
+        update_schedule: unknown
+        access_level: internal
+        category: shared
+        source_type: namespace
+        database_engine: spark_sql
+        doi: 10.1093/nar/gkaa1004
+        documentation_url: https://www.tcdb.org/
+        format:
+          - Apache Iceberg
+          - TSV
+        row_count: 90961
+        table_count: 6
+        lineage: 'Source: https://www.tcdb.org/ (accessed 2026-07). Citation: Saier et al. 2021, NAR (doi:10.1093/nar/gkaa1004).
+          Bronze: s3a://cdm-lake/tenant-general-warehouse/refdata/datasets/tcdb/, imported by ewc 2026-07-16.
+          Bronze notes: 6 TSV files: acc2tcid.tsv, families.tsv, go.tsv, pfam.tsv, systems-to-substrates.tsv,
+          superfamilies.txt. Iceberg ingest by ewc 2026-07-16. Ingest script: /tmp/ingest_tcdb.py.'
+        data_quality_notes: 'Iceberg ingest is partial. Pending tables: refseq_to_tcid (refseq.tsv: RefSeq
+          ID → TC_ID. Needs NCBI Iceberg tables to validate join quality end-to-end. Deferred until refdata.ncbi
+          is restored.). Cross-references: refdata.uniprot_2026_02__raw.identifier.'
