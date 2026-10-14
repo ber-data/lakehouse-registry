@@ -430,38 +430,14 @@ lakehouses:
           metadata (i.e., catalog info) but not ESS-DIVE sample metadata.
           Additional DM team experts: Montana Smith, Valerie Skye.
 
-      - id: ber_registry:schema-jgi-gff
-        title: JGI GFF
-        description: Annotations for JGI-produced genomes.
-        created_date: "2026-09-21"
-        owner: Valerie Skye
-        contact_point:
-          contact_name: Valerie Skye
-          contact_email: unknown@lbl.gov
-        namespace: jgi_gff
-        status: experimental
-        is_deprecated: false
-        update_schedule: unknown
-        access_level: public
-        documentation_url: https://github.com/biodatamodels/gff-schema
-        facility: LBNL
-        project_affiliation:
-          - JGI
-        keywords:
-          - genome annotation
-          - GFF
-        data_quality_notes: >-
-          This is already in the Dremio Lakehouse instance and adheres to a
-          pseudo-standard format with a lot of variations.
-
       - id: ber_registry:schema-jgi-gold
         title: JGI GOLD
         description: JGI project, sample, and analysis metadata (GOLD).
-        created_date: "2026-09-21"
+        created_date: '2026-09-21'
         owner: Valerie Skye
         contact_point:
           contact_name: Valerie Skye
-          contact_email: unknown@lbl.gov
+          contact_email: vaskye@lbl.gov
         namespace: jgi_gold
         status: experimental
         is_deprecated: false
@@ -469,31 +445,224 @@ lakehouses:
         access_level: internal
         facility: LBNL
         project_affiliation:
-          - JGI
+        - JGI
         keywords:
-          - project metadata
-          - sample metadata
-        data_quality_notes: >-
-          The GOLD API(s) emit JSON, but it does not conform to a schema.
+        - project metadata
+        - sample metadata
+        data_quality_notes: Schemas are experimental and intended to become public; repository URLs
+          are currently internal. The Semantic Search service runs locally and is not yet deployed
+          on a production server. Schemas are updated intermittently, while source records are updated
+          daily. Schemas are based in part on NMDC and are expected to evolve toward alignment with
+          bridge-central-schema once available. Entity-specific schemas are registered separately
+          as jgi_gold_study, jgi_gold_organism, jgi_gold_biosample, jgi_gold_project, and jgi_gold_analysis.
+          The API provides schema-shaped record projections separately from search results and embedding-oriented
+          YAML.
+        last_modified: '2026-10-14'
+        documentation_url: https://code.jgi.doe.gov/dsi/advanced-analysis/data-modeling/semantic-search/-/blob/main/README.md?ref_type=heads
+        format:
+        - LinkML YAML
+        - YAML
+        - JSON
 
-      - id: ber_registry:schema-jgi-proposal-db
-        title: JGI Proposal DB
-        description: JGI proposal database (via the data warehouse).
-        created_date: "2026-09-21"
+      - id: ber_registry:schema-jgi-gold-study
+        title: JGI Study
+        description: Study metadata from JGI GOLD. Experimental LinkML projection for the Semantic
+          Search service.
+        created_date: '2026-09-30'
         owner: Valerie Skye
         contact_point:
           contact_name: Valerie Skye
-          contact_email: unknown@lbl.gov
-        namespace: jgi_proposal_db
+          contact_email: vaskye@lbl.gov
+        namespace: jgi_gold_study
         status: experimental
         is_deprecated: false
-        update_schedule: unknown
+        update_schedule: irregular
         access_level: internal
-        facility: LBNL
+        documentation_url: https://code.jgi.doe.gov/dsi/advanced-analysis/data-modeling/semantic-search/-/blob/main/README.md?ref_type=heads
+        facility: JGI
         project_affiliation:
-          - JGI
+        - JGI
+        - GOLD
         keywords:
-          - proposals
+        - schema
+        - linkml
+        - GOLD
+        - study metadata
+        format:
+        - LinkML YAML
+        version: 0.1.0
+        lineage: Derived from JGI GOLD and its Semantic Data Dictionary, with reviewed NMDC mappings
+          and GOLD extensions.
+        data_quality_notes: 'Schema source: https://code.jgi.doe.gov/dsi/advanced-analysis/data-modeling/semantic-search/-/blob/main/schemas/gold_study.yaml?ref_type=heads
+          Schema identifier: https://w3id.org/bridge/gold/study. Schemas are experimental and intended
+          to become public; repository URLs are currently internal. The Semantic Search service runs
+          locally and is not yet deployed on a production server. Schemas are updated intermittently,
+          while source records are updated daily. Schemas are based in part on NMDC and are expected
+          to evolve toward alignment with bridge-central-schema once available. Relative API paths
+          (no production base URL assigned): GET /api/linkml/entities/study for the generated schema;
+          GET /api/linkml/entities/study/{identifier}/record for a schema-shaped record. YAML is the
+          default response; ?format=json requests JSON. Repository schema snapshots and live dictionary-generated
+          schemas may evolve separately.'
+
+      - id: ber_registry:schema-jgi-gold-organism
+        title: JGI Organism
+        description: Organism metadata from JGI GOLD, including plant and fungal isolates. Experimental
+          LinkML projection for the Semantic Search service.
+        created_date: '2026-09-30'
+        owner: Valerie Skye
+        contact_point:
+          contact_name: Valerie Skye
+          contact_email: vaskye@lbl.gov
+        namespace: jgi_gold_organism
+        status: experimental
+        is_deprecated: false
+        update_schedule: irregular
+        access_level: internal
+        documentation_url: https://code.jgi.doe.gov/dsi/advanced-analysis/data-modeling/semantic-search/-/blob/main/README.md?ref_type=heads
+        facility: JGI
+        project_affiliation:
+        - JGI
+        - GOLD
+        keywords:
+        - schema
+        - linkml
+        - GOLD
+        - organism metadata
+        format:
+        - LinkML YAML
+        version: 0.1.0
+        lineage: Derived from JGI GOLD and its Semantic Data Dictionary, with reviewed NMDC mappings
+          and GOLD extensions.
+        data_quality_notes: 'Schema source: https://code.jgi.doe.gov/dsi/advanced-analysis/data-modeling/semantic-search/-/blob/main/schemas/gold_organism.yaml?ref_type=heads
+          Schema identifier: https://w3id.org/bridge/gold/organism. Schemas are experimental and intended
+          to become public; repository URLs are currently internal. The Semantic Search service runs
+          locally and is not yet deployed on a production server. Schemas are updated intermittently,
+          while source records are updated daily. Schemas are based in part on NMDC and are expected
+          to evolve toward alignment with bridge-central-schema once available. Relative API paths
+          (no production base URL assigned): GET /api/linkml/entities/organism for the generated schema;
+          GET /api/linkml/entities/organism/{identifier}/record for a schema-shaped record. YAML is
+          the default response; ?format=json requests JSON. Repository schema snapshots and live dictionary-generated
+          schemas may evolve separately.'
+
+      - id: ber_registry:schema-jgi-gold-biosample
+        title: JGI Biosample
+        description: Biosample metadata from JGI GOLD, including sample collection and ecosystem attributes.
+          Experimental LinkML projection for the Semantic Search service.
+        created_date: '2026-09-30'
+        owner: Valerie Skye
+        contact_point:
+          contact_name: Valerie Skye
+          contact_email: vaskye@lbl.gov
+        namespace: jgi_gold_biosample
+        status: experimental
+        is_deprecated: false
+        update_schedule: irregular
+        access_level: internal
+        documentation_url: https://code.jgi.doe.gov/dsi/advanced-analysis/data-modeling/semantic-search/-/blob/main/README.md?ref_type=heads
+        facility: JGI
+        project_affiliation:
+        - JGI
+        - GOLD
+        keywords:
+        - schema
+        - linkml
+        - GOLD
+        - biosample metadata
+        format:
+        - LinkML YAML
+        version: 0.1.0
+        lineage: Derived from JGI GOLD and its Semantic Data Dictionary, with reviewed NMDC mappings
+          and GOLD extensions.
+        data_quality_notes: 'Schema source: https://code.jgi.doe.gov/dsi/advanced-analysis/data-modeling/semantic-search/-/blob/main/schemas/gold_biosample.yaml?ref_type=heads
+          Schema identifier: https://w3id.org/bridge/gold/biosample. Schemas are experimental and
+          intended to become public; repository URLs are currently internal. The Semantic Search service
+          runs locally and is not yet deployed on a production server. Schemas are updated intermittently,
+          while source records are updated daily. Schemas are based in part on NMDC and are expected
+          to evolve toward alignment with bridge-central-schema once available. Relative API paths
+          (no production base URL assigned): GET /api/linkml/entities/biosample for the generated
+          schema; GET /api/linkml/entities/biosample/{identifier}/record for a schema-shaped record.
+          YAML is the default response; ?format=json requests JSON. Repository schema snapshots and
+          live dictionary-generated schemas may evolve separately.'
+
+      - id: ber_registry:schema-jgi-gold-project
+        title: JGI Sequencing Project
+        description: Sequencing project metadata from JGI GOLD. Experimental LinkML projection for
+          the Semantic Search service.
+        created_date: '2026-09-30'
+        owner: Valerie Skye
+        contact_point:
+          contact_name: Valerie Skye
+          contact_email: vaskye@lbl.gov
+        namespace: jgi_gold_project
+        status: experimental
+        is_deprecated: false
+        update_schedule: irregular
+        access_level: internal
+        documentation_url: https://code.jgi.doe.gov/dsi/advanced-analysis/data-modeling/semantic-search/-/blob/main/README.md?ref_type=heads
+        facility: JGI
+        project_affiliation:
+        - JGI
+        - GOLD
+        keywords:
+        - schema
+        - linkml
+        - GOLD
+        - project metadata
+        format:
+        - LinkML YAML
+        version: 0.1.0
+        lineage: Derived from JGI GOLD and its Semantic Data Dictionary, with reviewed NMDC mappings
+          and GOLD extensions.
+        data_quality_notes: 'Schema source: https://code.jgi.doe.gov/dsi/advanced-analysis/data-modeling/semantic-search/-/blob/main/schemas/gold_project.yaml?ref_type=heads
+          Schema identifier: https://w3id.org/bridge/gold/project. Schemas are experimental and intended
+          to become public; repository URLs are currently internal. The Semantic Search service runs
+          locally and is not yet deployed on a production server. Schemas are updated intermittently,
+          while source records are updated daily. Schemas are based in part on NMDC and are expected
+          to evolve toward alignment with bridge-central-schema once available. Relative API paths
+          (no production base URL assigned): GET /api/linkml/entities/project for the generated schema;
+          GET /api/linkml/entities/project/{identifier}/record for a schema-shaped record. YAML is
+          the default response; ?format=json requests JSON. Repository schema snapshots and live dictionary-generated
+          schemas may evolve separately.'
+
+      - id: ber_registry:schema-jgi-gold-analysis
+        title: JGI Analysis Project
+        description: Analysis project metadata from JGI GOLD. Experimental LinkML projection for the
+          Semantic Search service.
+        created_date: '2026-09-30'
+        owner: Valerie Skye
+        contact_point:
+          contact_name: Valerie Skye
+          contact_email: vaskye@lbl.gov
+        namespace: jgi_gold_analysis
+        status: experimental
+        is_deprecated: false
+        update_schedule: irregular
+        access_level: internal
+        documentation_url: https://code.jgi.doe.gov/dsi/advanced-analysis/data-modeling/semantic-search/-/blob/main/README.md?ref_type=heads
+        facility: JGI
+        project_affiliation:
+        - JGI
+        - GOLD
+        keywords:
+        - schema
+        - linkml
+        - GOLD
+        - analysis metadata
+        format:
+        - LinkML YAML
+        version: 0.1.0
+        lineage: Derived from JGI GOLD and its Semantic Data Dictionary, with reviewed NMDC mappings
+          and GOLD extensions.
+        data_quality_notes: 'Schema source: https://code.jgi.doe.gov/dsi/advanced-analysis/data-modeling/semantic-search/-/blob/main/schemas/gold_analysis.yaml?ref_type=heads
+          Schema identifier: https://w3id.org/bridge/gold/analysis. Schemas are experimental and intended
+          to become public; repository URLs are currently internal. The Semantic Search service runs
+          locally and is not yet deployed on a production server. Schemas are updated intermittently,
+          while source records are updated daily. Schemas are based in part on NMDC and are expected
+          to evolve toward alignment with bridge-central-schema once available. Relative API paths
+          (no production base URL assigned): GET /api/linkml/entities/analysis for the generated schema;
+          GET /api/linkml/entities/analysis/{identifier}/record for a schema-shaped record. YAML is
+          the default response; ?format=json requests JSON. Repository schema snapshots and live dictionary-generated
+          schemas may evolve separately.'
 
       - id: ber_registry:schema-kbase-cdm
         title: kbase-cdm
